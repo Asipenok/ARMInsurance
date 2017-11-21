@@ -2,6 +2,7 @@ package inshurer.view;
 
 
 import inshurer.Main;
+import inshurer.model.BaseData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,9 +11,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class PersonController {
+
     private Main main;
+
 
     //заполнение коэффициента по типу документа
     ObservableList<String> typeDoc = FXCollections.observableArrayList
@@ -37,21 +41,18 @@ public class PersonController {
     private String search_name;
     @FXML
     private TextField field_first_name;
-
-
     @FXML
     private TextField field_last_name;
     @FXML
     private TextField field_middle_name;
     @FXML
     private TextField field_id_number;
-
     @FXML
     private Button btn_search_name;
     @FXML
     private Button btn_search_id;
-
-
+    @FXML
+    private Button btn_save_person;
     @FXML
     private Button nextToCar;
     @FXML
@@ -80,6 +81,50 @@ public class PersonController {
         return search_id;
     }
 
+    //нажатие на кнопку SAVE Person
+    @FXML
+    private void clickSavePerson() throws IOException {
+        BaseData baseData = new BaseData();
+        String first_name = getFirstName();
+        String last_name = getLastName();
+        String middle_name = getMiddleName();
+        String id_number = getPersonalNumber();
+
+        try {
+            baseData.insertPerson(first_name, last_name, middle_name, id_number);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //получение значия фамилии
+    @FXML
+    public String getFirstName() {
+        String first_name = field_first_name.getText();
+        return first_name;
+    }
+
+    //получение значия имени
+    @FXML
+    public String getLastName() {
+        String last_name = field_last_name.getText();
+        return last_name;
+    }
+
+    //получение значия отчества
+    @FXML
+    public String getMiddleName() {
+        String middle_name = field_middle_name.getText();
+        return middle_name;
+    }
+
+    //получение значия личного номера
+    @FXML
+    public String getPersonalNumber() {
+        String id_number = field_id_number.getText();
+        return id_number;
+    }
+
     //инициализация полей списков
     @FXML
     private void initialize() {
@@ -95,6 +140,5 @@ public class PersonController {
         boxIssuedDoc.setItems(issuedDoc);
 
     }
-
 
 }

@@ -96,7 +96,7 @@
                   <HBox spacing="7.0">
                      <children>
                         <Button alignment="CENTER" mnemonicParsing="false" text="New" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Save" />
+                        <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" text="Save" />
                         <Button fx:id="nextToCar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickNextToCar" text="Next" />
                      </children>
                      <opaqueInsets>
