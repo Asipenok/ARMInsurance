@@ -8,27 +8,33 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.HashMap;
 
 public class PersonController {
 
     private Main main;
-
 
     //заполнение коэффициента по типу документа
     ObservableList<String> typeDoc = FXCollections.observableArrayList
             ("Паспорт",
                     "Вид на жительство",
                     "Дипломатическая карточка");
+
+
     //заполнение коэффициента по серии документа
     ObservableList<String> serialDoc = FXCollections.observableArrayList
             ("MP",
                     "AB",
                     "KB",
                     "MC");
+
+
     //заполнение коэффициента кем выдан документ
     ObservableList<String> issuedDoc = FXCollections.observableArrayList
             ("Заводским РУВД г.Минска",
@@ -38,7 +44,6 @@ public class PersonController {
                     "Первомайским РУВД г.Минска",
                     "Советским РУВД г.Минска");
 
-    private String search_name;
     @FXML
     private TextField field_first_name;
     @FXML
@@ -47,6 +52,8 @@ public class PersonController {
     private TextField field_middle_name;
     @FXML
     private TextField field_id_number;
+    @FXML
+    private TextField field_number_doc;
     @FXML
     private Button btn_search_name;
     @FXML
@@ -61,10 +68,15 @@ public class PersonController {
     private ComboBox boxSerialDoc;
     @FXML
     private ComboBox boxIssuedDoc;
+    @FXML
+    private DatePicker fieldBirthday;
+    @FXML
+    private DatePicker fieldIssued;
 
     @FXML
     private void clickNextToCar() throws IOException {
         main.showCar();
+
     }
 
     //по нажатию кнопки фамилия для поиска сохраняется в переменную search_name
@@ -76,22 +88,53 @@ public class PersonController {
 
     //по нажатию кнопки id для поиска сохраняется в переменную search_id
     @FXML
-    private String clickSearchByID() throws IOException {
+    private void clickSearchByID() throws IOException, SQLException {
+        BaseData baseData = new BaseData();
         String search_id = field_id_number.getText();
-        return search_id;
+
+        HashMap<String, String> values = baseData.findPersonByID(search_id);
+        String first_name = values.get("first_name");
+        String last_name = values.get("last_name");
+        String middle_name = values.get("middle_name");
+        String personal_number = values.get("id_number");
+
+        field_first_name.setText(first_name);
+        field_last_name.setText(last_name);
+        field_middle_name.setText(middle_name);
+        field_id_number.setText(personal_number);
+        
+
+
+
+
+
+
+
+        try {
+            baseData.findPersonByID(search_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     //нажатие на кнопку SAVE Person
     @FXML
-    private void clickSavePerson() throws IOException {
+    private void clickSavePerson() throws IOException, SQLException {
         BaseData baseData = new BaseData();
         String first_name = getFirstName();
         String last_name = getLastName();
         String middle_name = getMiddleName();
         String id_number = getPersonalNumber();
+        LocalDate birthday = getFieldBirthday();
+        String type_doc = getTypeDoc();
+        String seriya_doc = getSerialDoc();
+        String number_doc = getNumberDoc();
+        String issued_by = getIssuedlDoc();
+        LocalDate issued = getFieldBirthday();
 
         try {
-            baseData.insertPerson(first_name, last_name, middle_name, id_number);
+            baseData.insertPerson(first_name, last_name, middle_name, id_number, birthday);
+            baseData.insertDocument(type_doc, seriya_doc, number_doc, issued_by, issued);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -111,24 +154,55 @@ public class PersonController {
         return last_name;
     }
 
-    //получение значия отчества
+    //получение значения отчества
     @FXML
     public String getMiddleName() {
         String middle_name = field_middle_name.getText();
         return middle_name;
     }
 
-    //получение значия личного номера
+    //получение значения личного номера
     @FXML
     public String getPersonalNumber() {
         String id_number = field_id_number.getText();
         return id_number;
     }
 
+    public LocalDate getFieldBirthday() {
+        LocalDate date = fieldBirthday.getValue();
+        return date;
+    }
+
+    public LocalDate getFieldIssued() {
+        LocalDate date_issued = fieldIssued.getValue();
+        return date_issued;
+    }
+
+    public String getNumberDoc() {
+        String numberDoc = field_number_doc.getText();
+        return numberDoc;
+    }
+
+    public String getTypeDoc() {
+        String type_doc = String.valueOf(boxTypeDoc.getValue());
+        return type_doc;
+    }
+
+    public String getSerialDoc() {
+        String seriya_doc = String.valueOf(boxSerialDoc.getValue());
+        return seriya_doc;
+
+    }
+
+    public String getIssuedlDoc() {
+        String issued = String.valueOf(boxIssuedDoc.getValue());
+        return issued;
+
+    }
+
     //инициализация полей списков
     @FXML
     private void initialize() {
-
 
         boxTypeDoc.setValue("Паспорт");
         boxTypeDoc.setItems(typeDoc);
@@ -138,7 +212,7 @@ public class PersonController {
 
         boxIssuedDoc.setValue("Фрунзенским РУВД г.Минска");
         boxIssuedDoc.setItems(issuedDoc);
-
     }
+
 
 }
