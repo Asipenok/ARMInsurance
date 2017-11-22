@@ -15,8 +15,10 @@ public class BaseData {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
     private static final String INSERT_PERSON = "INSERT INTO person (FirstName, LastName, MiddleName, PersonalNumber, Birthday) VALUES (?,?,?,?,?)";
+    private static final String INSERT_ADRESS = "INSERT INTO adress (Country, Region, Distric, City, Street, HouseNumber, BuildNumber, ApartmentNumber) VALUES (?,?,?,?,?,?,?,?)";
     private static final String INSERT_DOC = "INSERT INTO document (TypeDoc, SeriyaDoc, NumberDoc, IssuedBy, DateIssued) VALUES (?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM person WHERE PersonalNumber = ?";
+
     private Connection connection;
     private PreparedStatement preparedStatement;
     PersonController personController = new PersonController();
@@ -30,7 +32,7 @@ public class BaseData {
             if (!connection.isClosed()) {
                 System.out.println("all right");
             }
-            //  connection.close();
+
         } catch (Exception e) {
             // обработка ошибки
             System.out.println("Load driver Error");
@@ -57,6 +59,30 @@ public class BaseData {
             e.printStackTrace();
         }
     }
+
+    //метод вставки клиента в БД
+    public void insertAdress(String country, String region, String distric, String city, String street, String house, String build, String apartment) throws SQLException {
+
+        preparedStatement = connection.prepareStatement(INSERT_ADRESS);
+
+        try {
+            preparedStatement.setString(1, country);
+            preparedStatement.setString(2, region);
+            preparedStatement.setString(3, distric);
+            preparedStatement.setString(4, city);
+            preparedStatement.setString(5, street);
+            preparedStatement.setString(6, house);
+            preparedStatement.setString(7, build);
+            preparedStatement.setString(8, apartment);
+
+            preparedStatement.execute();
+            connection.close();
+            System.out.println("adress add");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     //метод вставки документа в БД
     public void insertDocument(String type_doc, String seriya_doc, String number_doc, String issued_by, LocalDate issued) throws SQLException {
 
@@ -70,7 +96,7 @@ public class BaseData {
             preparedStatement.setString(5, String.valueOf(issued));
 
             preparedStatement.execute();
-            connection.close();
+
             System.out.println("document add");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -94,7 +120,7 @@ public class BaseData {
                 resHashMap.put("middle_name", res.getString("MiddleName"));
             }
 
-            //connection.close();
+
             System.out.println("search off");
         } catch (
                 SQLException e)

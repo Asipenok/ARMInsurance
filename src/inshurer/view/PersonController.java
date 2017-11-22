@@ -44,6 +44,13 @@ public class PersonController {
                     "Первомайским РУВД г.Минска",
                     "Советским РУВД г.Минска");
 
+    //заполнение коэффициента Страна проживания
+    ObservableList<String> country = FXCollections.observableArrayList
+            ("Республика Беларусь",
+                    "Россия",
+                    "Украина");
+
+
     @FXML
     private TextField field_first_name;
     @FXML
@@ -72,6 +79,22 @@ public class PersonController {
     private DatePicker fieldBirthday;
     @FXML
     private DatePicker fieldIssued;
+    @FXML
+    private ComboBox boxCountry;
+    @FXML
+    private TextField field_region;
+    @FXML
+    private TextField field_distric;
+    @FXML
+    private TextField field_city;
+    @FXML
+    private TextField field_street;
+    @FXML
+    private TextField field_house;
+    @FXML
+    private TextField field_build;
+    @FXML
+    private TextField field_apartment;
 
     @FXML
     private void clickNextToCar() throws IOException {
@@ -102,13 +125,6 @@ public class PersonController {
         field_last_name.setText(last_name);
         field_middle_name.setText(middle_name);
         field_id_number.setText(personal_number);
-        
-
-
-
-
-
-
 
         try {
             baseData.findPersonByID(search_id);
@@ -130,14 +146,63 @@ public class PersonController {
         String seriya_doc = getSerialDoc();
         String number_doc = getNumberDoc();
         String issued_by = getIssuedlDoc();
-        LocalDate issued = getFieldBirthday();
+        LocalDate issued = getFieldIssued();
+
+        String country = getField_Country();
+        String region = getField_region();
+        String distric = getField_distric();
+        String city = getField_city();
+        String street = getField_street();
+        String house = getField_house();
+        String build = getField_build();
+        String apartment = getField_apertment();
 
         try {
             baseData.insertPerson(first_name, last_name, middle_name, id_number, birthday);
             baseData.insertDocument(type_doc, seriya_doc, number_doc, issued_by, issued);
+            baseData.insertAdress(country, region, distric, city, street, house, build, apartment);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getField_Country() {
+        String country = (String) boxCountry.getValue();
+        return country;
+    }
+    public String getField_region() {
+        String region = field_region.getText();
+        return region;
+    }
+
+    public String getField_distric() {
+        String distric = field_distric.getText();
+        return distric;
+    }
+
+    public String getField_city() {
+        String city = field_city.getText();
+        return city;
+    }
+
+    public String getField_street() {
+        String street = field_street.getText();
+        return street;
+    }
+
+    public String getField_house() {
+        String house = field_house.getText();
+        return house;
+    }
+
+    public String getField_build() {
+        String build = field_build.getText();
+        return build;
+    }
+
+    public String getField_apertment() {
+        String apartment = field_build.getText();
+        return apartment;
     }
 
     //получение значия фамилии
@@ -197,7 +262,6 @@ public class PersonController {
     public String getIssuedlDoc() {
         String issued = String.valueOf(boxIssuedDoc.getValue());
         return issued;
-
     }
 
     //инициализация полей списков
@@ -212,6 +276,11 @@ public class PersonController {
 
         boxIssuedDoc.setValue("Фрунзенским РУВД г.Минска");
         boxIssuedDoc.setItems(issuedDoc);
+
+        boxCountry.setValue("Республика Беларусь");
+        boxCountry.setItems(country);
+
+
     }
 
 

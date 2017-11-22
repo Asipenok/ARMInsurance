@@ -76,13 +76,13 @@
             <TextField fx:id="field_last_name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="field_middle_name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="field_id_number" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="15" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="16" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="17" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="18" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="19" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="20" />
+            <TextField fx:id="field_region" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextField fx:id="field_distric" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextField fx:id="field_city" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <TextField fx:id="field_street" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+            <TextField fx:id="field_house" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+            <TextField fx:id="field_build" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+            <TextField fx:id="field_apartment" GridPane.columnIndex="1" GridPane.rowIndex="20" />
             <Label text="PERSON DATA" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Bookman Old Style" size="24.0" />
@@ -109,12 +109,12 @@
             </HBox>
             <Label text="Birthday" GridPane.rowIndex="6" />
             <DatePicker fx:id="fieldBirthday" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <DatePicker maxWidth="1.7976931348623157E308" promptText="Дата выдачи" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <DatePicker fx:id="fieldIssued" maxWidth="1.7976931348623157E308" promptText="Дата выдачи" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <ComboBox fx:id="boxSerialDoc" prefHeight="31.0" prefWidth="374.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <Label text="Number document" GridPane.rowIndex="9" />
             <TextField fx:id="field_number_doc" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <Label text="Country" GridPane.rowIndex="13" />
-            <ComboBox prefHeight="31.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <ComboBox fx:id="boxCountry" prefHeight="31.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
             <TextField fx:id="field_first_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
