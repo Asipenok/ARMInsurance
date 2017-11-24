@@ -62,7 +62,7 @@
                 </Label>
                 <Label text="Территория действия" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <Label text="Вариант страхования" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label text="Кличесвто застрахованных единиц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Кличество застрахованных единиц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Label text="Франшиза безусловная" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                 <Label text="Условия эксплуатации ТС" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                 <Label text="Франшиза условная" GridPane.columnIndex="1" GridPane.rowIndex="9" />
@@ -80,7 +80,7 @@
                 <Label text="Стоимость авто" GridPane.columnIndex="1" GridPane.rowIndex="15" />
                 <Label text="Порядок уплаты взносов" GridPane.columnIndex="1" GridPane.rowIndex="16" />
                 <Label text="Корректировочный коэффициент" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-                <Label text="Вид транспортного стредства" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Тип транспортного стредства" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <ComboBox fx:id="boxVehicle" prefHeight="31.0" prefWidth="446.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <ComboBox fx:id="boxOption" prefHeight="31.0" prefWidth="445.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <ComboBox fx:id="boxTeritoty" prefHeight="31.0" prefWidth="463.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
@@ -102,8 +102,9 @@
                 <Label text="Четвертый взнос" GridPane.columnIndex="1" GridPane.rowIndex="26" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="21">
                <children>
-                  <TextField prefWidth="400.0" />
-                  <ComboBox fx:id="boxCurrency" prefHeight="31.0" prefWidth="239.0" />
+                  <TextField prefHeight="31.0" prefWidth="263.0" />
+                  <TextField alignment="CENTER" prefHeight="31.0" prefWidth="192.0" promptText="Курс валюты" />
+                  <ComboBox fx:id="boxCurrency" prefHeight="31.0" prefWidth="194.0" promptText="Валюта" />
                </children>
             </HBox>
             <Label text="Средства защиты" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -136,7 +137,7 @@
             <TextField prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="24" />
             <TextField prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="25" />
             <TextField prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="26" />
-            <TextField prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+            <TextField prefHeight="31.0" prefWidth="326.0" GridPane.columnIndex="2" GridPane.rowIndex="22" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" GridPane.columnIndex="2" GridPane.rowIndex="13">
                <children>
                   <RadioButton fx:id="adsYes" mnemonicParsing="false" text="Yes">

@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 
+import static java.lang.String.format;
+
 
 public class RateERGOController {
     private Main main;
@@ -175,7 +177,7 @@ public class RateERGOController {
     @FXML
     private void onClickCalculate() {
 
-        rezultCalc.setText(ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
+        String RezCalc = ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
                 String.valueOf(boxTeritoty.getValue()),
                 String.valueOf(boxQuantity.getValue()),
                 String.valueOf(boxProtect.getValue()),
@@ -187,9 +189,9 @@ public class RateERGOController {
                 String.valueOf(boxBonus.getValue()),
                 String.valueOf(boxManus.getValue()),
                 String.valueOf(boxPayment.getValue()),
-                groupABS(), groupSalon(),groupEmployee(),groupCar()
-
-        ));
+                groupABS(), groupSalon(), groupEmployee(), groupCar()
+        );
+        rezultCalc.setText(RezCalc);
     }
 
     //получение значания из радиогруппы РЕКЛАМА
@@ -215,6 +217,7 @@ public class RateERGOController {
         }
         return salonRez;
     }
+
     //получение значания из радиогруппы СОТРУДНИК
     @FXML
     private String groupEmployee() {
@@ -226,6 +229,7 @@ public class RateERGOController {
         }
         return employeeRez;
     }
+
     //получение значания из радиогруппы CAR
     @FXML
     private String groupCar() {

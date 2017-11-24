@@ -196,13 +196,15 @@ public class ERGO {
             carsRate = 0.9;
         } else {
             carsRate = 1;
-
         }
         rezCalc = String.valueOf(vehicleRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
                 condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate *
                 salonRate * employeeRate * carsRate);
 
-
-        return rezCalc;
+      return rezCalc;
     }
+
+
+
+
 }
