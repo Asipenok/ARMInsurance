@@ -22,6 +22,7 @@ public class BaseData {
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
+    private static final String SELECT_CAR_NUMBER = "SELECT * FROM car WHERE NumberCar = ?";
 
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -173,6 +174,7 @@ public class BaseData {
             connection.close();
             System.out.println("car add");
         } catch (SQLException e) {
+            System.out.println("Вставь уникальный ВИН");
             e.printStackTrace();
         }
     }
@@ -197,6 +199,33 @@ public class BaseData {
                 resCarHashMap.put("currency", res.getString("Currency"));
             }
           System.out.println("search car by vin off");
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resCarHashMap;
+    }
+    //метод поиска клиента в БД по номеру авто
+    public HashMap<String, String> findCarByNumber(String search_number) throws SQLException {
+
+        HashMap<String, String> resCarHashMap = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_CAR_NUMBER);
+            preparedStatement.setString(1, search_number);
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resCarHashMap.put("vin", res.getString("VIN"));
+                resCarHashMap.put("brand", res.getString("Brand"));
+                resCarHashMap.put("model", res.getString("ModelCar"));
+                resCarHashMap.put("number", res.getString("NumberCar"));
+                resCarHashMap.put("year", res.getString("YearCar"));
+                resCarHashMap.put("coast", res.getString("CoastCar"));
+                resCarHashMap.put("currency", res.getString("Currency"));
+            }
+            System.out.println("search car by number off");
 
         } catch (
                 SQLException e) {

@@ -118,10 +118,30 @@ public class CarController {
             fieldVIN.setText(search_vin);
             fieldBrandCar.setText("No mutches");
         }
-
-
     }
+    //по нажатию кнопки поиск по номеру машины
+    @FXML
+    private void clickSearchByNumber() throws IOException, SQLException {
+        BaseData baseData = new BaseData();
+        String search_number = fieldNumberCar.getText();
 
+        HashMap<String, String> values = baseData.findCarByNumber(search_number);
+
+        if (search_number.equals(values.get("number"))) {
+            fieldNumberCar.setText(search_number);
+            fieldBrandCar.setText(values.get("brand"));
+            fieldModelCar.setText(values.get("model"));
+            fieldVIN.setText(values.get("vin"));
+            boxCurrencyCar.setValue(values.get("currency"));
+            yearCar.setValue(LocalDate.parse(values.get("year")));
+            fieldCoastCar.setText(values.get("coast"));
+
+        } else {
+            clickClear();
+            fieldNumberCar.setText(search_number);
+            fieldBrandCar.setText("No mutches");
+        }
+    }
     @FXML
     private void clickClear() {
         fieldVIN.setText("");
