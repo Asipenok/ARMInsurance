@@ -112,7 +112,7 @@ public class PersonController {
         String search_id = field_id_number.getText();
 
         HashMap<String, String> values = baseData.findPersonByID(search_id);
-        if(search_id.equals(values.get("id_number"))) {
+        if (search_id.equals(values.get("id_number"))) {
             field_last_name.setText(values.get("last_name"));
             field_first_name.setText(values.get("first_name"));
             field_middle_name.setText(values.get("middle_name"));
@@ -131,18 +131,14 @@ public class PersonController {
             field_build.setText(values.get("buildNumber"));
             field_apartment.setText(values.get("roomNumber"));
 
-        }else{
+        } else {
             clickClear();
             field_last_name.setText("No matches");
         }
 
 
-        try {
-            baseData.findPersonByID(search_id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
+
     //по нажатию кнопки поиск по фамилии
     @FXML
     private void clickSearchByLastName() throws IOException, SQLException {
@@ -150,7 +146,7 @@ public class PersonController {
         String search_last_name = field_last_name.getText();
 
         HashMap<String, String> values = baseData.findPersonByLastName(search_last_name);
-        if(search_last_name.equals(values.get("last_name"))) {
+        if (search_last_name.equals(values.get("last_name"))) {
             field_id_number.setText(values.get("id_number"));
             field_first_name.setText(values.get("first_name"));
             field_middle_name.setText(values.get("middle_name"));
@@ -168,17 +164,12 @@ public class PersonController {
             field_house.setText(values.get("houseNumber"));
             field_build.setText(values.get("buildNumber"));
             field_apartment.setText(values.get("roomNumber"));
-        }else{
+        } else {
             clickClear();
             field_id_number.setText("No matches");
 
         }
 
-        try {
-            baseData.findPersonByLastName(search_last_name);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     //нажатие на кнопку SAVE Person
@@ -216,16 +207,16 @@ public class PersonController {
     }
 
     @FXML
-    private void clickClear(){
+    private void clickClear() {
         field_last_name.setText("");
         field_first_name.setText("");
         field_middle_name.setText("");
         field_id_number.setText("");
-        //fieldBirthday.setValue(LocalDate.parse(""));
+        fieldBirthday.setValue(null);
         boxTypeDoc.setValue("");
         boxSerialDoc.setValue("");
         field_number_doc.setText("");
-      //  fieldIssued.setValue(LocalDate.parse(""));
+        fieldIssued.setValue(null);
         boxIssuedDoc.setValue("");
         boxCountry.setValue("");
         field_region.setText("");
@@ -237,7 +228,6 @@ public class PersonController {
         field_apartment.setText("");
 
     }
-
 
 
     public String getField_Country() {

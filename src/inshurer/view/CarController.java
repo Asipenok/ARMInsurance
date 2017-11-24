@@ -3,7 +3,6 @@ package inshurer.view;
 
 import inshurer.Main;
 import inshurer.model.BaseData;
-import inshurer.model.Car;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +14,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.HashMap;
 
 public class CarController {
     private Main main;
@@ -27,7 +26,6 @@ public class CarController {
         String currencyCar = (String) boxCurrencyCar.getValue();
         return currencyCar;
     }
-
 
     public String getFieldModelCar() {
         String modelCar = fieldModelCar.getText();
@@ -69,15 +67,18 @@ public class CarController {
     @FXML
     private TextField fieldCoastCar;
     @FXML
-    private Button btn_searchCar;
+    private Button btn_searchCarID;
+    @FXML
+    private Button btn_searchCarNumber;
     @FXML
     private Button btn_saveCar;
+    @FXML
+    private Button btn_Clear;
 
 
     @FXML
     private void clickSaveCar() throws IOException, SQLException {
         BaseData baseData = new BaseData();
-
 
         String brandCar = getfieldBrandCar();
         String modelCar = getFieldModelCar();
@@ -87,8 +88,6 @@ public class CarController {
         String coastCar = getFieldCoastCar();
         String currencyCar = getBoxCurrencyCar();
 
-   //     Car car = new Car(brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
-
         try {
             baseData.insertCar(brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
 
@@ -97,9 +96,44 @@ public class CarController {
         }
     }
 
+    //по нажатию кнопки поиск по VIN
+    @FXML
+    private void clickSearchByVIN() throws IOException, SQLException {
+        BaseData baseData = new BaseData();
+        String search_vin = fieldVIN.getText();
+
+        HashMap<String, String> values = baseData.findCarByVIN(search_vin);
+
+        if (search_vin.equals(values.get("vin"))) {
+            fieldVIN.setText(search_vin);
+            fieldBrandCar.setText(values.get("brand"));
+            fieldModelCar.setText(values.get("model"));
+            fieldNumberCar.setText(values.get("number"));
+            boxCurrencyCar.setValue(values.get("currency"));
+            yearCar.setValue(LocalDate.parse(values.get("year")));
+            fieldCoastCar.setText(values.get("coast"));
+
+        } else {
+            clickClear();
+            fieldVIN.setText(search_vin);
+            fieldBrandCar.setText("No mutches");
+        }
+
+
+    }
+
+    @FXML
+    private void clickClear() {
+        fieldVIN.setText("");
+        fieldBrandCar.setText("");
+        fieldModelCar.setText("");
+        fieldNumberCar.setText("");
+        boxCurrencyCar.setValue("");
+        yearCar.setValue(null);
+        fieldCoastCar.setText("");
+    }
 
     //инициализация полей списков
-
     @FXML
     private void initialize() {
 

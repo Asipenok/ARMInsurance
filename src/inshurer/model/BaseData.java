@@ -21,6 +21,7 @@ public class BaseData {
     private static final String INSERT_CAR = "INSERT INTO car (Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
+    private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
 
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -43,7 +44,7 @@ public class BaseData {
         }
     }
 
-    //метод поиска клиента в БД
+    //метод поиска клиента в БД по личному номеру
     public HashMap<String, String> findPersonByID(String personal_number) throws SQLException {
         HashMap<String, String> resHashMap = new HashMap<String, String>();
 
@@ -81,7 +82,7 @@ public class BaseData {
         return resHashMap;
     }
 
-    //метод поиска клиента в БД
+    //метод поиска клиента в БД по фамилии
     public HashMap<String, String> findPersonByLastName(String last_name) throws SQLException {
         HashMap<String, String> resHashMap = new HashMap<String, String>();
 
@@ -174,5 +175,33 @@ public class BaseData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    //метод поиска клиента в БД по vin
+    public HashMap<String, String> findCarByVIN(String vin) throws SQLException {
+
+        HashMap<String, String> resCarHashMap = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_CAR_VIN);
+            preparedStatement.setString(1, vin);
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resCarHashMap.put("vin", res.getString("VIN"));
+                resCarHashMap.put("brand", res.getString("Brand"));
+                resCarHashMap.put("model", res.getString("ModelCar"));
+                resCarHashMap.put("number", res.getString("NumberCar"));
+                resCarHashMap.put("year", res.getString("YearCar"));
+                resCarHashMap.put("coast", res.getString("CoastCar"));
+                resCarHashMap.put("currency", res.getString("Currency"));
+            }
+          System.out.println("search car by vin off");
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resCarHashMap;
     }
 }
