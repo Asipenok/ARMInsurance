@@ -1,6 +1,7 @@
 package inshurer.view;
 
 
+import com.mysql.jdbc.log.NullLogger;
 import inshurer.Main;
 import inshurer.model.BaseData;
 import javafx.collections.FXCollections;
@@ -104,13 +105,6 @@ public class PersonController {
         main.showCar();
     }
 
-    //по нажатию кнопки фамилия для поиска сохраняется в переменную search_name
-    @FXML
-    private String clickSearchByName() throws IOException {
-        String search_name = field_first_name.getText();
-        return search_name;
-    }
-
     //по нажатию кнопки id для поиска сохраняется в переменную search_id
     @FXML
     private void clickSearchByID() throws IOException, SQLException {
@@ -118,7 +112,7 @@ public class PersonController {
         String search_id = field_id_number.getText();
 
         HashMap<String, String> values = baseData.findPersonByID(search_id);
-        if(search_id.equals(values.get("personal_number"))) {
+        if(search_id.equals(values.get("id_number"))) {
             field_last_name.setText(values.get("last_name"));
             field_first_name.setText(values.get("first_name"));
             field_middle_name.setText(values.get("middle_name"));
@@ -136,13 +130,52 @@ public class PersonController {
             field_house.setText(values.get("houseNumber"));
             field_build.setText(values.get("buildNumber"));
             field_apartment.setText(values.get("roomNumber"));
+
         }else{
+            clickClear();
             field_last_name.setText("No matches");
         }
 
 
         try {
             baseData.findPersonByID(search_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    //по нажатию кнопки поиск по фамилии
+    @FXML
+    private void clickSearchByLastName() throws IOException, SQLException {
+        BaseData baseData = new BaseData();
+        String search_last_name = field_last_name.getText();
+
+        HashMap<String, String> values = baseData.findPersonByLastName(search_last_name);
+        if(search_last_name.equals(values.get("last_name"))) {
+            field_id_number.setText(values.get("id_number"));
+            field_first_name.setText(values.get("first_name"));
+            field_middle_name.setText(values.get("middle_name"));
+            fieldBirthday.setValue(LocalDate.parse(values.get("birthday")));
+            boxTypeDoc.setValue(values.get("typeDoc"));
+            boxSerialDoc.setValue(values.get("seriesDoc"));
+            field_number_doc.setText(values.get("numberDoc"));
+            fieldIssued.setValue(LocalDate.parse(values.get("issuedDate")));
+            boxIssuedDoc.setValue(values.get("issuedBy"));
+            boxCountry.setValue(values.get("country"));
+            field_region.setText(values.get("region"));
+            field_distric.setText(values.get("distric"));
+            field_city.setText(values.get("city"));
+            field_street.setText(values.get("street"));
+            field_house.setText(values.get("houseNumber"));
+            field_build.setText(values.get("buildNumber"));
+            field_apartment.setText(values.get("roomNumber"));
+        }else{
+            clickClear();
+            field_id_number.setText("No matches");
+
+        }
+
+        try {
+            baseData.findPersonByLastName(search_last_name);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -181,6 +214,31 @@ public class PersonController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void clickClear(){
+        field_last_name.setText("");
+        field_first_name.setText("");
+        field_middle_name.setText("");
+        field_id_number.setText("");
+        //fieldBirthday.setValue(LocalDate.parse(""));
+        boxTypeDoc.setValue("");
+        boxSerialDoc.setValue("");
+        field_number_doc.setText("");
+      //  fieldIssued.setValue(LocalDate.parse(""));
+        boxIssuedDoc.setValue("");
+        boxCountry.setValue("");
+        field_region.setText("");
+        field_distric.setText("");
+        field_city.setText("");
+        field_street.setText("");
+        field_house.setText("");
+        field_build.setText("");
+        field_apartment.setText("");
+
+    }
+
+
 
     public String getField_Country() {
         String country = (String) boxCountry.getValue();

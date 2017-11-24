@@ -20,6 +20,7 @@ public class BaseData {
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_CAR = "INSERT INTO car (Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
+    private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
 
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -54,6 +55,44 @@ public class BaseData {
             while (res.next()) {
                 resHashMap.put("id_number", personal_number);
                 resHashMap.put("last_name", res.getString("LastName"));
+                resHashMap.put("first_name", res.getString("FirstName"));
+                resHashMap.put("middle_name", res.getString("MiddleName"));
+                resHashMap.put("birthday", res.getString("Birthday"));
+                resHashMap.put("typeDoc", res.getString("TypeDoc"));
+                resHashMap.put("seriesDoc", res.getString("SeriesDoc"));
+                resHashMap.put("numberDoc", res.getString("NumberDoc"));
+                resHashMap.put("issuedBy", res.getString("IssuedBy"));
+                resHashMap.put("issuedDate", res.getString("IssuedDate"));
+                resHashMap.put("country", res.getString("Country"));
+                resHashMap.put("region", res.getString("Region"));
+                resHashMap.put("distric", res.getString("Distric"));
+                resHashMap.put("city", res.getString("City"));
+                resHashMap.put("street", res.getString("Street"));
+                resHashMap.put("houseNumber", res.getString("HouseNumber"));
+                resHashMap.put("buildNumber", res.getString("BuildNumber"));
+                resHashMap.put("roomNumber", res.getString("RoomNumber"));
+
+            }
+            System.out.println("search off");
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resHashMap;
+    }
+
+    //метод поиска клиента в БД
+    public HashMap<String, String> findPersonByLastName(String last_name) throws SQLException {
+        HashMap<String, String> resHashMap = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_LAST_NAME);
+            preparedStatement.setString(1, last_name);
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resHashMap.put("last_name", last_name);
+                resHashMap.put("id_number", res.getString("PersonalNumber"));
                 resHashMap.put("first_name", res.getString("FirstName"));
                 resHashMap.put("middle_name", res.getString("MiddleName"));
                 resHashMap.put("birthday", res.getString("Birthday"));
