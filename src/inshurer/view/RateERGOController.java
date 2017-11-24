@@ -126,7 +126,6 @@ public class RateERGOController {
         boxVehicle.setValue("Легковой автомобиль");
         boxVehicle.setItems(vehicle);
 
-
         boxOption.setValue("Вариант 1 - без учета износа, Б - Стандарт");
         boxOption.setItems(option);
 
@@ -175,6 +174,7 @@ public class RateERGOController {
     //методы кнопок
     @FXML
     private void onClickCalculate() {
+
         rezultCalc.setText(ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
                 String.valueOf(boxTeritoty.getValue()),
                 String.valueOf(boxQuantity.getValue()),
@@ -187,22 +187,64 @@ public class RateERGOController {
                 String.valueOf(boxBonus.getValue()),
                 String.valueOf(boxManus.getValue()),
                 String.valueOf(boxPayment.getValue()),
-                String.valueOf(ads.getSelectedToggle().getUserData())
+                groupABS(), groupSalon(),groupEmployee(),groupCar()
 
         ));
+    }
 
+    //получение значания из радиогруппы РЕКЛАМА
+    @FXML
+    private String groupABS() {
+        String adsRez;
+        if (adsYes.isSelected()) {
+            adsRez = "Yes";
+        } else {
+            adsRez = "No";
+        }
+        return adsRez;
+    }
+
+    //получение значания из радиогруппы САЛОН
+    @FXML
+    private String groupSalon() {
+        String salonRez;
+        if (salonYes.isSelected()) {
+            salonRez = "Yes";
+        } else {
+            salonRez = "No";
+        }
+        return salonRez;
+    }
+    //получение значания из радиогруппы СОТРУДНИК
+    @FXML
+    private String groupEmployee() {
+        String employeeRez;
+        if (employeeYes.isSelected()) {
+            employeeRez = "Yes";
+        } else {
+            employeeRez = "No";
+        }
+        return employeeRez;
+    }
+    //получение значания из радиогруппы CAR
+    @FXML
+    private String groupCar() {
+        String carRez;
+        if (dangerCarYes.isSelected()) {
+            carRez = "Yes";
+        } else {
+            carRez = "No";
+        }
+        return carRez;
     }
 
     @FXML
     private void onClickSaveAs() {
-
     }
 
     @FXML
     private void onClickNext() throws IOException {
         main.showPerson();
     }
-
-
 }
 

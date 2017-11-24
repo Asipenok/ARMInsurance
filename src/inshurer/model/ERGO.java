@@ -26,7 +26,10 @@ public class ERGO {
     //вариант оплаты
     private double paymentRate = 1.05;
     //рекламная акция
-    private double adsRate = 1;
+    private double adsRate;
+    private double salonRate;
+    private double employeeRate;
+    private double carsRate;
 
 
     private String rezCalc;
@@ -34,7 +37,7 @@ public class ERGO {
 
     public String calculateRate(String vehicle, String territory, String quantity, String protect, String level_driver, String rent_taxi,
                                 String condition_franchise, String no_condition_franchise, String additional_types,
-                                String bonus, String manus, String payment, String ads) {
+                                String bonus, String manus, String payment, String ads, String salon, String employee, String car) {
 
         switch (vehicle) {
             case "Легковой автомобиль":
@@ -176,10 +179,29 @@ public class ERGO {
         }
         if (ads.equals("No")) {
             adsRate = 0.9;
+        } else {
+            adsRate = 1;
         }
+        if (salon.equals("No")) {
+            salonRate = 0.9;
+        } else {
+            salonRate = 1;
+        }
+        if (employee.equals("No")) {
+            employeeRate = 0.9;
+        } else {
+            employeeRate = 1;
+        }
+        if (car.equals("No")) {
+            carsRate = 0.9;
+        } else {
+            carsRate = 1;
 
+        }
         rezCalc = String.valueOf(vehicleRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
-                condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate);
+                condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate *
+                salonRate * employeeRate * carsRate);
+
 
         return rezCalc;
     }
