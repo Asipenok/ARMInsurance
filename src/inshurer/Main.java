@@ -1,5 +1,6 @@
 package inshurer;
 
+import inshurer.model.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,7 +16,6 @@ public class Main extends Application {
 
     private static Stage primaryStage;
     private static BorderPane mainLoyout;
-
 
 
     @Override
@@ -74,6 +74,7 @@ public class Main extends Application {
 
     }
     public static void showPerson() throws IOException {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/Person.fxml"));
         AnchorPane itemCompany = loader.load();
@@ -88,6 +89,7 @@ public class Main extends Application {
 
     }
     public static void showCar() throws IOException {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/Car.fxml"));
         AnchorPane itemCompany = loader.load();
@@ -102,13 +104,8 @@ public class Main extends Application {
 
     }
 
-
-
-
-
     public static void main(String[] args) {
         launch(args);
     }
-
 
 }

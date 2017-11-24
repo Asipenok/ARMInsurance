@@ -70,6 +70,8 @@ public class PersonController {
     @FXML
     private Button nextToCar;
     @FXML
+    private Button btn_NewPerson;
+    @FXML
     private ComboBox boxTypeDoc;
     @FXML
     private ComboBox boxSerialDoc;
@@ -96,10 +98,10 @@ public class PersonController {
     @FXML
     private TextField field_apartment;
 
+
     @FXML
     private void clickNextToCar() throws IOException {
         main.showCar();
-
     }
 
     //по нажатию кнопки фамилия для поиска сохраняется в переменную search_name
@@ -116,15 +118,28 @@ public class PersonController {
         String search_id = field_id_number.getText();
 
         HashMap<String, String> values = baseData.findPersonByID(search_id);
-        String first_name = values.get("first_name");
-        String last_name = values.get("last_name");
-        String middle_name = values.get("middle_name");
-        String personal_number = values.get("id_number");
+        if(search_id.equals(values.get("personal_number"))) {
+            field_last_name.setText(values.get("last_name"));
+            field_first_name.setText(values.get("first_name"));
+            field_middle_name.setText(values.get("middle_name"));
+            fieldBirthday.setValue(LocalDate.parse(values.get("birthday")));
+            boxTypeDoc.setValue(values.get("typeDoc"));
+            boxSerialDoc.setValue(values.get("seriesDoc"));
+            field_number_doc.setText(values.get("numberDoc"));
+            fieldIssued.setValue(LocalDate.parse(values.get("issuedDate")));
+            boxIssuedDoc.setValue(values.get("issuedBy"));
+            boxCountry.setValue(values.get("country"));
+            field_region.setText(values.get("region"));
+            field_distric.setText(values.get("distric"));
+            field_city.setText(values.get("city"));
+            field_street.setText(values.get("street"));
+            field_house.setText(values.get("houseNumber"));
+            field_build.setText(values.get("buildNumber"));
+            field_apartment.setText(values.get("roomNumber"));
+        }else{
+            field_last_name.setText("No matches");
+        }
 
-        field_first_name.setText(first_name);
-        field_last_name.setText(last_name);
-        field_middle_name.setText(middle_name);
-        field_id_number.setText(personal_number);
 
         try {
             baseData.findPersonByID(search_id);
@@ -137,11 +152,12 @@ public class PersonController {
     @FXML
     private void clickSavePerson() throws IOException, SQLException {
         BaseData baseData = new BaseData();
-        String first_name = getFirstName();
         String last_name = getLastName();
+        String first_name = getFirstName();
         String middle_name = getMiddleName();
         String id_number = getPersonalNumber();
         LocalDate birthday = getFieldBirthday();
+
         String type_doc = getTypeDoc();
         String seriya_doc = getSerialDoc();
         String number_doc = getNumberDoc();
@@ -158,9 +174,9 @@ public class PersonController {
         String apartment = getField_apertment();
 
         try {
-            baseData.insertPerson(first_name, last_name, middle_name, id_number, birthday);
-            baseData.insertDocument(type_doc, seriya_doc, number_doc, issued_by, issued);
-            baseData.insertAdress(country, region, distric, city, street, house, build, apartment);
+            baseData.insertPersonData(last_name, first_name, middle_name, id_number, birthday, type_doc,
+                    seriya_doc, number_doc, issued_by, issued, country, region, distric, city, street, house, build, apartment);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -170,6 +186,7 @@ public class PersonController {
         String country = (String) boxCountry.getValue();
         return country;
     }
+
     public String getField_region() {
         String region = field_region.getText();
         return region;
@@ -201,7 +218,7 @@ public class PersonController {
     }
 
     public String getField_apertment() {
-        String apartment = field_build.getText();
+        String apartment = field_apartment.getText();
         return apartment;
     }
 
@@ -256,7 +273,6 @@ public class PersonController {
     public String getSerialDoc() {
         String seriya_doc = String.valueOf(boxSerialDoc.getValue());
         return seriya_doc;
-
     }
 
     public String getIssuedlDoc() {
@@ -280,8 +296,5 @@ public class PersonController {
         boxCountry.setValue("Республика Беларусь");
         boxCountry.setItems(country);
 
-
     }
-
-
 }

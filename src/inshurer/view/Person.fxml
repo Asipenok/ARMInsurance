@@ -52,28 +52,28 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="First Name" GridPane.rowIndex="1" />
-            <Label text="Last Name" GridPane.rowIndex="2" />
-            <Label text="Middle Name" GridPane.rowIndex="3" />
-            <Label text="ID number" GridPane.rowIndex="5" />
-            <Label text="Type document" GridPane.rowIndex="7" />
-            <Label text="Seriya documenta" GridPane.rowIndex="8" />
-            <Label text="Date of issue" GridPane.rowIndex="11" />
-            <Label text="Issued by" GridPane.rowIndex="10" />
-            <Label text="Region" GridPane.rowIndex="14" />
-            <Label text="Distric" GridPane.rowIndex="15" />
-            <Label text="City" GridPane.rowIndex="16" />
-            <Label text="Street" GridPane.rowIndex="17" />
-            <Label text="House number" GridPane.rowIndex="18" />
-            <Label text="Build number" GridPane.rowIndex="19" />
-            <Label text="Apartment number" GridPane.rowIndex="20" />
-            <Button fx:id="btn_search_name" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickSearchByName" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text="Фамилия" GridPane.rowIndex="1" />
+            <Label text="Имя" GridPane.rowIndex="2" />
+            <Label text="Отчество" GridPane.rowIndex="3" />
+            <Label text="Личный номер паспорта" GridPane.rowIndex="5" />
+            <Label text="Тип документа" GridPane.rowIndex="7" />
+            <Label text="Серия документа" GridPane.rowIndex="8" />
+            <Label text="Дата выдачи" GridPane.rowIndex="11" />
+            <Label text="Кем выдан" GridPane.rowIndex="10" />
+            <Label text="Область" GridPane.rowIndex="14" />
+            <Label text="Район" GridPane.rowIndex="15" />
+            <Label text="Населенный пункт" GridPane.rowIndex="16" />
+            <Label text="Улица" GridPane.rowIndex="17" />
+            <Label text="Номер дома" GridPane.rowIndex="18" />
+            <Label text="Корпус" GridPane.rowIndex="19" />
+            <Label text="Номер квартиры" GridPane.rowIndex="20" />
+            <Button fx:id="btn_search_name" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickSearchByName" text="Искать" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btn_search_id" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickSearchByID" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <TextField fx:id="field_last_name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btn_search_id" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickSearchByID" text="Искать" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="field_first_name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="field_middle_name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="field_id_number" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="field_region" GridPane.columnIndex="1" GridPane.rowIndex="14" />
@@ -83,7 +83,7 @@
             <TextField fx:id="field_house" GridPane.columnIndex="1" GridPane.rowIndex="18" />
             <TextField fx:id="field_build" GridPane.columnIndex="1" GridPane.rowIndex="19" />
             <TextField fx:id="field_apartment" GridPane.columnIndex="1" GridPane.rowIndex="20" />
-            <Label text="PERSON DATA" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label text="Страхователь" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Bookman Old Style" size="24.0" />
                </font>
@@ -94,7 +94,7 @@
                <children>
                   <HBox spacing="7.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" text="New" />
+                        <Button fx:id="btn_NewPerson" alignment="CENTER" mnemonicParsing="false" text="New" />
                         <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" text="Save" />
                         <Button fx:id="nextToCar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickNextToCar" text="Next" />
                      </children>
@@ -107,15 +107,15 @@
                   </HBox>
                </children>
             </HBox>
-            <Label text="Birthday" GridPane.rowIndex="6" />
+            <Label text="Дата рождения" GridPane.rowIndex="6" />
             <DatePicker fx:id="fieldBirthday" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <DatePicker fx:id="fieldIssued" maxWidth="1.7976931348623157E308" promptText="Дата выдачи" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <ComboBox fx:id="boxSerialDoc" prefHeight="31.0" prefWidth="374.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Number document" GridPane.rowIndex="9" />
+            <Label text="Номер документа" GridPane.rowIndex="9" />
             <TextField fx:id="field_number_doc" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Country" GridPane.rowIndex="13" />
+            <Label text="Страна" GridPane.rowIndex="13" />
             <ComboBox fx:id="boxCountry" prefHeight="31.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <TextField fx:id="field_first_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="field_last_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
