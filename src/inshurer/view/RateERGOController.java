@@ -126,7 +126,28 @@ public class RateERGOController {
     private RadioButton dangerCarNo;
     @FXML
     private TextField rezultCalc;
-
+    @FXML
+    private TextField field_currencyValue;
+    @FXML
+    private TextField field_coastCar;
+    @FXML
+    private TextField field_payment;
+    @FXML
+    private TextField field_first_currency;
+    @FXML
+    private TextField field_second_currency;
+    @FXML
+    private TextField field_third_currency;
+    @FXML
+    private TextField field_fourth_currency;
+    @FXML
+    private TextField field_first_pay;
+    @FXML
+    private TextField field_second_pay;
+    @FXML
+    private TextField field_third_pay;
+    @FXML
+    private TextField field_fourth_pay;
 
     //инициализация полей списков
     @FXML
@@ -171,7 +192,7 @@ public class RateERGOController {
         boxPrice_Car.setValue(" ");
         boxPrice_Car.setItems(price_car);
 
-        boxPayment.setValue(" ");
+        boxPayment.setValue("ежеквартально");
         boxPayment.setItems(payment);
 
         boxCurrency.setValue("USD");
@@ -198,9 +219,10 @@ public class RateERGOController {
                 String.valueOf(boxPayment.getValue()),
                 groupABS(), groupSalon(), groupEmployee(), groupCar()
         );
+
         String rez = String.valueOf(ergo.getRezCalc());
         rezultCalc.setText(rez);
-
+        paymentOption();
     }
 
     //получение значания из радиогруппы РЕКЛАМА
@@ -272,6 +294,62 @@ public class RateERGOController {
     @FXML
     private void onClickNext() throws IOException {
         main.showPerson();
+    }
+
+    @FXML
+    private void paymentOption() {
+
+        double coast = Double.valueOf(String.valueOf(field_coastCar.getText()));
+        double currencyValue = Double.valueOf(String.valueOf(field_currencyValue.getText()));
+        double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
+        float coastYear = (float) (coast * rateRez / 100);
+        float coastYearCurrency = (float) (coastYear * currencyValue);
+        field_payment.setText(String.valueOf(coastYear));
+
+        switch (String.valueOf(boxPayment.getValue())) {
+
+            case "ежеквартально":
+                field_first_currency.setText(String.valueOf(coastYear / 4));
+                field_second_currency.setText(String.valueOf(coastYear - coastYear / 4));
+                field_third_currency.setText(String.valueOf(coastYear - 2 * coastYear / 4));
+                field_fourth_currency.setText(String.valueOf(coastYear - 3 * coastYear / 4));
+
+                field_first_pay.setText(String.valueOf(coastYear / 4 * currencyValue));
+                field_second_pay.setText(String.valueOf((coastYear - coastYear / 4)* currencyValue));
+                field_third_pay.setText(String.valueOf((coastYear - 2 * coastYear / 4)*currencyValue));
+                field_fourth_pay.setText(String.valueOf((coastYear - 3 * coastYear / 4)*currencyValue));
+
+
+                break;
+
+            case "в два срока":
+                field_first_currency.setText(String.valueOf(coastYear / 4 * currencyValue));
+                field_second_currency.setText(String.valueOf(coastYear - coastYear / 2));
+                field_third_currency.setText("");
+                field_fourth_currency.setText("");
+
+                field_first_pay.setText(String.valueOf(coastYear / 2 * currencyValue));
+                field_second_pay.setText(String.valueOf((coastYear - coastYear/ 2)*currencyValue));
+                field_third_pay.setText("");
+                field_fourth_pay.setText("");
+
+                break;
+
+            case "единовременно":
+                field_first_currency.setText(String.valueOf(coastYear));
+                field_second_currency.setText("");
+                field_third_currency.setText("");
+                field_fourth_currency.setText("");
+
+                field_first_pay.setText(String.valueOf(coastYearCurrency));
+                field_second_pay.setText("");
+                field_third_pay.setText("");
+                field_fourth_pay.setText("");
+
+                break;
+
+        }
+
     }
 }
 
