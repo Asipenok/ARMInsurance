@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -221,6 +223,7 @@ public class RateERGOController {
         );
 
         String rez = String.valueOf(ergo.getRezCalc());
+        rez = String.valueOf(new BigDecimal(rez).setScale(2, RoundingMode.HALF_UP).floatValue());
         rezultCalc.setText(rez);
         paymentOption();
     }
@@ -302,9 +305,10 @@ public class RateERGOController {
         double coast = Double.valueOf(String.valueOf(field_coastCar.getText()));
         double currencyValue = Double.valueOf(String.valueOf(field_currencyValue.getText()));
         double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
-        float coastYear = (float) (coast * rateRez / 100);
-        float coastYearCurrency = (float) (coastYear * currencyValue);
-        field_payment.setText(String.valueOf(coastYear));
+        double coastYear = coast * rateRez / 100;
+        double coastYearCurrency = coastYear * currencyValue;
+
+        field_payment.setText(String.valueOf(new BigDecimal(coastYear).setScale(2, RoundingMode.HALF_UP).floatValue()));
 
         switch (String.valueOf(boxPayment.getValue())) {
 
@@ -315,9 +319,9 @@ public class RateERGOController {
                 field_fourth_currency.setText(String.valueOf(coastYear - 3 * coastYear / 4));
 
                 field_first_pay.setText(String.valueOf(coastYear / 4 * currencyValue));
-                field_second_pay.setText(String.valueOf((coastYear - coastYear / 4)* currencyValue));
-                field_third_pay.setText(String.valueOf((coastYear - 2 * coastYear / 4)*currencyValue));
-                field_fourth_pay.setText(String.valueOf((coastYear - 3 * coastYear / 4)*currencyValue));
+                field_second_pay.setText(String.valueOf((coastYear - coastYear / 4) * currencyValue));
+                field_third_pay.setText(String.valueOf((coastYear - 2 * coastYear / 4) * currencyValue));
+                field_fourth_pay.setText(String.valueOf((coastYear - 3 * coastYear / 4) * currencyValue));
 
 
                 break;
@@ -329,7 +333,7 @@ public class RateERGOController {
                 field_fourth_currency.setText("");
 
                 field_first_pay.setText(String.valueOf(coastYear / 2 * currencyValue));
-                field_second_pay.setText(String.valueOf((coastYear - coastYear/ 2)*currencyValue));
+                field_second_pay.setText(String.valueOf((coastYear - coastYear / 2) * currencyValue));
                 field_third_pay.setText("");
                 field_fourth_pay.setText("");
 
