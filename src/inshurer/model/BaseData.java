@@ -19,6 +19,9 @@ public class BaseData {
             " Country, Region, Distric, City, Street, HouseNumber, BuildNumber, RoomNumber)" +
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_CAR = "INSERT INTO car (Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?)";
+    private static final String INSERT_RATE = "INSERT INTO rate (vehicle, territory, quantity, protect, level_driver, rent_taxi, " +
+            "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate ) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
@@ -198,7 +201,7 @@ public class BaseData {
                 resCarHashMap.put("coast", res.getString("CoastCar"));
                 resCarHashMap.put("currency", res.getString("Currency"));
             }
-          System.out.println("search car by vin off");
+            System.out.println("search car by vin off");
 
         } catch (
                 SQLException e) {
@@ -206,6 +209,7 @@ public class BaseData {
         }
         return resCarHashMap;
     }
+
     //метод поиска клиента в БД по номеру авто
     public HashMap<String, String> findCarByNumber(String search_number) throws SQLException {
 
@@ -232,5 +236,42 @@ public class BaseData {
             e.printStackTrace();
         }
         return resCarHashMap;
+    }
+
+
+    //метод вставки в БД данные по тарифу
+    public void insertRateData(Double vehicle, Double territory, Double quantity, Double protect, Double level_driver,
+                               Double rent_taxi, Double condition_franchise, Double no_condition_franchise, Double additional_types,
+                               Double bonus, Double manus, Double payment, Double ads, Double salon, Double employee, Double cars,
+                               String company, Double rate) throws SQLException {
+
+        preparedStatement = connection.prepareStatement(INSERT_RATE);
+
+        try {
+            preparedStatement.setDouble(1, vehicle);
+            preparedStatement.setDouble(2, territory);
+            preparedStatement.setDouble(3, quantity);
+            preparedStatement.setDouble(4, protect);
+            preparedStatement.setDouble(5, level_driver);
+            preparedStatement.setDouble(6, rent_taxi);
+            preparedStatement.setDouble(7, condition_franchise);
+            preparedStatement.setDouble(8, no_condition_franchise);
+            preparedStatement.setDouble(9, additional_types);
+            preparedStatement.setDouble(10,bonus);
+            preparedStatement.setDouble(11,manus);
+            preparedStatement.setDouble(12, payment);
+            preparedStatement.setDouble(13, ads);
+            preparedStatement.setDouble(14, salon);
+            preparedStatement.setDouble(15, employee);
+            preparedStatement.setDouble(16, cars);
+            preparedStatement.setString(17, company);
+            preparedStatement.setDouble(18, rate);
+
+            preparedStatement.execute();
+            connection.close();
+            System.out.println("rate add");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

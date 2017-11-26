@@ -1,6 +1,7 @@
 package inshurer.view;
 
 import inshurer.Main;
+import inshurer.model.BaseData;
 import inshurer.model.ERGO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,6 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 import static java.lang.String.format;
 
@@ -177,7 +181,7 @@ public class RateERGOController {
     @FXML
     private void onClickCalculate() {
 
-        String RezCalc = ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
+        ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
                 String.valueOf(boxTeritoty.getValue()),
                 String.valueOf(boxQuantity.getValue()),
                 String.valueOf(boxProtect.getValue()),
@@ -191,7 +195,9 @@ public class RateERGOController {
                 String.valueOf(boxPayment.getValue()),
                 groupABS(), groupSalon(), groupEmployee(), groupCar()
         );
-        rezultCalc.setText(RezCalc);
+        String rez = String.valueOf(ergo.getRezCalc());
+        rezultCalc.setText(rez);
+
     }
 
     //получение значания из радиогруппы РЕКЛАМА
@@ -243,7 +249,20 @@ public class RateERGOController {
     }
 
     @FXML
-    private void onClickSaveAs() {
+    private void onClickSave() {
+        BaseData baseData = new BaseData();
+        String company = "ERGO";
+
+        try {
+            baseData.insertRateData(ergo.getVehicleRate(), ergo.getTerritoryRate(), ergo.getQuantityRate(), ergo.getProtectRate(), ergo.getLevel_driverRate(),
+                    ergo.getRent_taxiRate(), ergo.getCondition_franchiseRate(), ergo.getNo_condition_franchiseRate(), ergo.getAdditional_typesRate(),
+                    ergo.getBonusRate(), ergo.getManusRate(), ergo.getPaymentRate(), ergo.getAdsRate(), ergo.getSalonRate(), ergo.getEmployeeRate(),
+                    ergo.getCarsRate(), company, ergo.getRezCalc());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML

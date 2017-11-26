@@ -74,7 +74,7 @@
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="4" GridPane.rowIndex="27">
                     <children>
                   <Button fx:id="calculate" mnemonicParsing="false" onAction="#onClickCalculate" text="Calculate" />
-                        <Button fx:id="saveAs" mnemonicParsing="false" onAction="#onClickSaveAs" prefWidth="80.0" text="Save as" />
+                        <Button fx:id="saveAs" mnemonicParsing="false" onAction="#onClickSave" prefWidth="80.0" text="Save" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#onClickNext" prefWidth="80.0" text="Next" />
                     </children></HBox>
                 <Label text="Стоимость авто" GridPane.columnIndex="1" GridPane.rowIndex="15" />

@@ -1,6 +1,7 @@
 package inshurer.model;
 
 public class ERGO {
+
     //тип авто
     private double vehicleRate = 1;
     //территория действия
@@ -30,14 +31,80 @@ public class ERGO {
     private double salonRate;
     private double employeeRate;
     private double carsRate;
+    private double rezCalc;
+
+    public double getRezCalc() {
+        return rezCalc;
+    }
+
+    public double getVehicleRate() {
+        return vehicleRate;
+    }
+
+    public double getTerritoryRate() {
+        return territoryRate;
+    }
+
+    public double getQuantityRate() {
+        return quantityRate;
+    }
+
+    public double getProtectRate() {
+        return protectRate;
+    }
+
+    public double getLevel_driverRate() {
+        return level_driverRate;
+    }
+
+    public double getRent_taxiRate() {
+        return rent_taxiRate;
+    }
+
+    public double getCondition_franchiseRate() {
+        return condition_franchiseRate;
+    }
+
+    public double getNo_condition_franchiseRate() {
+        return no_condition_franchiseRate;
+    }
+
+    public double getAdditional_typesRate() {
+        return additional_typesRate;
+    }
+
+    public double getBonusRate() {
+        return bonusRate;
+    }
+
+    public double getManusRate() {
+        return manusRate;
+    }
+
+    public double getPaymentRate() {
+        return paymentRate;
+    }
+
+    public double getAdsRate() {
+        return adsRate;
+    }
+
+    public double getSalonRate() {
+        return salonRate;
+    }
+
+    public double getEmployeeRate() {
+        return employeeRate;
+    }
+
+    public double getCarsRate() {
+        return carsRate;
+    }
 
 
-    private String rezCalc;
-
-
-    public String calculateRate(String vehicle, String territory, String quantity, String protect, String level_driver, String rent_taxi,
-                                String condition_franchise, String no_condition_franchise, String additional_types,
-                                String bonus, String manus, String payment, String ads, String salon, String employee, String car) {
+    public void calculateRate(String vehicle, String territory, String quantity, String protect, String level_driver, String rent_taxi,
+                              String condition_franchise, String no_condition_franchise, String additional_types,
+                              String bonus, String manus, String payment, String ads, String salon, String employee, String car) {
 
         switch (vehicle) {
             case "Легковой автомобиль":
@@ -197,14 +264,8 @@ public class ERGO {
         } else {
             carsRate = 1;
         }
-        rezCalc = String.valueOf(vehicleRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
+        rezCalc = vehicleRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
                 condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate *
-                salonRate * employeeRate * carsRate);
-
-      return rezCalc;
+                salonRate * employeeRate * carsRate;
     }
-
-
-
-
 }

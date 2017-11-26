@@ -62,7 +62,7 @@
                 </Label>
                 <Label text="Территория действия" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <Label text="Вариант страхования" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label text="Кличесвто застрахованных единиц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Кличество застрахованных единиц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Label text="Франшиза безусловная" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                 <Label text="Условия эксплуатации ТС" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                 <Label text="Франшиза условная" GridPane.columnIndex="1" GridPane.rowIndex="9" />
@@ -74,13 +74,13 @@
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="4" GridPane.rowIndex="27">
                     <children>
                   <Button fx:id="calculate" mnemonicParsing="false" onAction="#onClickCalculate" text="Calculate" />
-                        <Button fx:id="saveAs" mnemonicParsing="false" onAction="#onClickSaveAs" prefWidth="80.0" text="Save as" />
+                        <Button fx:id="saveAs" mnemonicParsing="false" onAction="#onClickSave" prefWidth="80.0" text="Save" />
                         <Button fx:id="next" mnemonicParsing="false" onAction="#onClickNext" prefWidth="80.0" text="Next" />
                     </children></HBox>
                 <Label text="Стоимость авто" GridPane.columnIndex="1" GridPane.rowIndex="15" />
                 <Label text="Порядок уплаты взносов" GridPane.columnIndex="1" GridPane.rowIndex="16" />
                 <Label text="Корректировочный коэффициент" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-                <Label text="Вид транспортного стредства" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Тип транспортного стредства" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <ComboBox fx:id="boxVehicle" prefHeight="31.0" prefWidth="446.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <ComboBox fx:id="boxOption" prefHeight="31.0" prefWidth="445.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <ComboBox fx:id="boxTeritoty" prefHeight="31.0" prefWidth="463.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
