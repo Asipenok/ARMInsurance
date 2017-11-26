@@ -74,6 +74,8 @@ public class CarController {
     private Button btn_saveCar;
     @FXML
     private Button btn_Clear;
+    @FXML
+    private Button btn_Edit;
 
 
     @FXML
@@ -165,5 +167,9 @@ public class CarController {
     public String getfieldBrandCar() {
         String brand = fieldBrandCar.getText();
         return brand;
+    }
+    @FXML
+    private void onClickEdit() throws IOException {
+        main.showPolis();
     }
 }

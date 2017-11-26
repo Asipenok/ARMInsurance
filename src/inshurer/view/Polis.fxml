@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="1485.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.PolisController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="37.0" layoutY="218.0" text="Страхователь" />
+            <Button fx:id="searchPerson" layoutX="915.0" layoutY="213.0" mnemonicParsing="false" onAction="#ckickSearchPerson" text="Поиск страхов" />
+            <Label layoutX="37.0" layoutY="347.0" text="Выгодоприобретатель" />
+            <Button fx:id="searchOwner" layoutX="917.0" layoutY="353.0" mnemonicParsing="false" text="Поиск выгодо" />
+            <Label layoutX="37.0" layoutY="631.0" text="Авто" />
+            <Button fx:id="searchCar" layoutX="915.0" layoutY="626.0" mnemonicParsing="false" text="Поиск авто" />
+            <TextArea fx:id="initPerson" layoutX="155.0" layoutY="179.0" prefHeight="100.0" prefWidth="750.0" />
+            <TextArea fx:id="initOwner" layoutX="205.0" layoutY="308.0" prefHeight="100.0" prefWidth="700.0" />
+            <TextArea fx:id="initCar" layoutX="155.0" layoutY="592.0" prefHeight="100.0" prefWidth="750.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

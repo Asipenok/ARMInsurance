@@ -88,6 +88,21 @@ public class Main extends Application {
         dialogRateTASK.showAndWait();
 
     }
+    public static void showPolis() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/Polis.fxml"));
+        AnchorPane polis = loader.load();
+
+        Stage dialogPolis = new Stage();
+        dialogPolis.setTitle("Polis");
+        dialogPolis.initModality(Modality.APPLICATION_MODAL);
+        dialogPolis.initOwner(primaryStage);
+        Scene scene = new Scene(polis);
+        dialogPolis.setScene(scene);
+        dialogPolis.showAndWait();
+
+    }
     public static void showCar() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();

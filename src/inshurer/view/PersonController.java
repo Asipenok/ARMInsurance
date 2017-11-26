@@ -99,6 +99,9 @@ public class PersonController {
     @FXML
     private TextField field_apartment;
 
+    private String person;
+
+    // private String person;
 
     @FXML
     private void clickNextToCar() throws IOException {
@@ -107,9 +110,10 @@ public class PersonController {
 
     //по нажатию кнопки id для поиска сохраняется в переменную search_id
     @FXML
-    private void clickSearchByID() throws IOException, SQLException {
+    public void clickSearchByID() throws IOException, SQLException {
         BaseData baseData = new BaseData();
         String search_id = field_id_number.getText();
+
 
         HashMap<String, String> values = baseData.findPersonByID(search_id);
         if (search_id.equals(values.get("id_number"))) {
@@ -131,12 +135,20 @@ public class PersonController {
             field_build.setText(values.get("buildNumber"));
             field_apartment.setText(values.get("roomNumber"));
 
+            person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
+                    + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + " " + " " + values.get("numberDoc")
+                    + " " + " " + values.get("id_number");
+
+
         } else {
             clickClear();
             field_last_name.setText("No matches");
         }
 
+    }
 
+    public String getPerson() {
+        return person;
     }
 
     //по нажатию кнопки поиск по фамилии

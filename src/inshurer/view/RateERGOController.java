@@ -17,8 +17,11 @@ import static java.lang.String.format;
 
 
 public class RateERGOController {
+
     private Main main;
+
     private ERGO ergo = new ERGO();
+
     //заполнение коэффициента по типу ТС
     ObservableList<String> vehicle = FXCollections.observableArrayList
             ("Легковой автомобиль", "Автобусы, грузовые авто", "Тракторы, прицепы");
@@ -177,7 +180,7 @@ public class RateERGOController {
 
     }
 
-    //методы кнопок
+    //расчет тарифа
     @FXML
     private void onClickCalculate() {
 
@@ -248,6 +251,7 @@ public class RateERGOController {
         return carRez;
     }
 
+    //запись данных по тарифу
     @FXML
     private void onClickSave() {
         BaseData baseData = new BaseData();

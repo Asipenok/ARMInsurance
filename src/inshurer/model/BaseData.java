@@ -1,9 +1,5 @@
 package inshurer.model;
 
-import inshurer.view.PersonController;
-import javafx.scene.control.DatePicker;
-
-import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.HashMap;
