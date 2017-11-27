@@ -296,7 +296,7 @@ public class RateERGOController {
 
     @FXML
     private void onClickNext() throws IOException {
-        main.showPerson();
+        main.showPolis();
     }
 
     @FXML
@@ -307,28 +307,39 @@ public class RateERGOController {
         double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
         double coastYear = coast * rateRez / 100;
         double coastYearCurrency = coastYear * currencyValue;
+        double first_pay = coastYear/4;
+        double second_pay = coastYear/4;
+        double third_pay = coastYear/4;
+        double four_pay = (coastYear-first_pay-second_pay-third_pay);
+        double first_pay_cur = coastYear/4*currencyValue;
+        double second_pay_cur = coastYear/4*currencyValue;
+        double third_pay_cur = coastYear/4*currencyValue;
+        double four_pay_cur = (coastYear-first_pay-second_pay-third_pay)*currencyValue;
+
 
         field_payment.setText(String.valueOf(new BigDecimal(coastYear).setScale(2, RoundingMode.HALF_UP).floatValue()));
 
         switch (String.valueOf(boxPayment.getValue())) {
 
             case "ежеквартально":
-                field_first_currency.setText(String.valueOf(coastYear / 4));
-                field_second_currency.setText(String.valueOf(coastYear - coastYear / 4));
-                field_third_currency.setText(String.valueOf(coastYear - 2 * coastYear / 4));
-                field_fourth_currency.setText(String.valueOf(coastYear - 3 * coastYear / 4));
 
-                field_first_pay.setText(String.valueOf(coastYear / 4 * currencyValue));
-                field_second_pay.setText(String.valueOf((coastYear - coastYear / 4) * currencyValue));
-                field_third_pay.setText(String.valueOf((coastYear - 2 * coastYear / 4) * currencyValue));
-                field_fourth_pay.setText(String.valueOf((coastYear - 3 * coastYear / 4) * currencyValue));
+
+                field_first_currency.setText(String.valueOf(new BigDecimal(first_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_second_currency.setText(String.valueOf(new BigDecimal(second_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_third_currency.setText(String.valueOf(new BigDecimal(third_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_fourth_currency.setText(String.valueOf(four_pay));
+
+                field_first_pay.setText(String.valueOf(new BigDecimal(first_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_second_pay.setText(String.valueOf(new BigDecimal(second_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_third_pay.setText(String.valueOf(new BigDecimal(third_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_fourth_pay.setText(String.valueOf(new BigDecimal(four_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
 
 
                 break;
 
             case "в два срока":
-                field_first_currency.setText(String.valueOf(coastYear / 4 * currencyValue));
-                field_second_currency.setText(String.valueOf(coastYear - coastYear / 2));
+                field_first_currency.setText(String.valueOf(new BigDecimal(coastYear / 2).setScale(2, RoundingMode.HALF_UP).floatValue()));
+                field_second_currency.setText(String.valueOf(new BigDecimal(coastYear - coastYear / 2).setScale(2, RoundingMode.HALF_UP).floatValue()));
                 field_third_currency.setText("");
                 field_fourth_currency.setText("");
 
@@ -340,7 +351,7 @@ public class RateERGOController {
                 break;
 
             case "единовременно":
-                field_first_currency.setText(String.valueOf(coastYear));
+                field_first_currency.setText(String.valueOf(new BigDecimal(coastYear).setScale(2, RoundingMode.HALF_UP).floatValue()));
                 field_second_currency.setText("");
                 field_third_currency.setText("");
                 field_fourth_currency.setText("");

@@ -21,6 +21,9 @@ public class CarController {
     //заполнение валюты платежа
     ObservableList<String> currency = FXCollections.observableArrayList
             ("USD", "EUR", "RUB", "BYN");
+    //заполнение тип ТС
+    ObservableList<String> type = FXCollections.observableArrayList
+            ("Легковой автомобиль", "Грузовой автомобиль", "Прочее");
 
     public String getBoxCurrencyCar() {
         String currencyCar = (String) boxCurrencyCar.getValue();
@@ -76,12 +79,15 @@ public class CarController {
     private Button btn_Clear;
     @FXML
     private Button btn_Edit;
+    @FXML
+    private ComboBox boxTypeCar;
 
 
     @FXML
     private void clickSaveCar() throws IOException, SQLException {
         BaseData baseData = new BaseData();
 
+        String typeCar = getboxTypeCar();
         String brandCar = getfieldBrandCar();
         String modelCar = getFieldModelCar();
         String vin = getFieldVIN();
@@ -91,7 +97,7 @@ public class CarController {
         String currencyCar = getBoxCurrencyCar();
 
         try {
-            baseData.insertCar(brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
+            baseData.insertCar(typeCar, brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,6 +113,7 @@ public class CarController {
         HashMap<String, String> values = baseData.findCarByVIN(search_vin);
 
         if (search_vin.equals(values.get("vin"))) {
+            boxTypeCar.setValue(values.get("type"));
             fieldVIN.setText(search_vin);
             fieldBrandCar.setText(values.get("brand"));
             fieldModelCar.setText(values.get("model"));
@@ -121,6 +128,7 @@ public class CarController {
             fieldBrandCar.setText("No mutches");
         }
     }
+
     //по нажатию кнопки поиск по номеру машины
     @FXML
     private void clickSearchByNumber() throws IOException, SQLException {
@@ -130,6 +138,8 @@ public class CarController {
         HashMap<String, String> values = baseData.findCarByNumber(search_number);
 
         if (search_number.equals(values.get("number"))) {
+
+            boxTypeCar.setValue(values.get("type"));
             fieldNumberCar.setText(search_number);
             fieldBrandCar.setText(values.get("brand"));
             fieldModelCar.setText(values.get("model"));
@@ -144,6 +154,7 @@ public class CarController {
             fieldBrandCar.setText("No mutches");
         }
     }
+
     @FXML
     private void clickClear() {
         fieldVIN.setText("");
@@ -162,12 +173,21 @@ public class CarController {
         boxCurrencyCar.setValue("USD");
         boxCurrencyCar.setItems(currency);
 
+        boxTypeCar.setValue("Легковой автомобиль");
+        boxTypeCar.setItems(type);
+
     }
 
     public String getfieldBrandCar() {
         String brand = fieldBrandCar.getText();
         return brand;
     }
+
+    public String getboxTypeCar() {
+        String type = (String) boxTypeCar.getValue();
+        return type;
+    }
+
     @FXML
     private void onClickEdit() throws IOException {
         main.showPolis();

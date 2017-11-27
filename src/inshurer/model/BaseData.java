@@ -14,7 +14,7 @@ public class BaseData {
             " Birthday, TypeDoc, SeriesDoc, NumberDoc,IssuedBy, IssuedDate," +
             " Country, Region, Distric, City, Street, HouseNumber, BuildNumber, RoomNumber)" +
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String INSERT_CAR = "INSERT INTO car (Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?)";
+    private static final String INSERT_CAR = "INSERT INTO car (TypeCar, Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?,?)";
     private static final String INSERT_RATE = "INSERT INTO rate (vehicle, territory, quantity, protect, level_driver, rent_taxi, " +
             "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate ) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -157,17 +157,18 @@ public class BaseData {
     }
 
     //метод вставки данных по авто
-    public void insertCar(String brandCar, String modelCar, String vin, String numberCar, LocalDate yearCar, String coastCar, String currencyCar) throws SQLException {
+    public void insertCar(String typeCar, String brandCar, String modelCar, String vin, String numberCar, LocalDate yearCar, String coastCar, String currencyCar) throws SQLException {
         preparedStatement = connection.prepareStatement(INSERT_CAR);
 
         try {
-            preparedStatement.setString(1, brandCar);
-            preparedStatement.setString(2, modelCar);
-            preparedStatement.setString(3, vin);
-            preparedStatement.setString(4, numberCar);
-            preparedStatement.setString(5, String.valueOf(yearCar));
-            preparedStatement.setString(6, coastCar);
-            preparedStatement.setString(7, currencyCar);
+            preparedStatement.setString(1, typeCar);
+            preparedStatement.setString(2, brandCar);
+            preparedStatement.setString(3, modelCar);
+            preparedStatement.setString(4, vin);
+            preparedStatement.setString(5, numberCar);
+            preparedStatement.setString(6, String.valueOf(yearCar));
+            preparedStatement.setString(7, coastCar);
+            preparedStatement.setString(8, currencyCar);
 
             preparedStatement.execute();
             connection.close();
@@ -196,6 +197,8 @@ public class BaseData {
                 resCarHashMap.put("year", res.getString("YearCar"));
                 resCarHashMap.put("coast", res.getString("CoastCar"));
                 resCarHashMap.put("currency", res.getString("Currency"));
+                resCarHashMap.put("type", res.getString("TypeCar"));
+
             }
             System.out.println("search car by vin off");
 
@@ -224,6 +227,7 @@ public class BaseData {
                 resCarHashMap.put("year", res.getString("YearCar"));
                 resCarHashMap.put("coast", res.getString("CoastCar"));
                 resCarHashMap.put("currency", res.getString("Currency"));
+                resCarHashMap.put("type", res.getString("TypeCar"));
             }
             System.out.println("search car by number off");
 
