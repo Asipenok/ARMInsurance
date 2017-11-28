@@ -7,13 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.time.LocalDate;
+
 
 import static java.lang.String.format;
 
@@ -21,7 +19,6 @@ import static java.lang.String.format;
 public class RateERGOController {
 
     private Main main;
-
     private ERGO ergo = new ERGO();
 
     //заполнение коэффициента по типу ТС
@@ -295,8 +292,10 @@ public class RateERGOController {
     }
 
     @FXML
-    private void onClickNext() throws IOException {
+    private void onClickNext() throws IOException, SQLException {
         main.showPolis();
+
+
     }
 
     @FXML
@@ -307,14 +306,14 @@ public class RateERGOController {
         double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
         double coastYear = coast * rateRez / 100;
         double coastYearCurrency = coastYear * currencyValue;
-        double first_pay = coastYear/4;
-        double second_pay = coastYear/4;
-        double third_pay = coastYear/4;
-        double four_pay = (coastYear-first_pay-second_pay-third_pay);
-        double first_pay_cur = coastYear/4*currencyValue;
-        double second_pay_cur = coastYear/4*currencyValue;
-        double third_pay_cur = coastYear/4*currencyValue;
-        double four_pay_cur = (coastYear-first_pay-second_pay-third_pay)*currencyValue;
+        double first_pay = coastYear / 4;
+        double second_pay = coastYear / 4;
+        double third_pay = coastYear / 4;
+        double four_pay = (coastYear - first_pay - second_pay - third_pay);
+        double first_pay_cur = coastYear / 4 * currencyValue;
+        double second_pay_cur = coastYear / 4 * currencyValue;
+        double third_pay_cur = coastYear / 4 * currencyValue;
+        double four_pay_cur = (coastYear - first_pay - second_pay - third_pay) * currencyValue;
 
 
         field_payment.setText(String.valueOf(new BigDecimal(coastYear).setScale(2, RoundingMode.HALF_UP).floatValue()));

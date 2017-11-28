@@ -1,40 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="1485.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.PolisController">
+<AnchorPane minHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.PolisController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="37.0" layoutY="218.0" text="Страхователь" />
-            <Button fx:id="searchPerson" layoutX="915.0" layoutY="179.0" mnemonicParsing="false" onAction="#clickSearchPerson" text="Поиск страхов" />
-            <Label layoutX="37.0" layoutY="347.0" text="Выгодоприобретатель" />
-            <Button fx:id="searchOwner" layoutX="916.0" layoutY="308.0" mnemonicParsing="false" onAction="#clickSearchOwner" text="Поиск выгодо" />
-            <Label layoutX="37.0" layoutY="631.0" text="Авто" />
-            <Button fx:id="searchCar" layoutX="916.0" layoutY="592.0" mnemonicParsing="false" onAction="#clickSearchCar" text="Поиск авто" />
-            <TextArea fx:id="initPerson" layoutX="155.0" layoutY="179.0" prefHeight="100.0" prefWidth="750.0" promptText="Страхователь" />
-            <TextArea fx:id="initOwner" layoutX="205.0" layoutY="308.0" prefHeight="100.0" prefWidth="700.0" promptText="Выгодоприобретатель" />
-            <TextArea fx:id="initCar" layoutX="155.0" layoutY="592.0" prefHeight="100.0" prefWidth="750.0" promptText="Имущество, принимаемое на страхование" />
-            <Button fx:id="newPerson" layoutX="915.0" layoutY="248.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Новый страхов" />
-            <Button fx:id="newOwner" layoutX="916.0" layoutY="377.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Новый выгодо" />
-            <Button fx:id="newCar" layoutX="915.0" layoutY="661.0" mnemonicParsing="false" onAction="#clickNewCar" text="Новое авто" />
-            <DatePicker layoutX="390.0" layoutY="462.0" promptText="Начало страхования" />
-            <DatePicker layoutX="666.0" layoutY="462.0" promptText="Окончание страхования" />
-            <ComboBox layoutX="140.0" layoutY="462.0" prefWidth="150.0" promptText="Один год" />
-            <Label layoutX="354.0" layoutY="467.0" text="с" />
-            <Label layoutX="634.0" layoutY="467.0" text="по" />
-            <TextField alignment="CENTER" layoutX="823.0" layoutY="46.0" promptText="номер полиса" />
-            <DatePicker layoutX="775.0" layoutY="1324.0" />
-            <TextField layoutX="155.0" layoutY="727.0" prefHeight="31.0" prefWidth="750.0" promptText="Бузусловная франшиза" />
-            <TextField layoutX="155.0" layoutY="771.0" prefHeight="31.0" prefWidth="750.0" promptText="Условная франшиза" />
-            <TextField layoutX="155.0" layoutY="519.0" prefHeight="31.0" prefWidth="750.0" promptText="Территория действия полиса" />
-            <TextField layoutX="155.0" layoutY="1041.0" promptText="Порядок оплаты" />
-            <TextField layoutX="155.0" layoutY="1096.0" prefHeight="85.0" prefWidth="750.0" promptText="Периоды оплаты" />
-         </children>
-      </Pane>
+      <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+         <content>
+            <Pane>
+               <children>
+                  <ImageView fitHeight="1585.0" fitWidth="1050.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@PolisERGOFoto.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="searchPerson" layoutX="109.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickSearchPerson" text="Поиск страхов" />
+                  <Button fx:id="searchOwner" layoutX="259.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickSearchOwner" text="Поиск выгодо" />
+                  <Label layoutX="37.0" layoutY="631.0" text="Авто" />
+                  <Button fx:id="searchCar" layoutX="231.0" layoutY="663.0" mnemonicParsing="false" onAction="#clickSearchCar" text="Поиск авто" />
+                  <TextArea fx:id="initPerson" layoutX="103.0" layoutY="208.0" prefHeight="79.0" prefWidth="880.0" promptText="Страхователь" />
+                  <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="727.0" promptText="Выгодоприобретатель" />
+                  <TextArea fx:id="initCar" layoutX="217.0" layoutY="703.0" prefHeight="53.0" prefWidth="766.0" promptText="Имущество, принимаемое на страхование" />
+                  <Button fx:id="newPerson" layoutX="243.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Новый страхов" />
+                  <Button fx:id="newOwner" layoutX="382.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Новый выгодо" />
+                  <Button fx:id="newCar" layoutX="335.0" layoutY="663.0" mnemonicParsing="false" onAction="#clickNewCar" text="Новое авто" />
+                  <DatePicker layoutX="512.0" layoutY="613.0" promptText="Начало страхования" />
+                  <DatePicker layoutX="765.0" layoutY="613.0" promptText="Окончание страхования" />
+                  <ComboBox layoutX="282.0" layoutY="613.0" prefWidth="150.0" promptText="Один год" />
+                  <TextField alignment="CENTER" layoutX="875.0" layoutY="171.0" prefHeight="31.0" prefWidth="112.0" promptText="номер полиса" />
+                  <DatePicker layoutX="767.0" layoutY="1297.0" promptText="Дата заключения договора" />
+                  <TextField fx:id="field_franchise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="750.0" promptText="Бузусловная франшиза" />
+                  <TextField layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="750.0" promptText="Условная франшиза" />
+                  <TextField layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="733.0" promptText="Территория действия полиса" />
+                  <TextField layoutX="319.0" layoutY="1106.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты" />
+                  <TextField layoutX="245.0" layoutY="1137.0" prefHeight="46.0" prefWidth="742.0" promptText="Периоды оплаты" />
+                  <TextField layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="627.0" promptText="Вариант страхования" />
+                  <TextField layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="596.0" promptText="Действительная стоимость" />
+                  <TextField layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="596.0" promptText="Страховая стоимость" />
+                  <TextField layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="750.0" promptText="Страховой взнос" />
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

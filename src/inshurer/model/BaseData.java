@@ -19,6 +19,7 @@ public class BaseData {
             "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate ) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
+    private static final String SELECT_RATE_ERGO = "SELECT * FROM rate";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
     private static final String SELECT_CAR_NUMBER = "SELECT * FROM car WHERE NumberCar = ?";
@@ -257,8 +258,8 @@ public class BaseData {
             preparedStatement.setDouble(7, condition_franchise);
             preparedStatement.setDouble(8, no_condition_franchise);
             preparedStatement.setDouble(9, additional_types);
-            preparedStatement.setDouble(10,bonus);
-            preparedStatement.setDouble(11,manus);
+            preparedStatement.setDouble(10, bonus);
+            preparedStatement.setDouble(11, manus);
             preparedStatement.setDouble(12, payment);
             preparedStatement.setDouble(13, ads);
             preparedStatement.setDouble(14, salon);
@@ -274,4 +275,46 @@ public class BaseData {
             e.printStackTrace();
         }
     }
+
+
+    //метод выборки данных по тарифу из БД
+    public HashMap<String, String> findRate() throws SQLException {
+
+        HashMap<String, String> resRateERGO = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_RATE_ERGO);
+           // preparedStatement.setString(1, String.valueOf(id));
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resRateERGO.put("vehicle", res.getString("vehicle"));
+                resRateERGO.put("territory", res.getString("territory"));
+                resRateERGO.put("quantity", res.getString("quantity"));
+                resRateERGO.put("protect", res.getString("protect"));
+                resRateERGO.put("level_driver", res.getString("level_driver"));
+                resRateERGO.put("rent_taxi", res.getString("rent_taxi"));
+                resRateERGO.put("condition_franchise", res.getString("condition_franchise"));
+                resRateERGO.put("no_condition_franchise", res.getString("no_condition_franchise"));
+                resRateERGO.put("additional_types", res.getString("additional_types"));
+                resRateERGO.put("bonus", res.getString("bonus"));
+                resRateERGO.put("manus", res.getString("manus"));
+                resRateERGO.put("payment", res.getString("payment"));
+                resRateERGO.put("ads", res.getString("ads"));
+                resRateERGO.put("salon", res.getString("salon"));
+                resRateERGO.put("employee", res.getString("employee"));
+                resRateERGO.put("cars", res.getString("cars"));
+                resRateERGO.put("company", res.getString("company"));
+
+            }
+            System.out.println("search item ");
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resRateERGO;
+    }
+
+
 }

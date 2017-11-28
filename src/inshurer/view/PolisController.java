@@ -18,6 +18,8 @@ public class PolisController {
     @FXML
     TextArea initCar;
     @FXML
+    TextArea field_franshis;
+    @FXML
     Button searchPerson;
     @FXML
     Button newPerson;
@@ -32,7 +34,8 @@ public class PolisController {
 
     private Main main;
     PersonController personController = new PersonController();
-//метод поиска и вставки страхователя из БД
+
+    //метод поиска и вставки страхователя из БД
     @FXML
     public void clickSearchPerson() throws SQLException {
         BaseData baseData = new BaseData();
@@ -47,6 +50,7 @@ public class PolisController {
 
         initPerson.setText(person);
     }
+
     //метод поиска и вставки выгодоприобретателя из БД
     @FXML
     public void clickSearchOwner() throws SQLException {
@@ -74,17 +78,31 @@ public class PolisController {
 
         car = values.get("type") + " " + " " + values.get("brand") + " " + " " + values.get("model")
                 + " " + " " + values.get("number") + " " + " " + values.get("year") + " " + "VIN " + values.get("vin");
-                  initCar.setText(car);
+        initCar.setText(car);
     }
 
+    //метод вызова поля для вставки нового клиента
     @FXML
     public void clickNewPerson() throws IOException {
         main.showPerson();
     }
+
+    //метод вызова поля для вставки нового авто
     @FXML
     public void clickNewCar() throws IOException {
         main.showCar();
     }
 
+    //метод вызова расчета тарифа
+    @FXML
+    public void clickShowRate() throws IOException {
+        main.showRateERGO();
+    }
 
+    //метод получения данных из БД инициализации полей после расчета тарифа
+
+
+    @FXML
+    public void initialize() {
+    }
 }
