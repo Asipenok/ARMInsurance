@@ -20,7 +20,7 @@
                   </ImageView>
                   <Button fx:id="searchPerson" layoutX="109.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickSearchPerson" text="Поиск страхов" />
                   <Button fx:id="searchOwner" layoutX="259.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickSearchOwner" text="Поиск выгодо" />
-                  <Label layoutX="37.0" layoutY="631.0" text="Авто" />
+                  <Label layoutX="37.0" layoutY="631.0" />
                   <Button fx:id="searchCar" layoutX="231.0" layoutY="663.0" mnemonicParsing="false" onAction="#clickSearchCar" text="Поиск авто" />
                   <TextArea fx:id="initPerson" layoutX="103.0" layoutY="208.0" prefHeight="79.0" prefWidth="880.0" promptText="Страхователь" />
                   <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="727.0" promptText="Выгодоприобретатель" />
@@ -33,15 +33,15 @@
                   <ComboBox layoutX="282.0" layoutY="613.0" prefWidth="150.0" promptText="Один год" />
                   <TextField alignment="CENTER" layoutX="875.0" layoutY="171.0" prefHeight="31.0" prefWidth="112.0" promptText="номер полиса" />
                   <DatePicker layoutX="767.0" layoutY="1297.0" promptText="Дата заключения договора" />
-                  <TextField fx:id="field_franchise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="750.0" promptText="Бузусловная франшиза" />
-                  <TextField layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="750.0" promptText="Условная франшиза" />
-                  <TextField layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="733.0" promptText="Территория действия полиса" />
+                  <TextField fx:id="field_franshise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="750.0" promptText="Бузусловная франшиза" />
+                  <TextField fx:id="field_second_franshise" layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="750.0" promptText="Условная франшиза" />
+                  <TextField fx:id="field_territory" layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="733.0" promptText="Территория действия полиса" />
                   <TextField layoutX="319.0" layoutY="1106.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты" />
                   <TextField layoutX="245.0" layoutY="1137.0" prefHeight="46.0" prefWidth="742.0" promptText="Периоды оплаты" />
-                  <TextField layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="627.0" promptText="Вариант страхования" />
-                  <TextField layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="596.0" promptText="Действительная стоимость" />
-                  <TextField layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="596.0" promptText="Страховая стоимость" />
-                  <TextField layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="750.0" promptText="Страховой взнос" />
+                  <TextField fx:id="field_option" layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="627.0" promptText="Вариант страхования" />
+                  <TextField fx:id="field_real_coast" layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="596.0" promptText="Действительная стоимость" />
+                  <TextField fx:id="field_coast" layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="596.0" promptText="Страховая стоимость" />
+                  <TextField fx:id="field_payment" layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="750.0" promptText="Страховой взнос" />
                </children>
             </Pane>
          </content>

@@ -3,10 +3,12 @@ package inshurer.view;
 import inshurer.Main;
 import inshurer.model.BaseData;
 import inshurer.model.ERGO;
+import inshurer.model.Polis;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -147,6 +149,8 @@ public class RateERGOController {
     private TextField field_third_pay;
     @FXML
     private TextField field_fourth_pay;
+
+    Polis polis;
 
     //инициализация полей списков
     @FXML
@@ -293,10 +297,22 @@ public class RateERGOController {
 
     @FXML
     private void onClickNext() throws IOException, SQLException {
+
         main.showPolis();
 
+    }
+//записали значения из рассчета тарифа
+    @FXML
+    public void initFieldPolis() {
+        String territory = String.valueOf(boxTeritoty.getValue());
+        String option = String.valueOf(boxOption.getValue());
+        String coast = field_coastCar.getText();
+        String condition_franchisecoast = String.valueOf(boxCondition_franchise.getValue());
+        String no_condition_franchisecoast = String.valueOf(boxNo_condition_franchise.getValue());
+        String payment = field_payment.getText();
 
     }
+
 
     @FXML
     private void paymentOption() {

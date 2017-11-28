@@ -3,9 +3,7 @@ package inshurer.view;
 import inshurer.Main;
 import inshurer.model.BaseData;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-
+import javafx.scene.control.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -18,7 +16,19 @@ public class PolisController {
     @FXML
     TextArea initCar;
     @FXML
-    TextArea field_franshis;
+    TextField field_franshise;
+    @FXML
+    TextField field_second_franshise;
+    @FXML
+    TextField field_territory;
+    @FXML
+    TextField field_payment;
+    @FXML
+    TextField field_option;
+    @FXML
+    TextField field_coast;
+    @FXML
+    TextField field_real_coast;
     @FXML
     Button searchPerson;
     @FXML
@@ -99,10 +109,17 @@ public class PolisController {
         main.showRateERGO();
     }
 
-    //метод получения данных из БД инициализации полей после расчета тарифа
-
-
     @FXML
-    public void initialize() {
+    public void initPolis(String territory, String option, String coast, String condition_franchisecoast, String no_condition_franchisecoast, String payment) {
+        field_option.setText(option);
+        field_territory.setText(territory);
+        field_coast.setText(coast);
+        field_real_coast.setText(coast);
+        field_franshise.setText(condition_franchisecoast);
+        field_second_franshise.setText(no_condition_franchisecoast);
+        field_payment.setText(payment);
+
     }
+
+
 }
