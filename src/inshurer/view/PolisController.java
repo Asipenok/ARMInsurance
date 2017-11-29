@@ -32,6 +32,8 @@ public class PolisController {
     @FXML
     TextField field_real_coast;
     @FXML
+    TextField field_coast_year;
+    @FXML
     Button searchPerson;
     @FXML
     Button newPerson;
@@ -119,6 +121,9 @@ public class PolisController {
         field_option.setText(polis.getOption());
         field_franshise.setText(polis.getFranchise());
         field_second_franshise.setText(polis.getFranchiseSecond());
+        field_payment.setText(polis.getPayment());
+        field_real_coast.setText(polis.getRealCoast());
+        field_coast.setText(polis.getRealCoast());
 
     }
 

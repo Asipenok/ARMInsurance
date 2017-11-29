@@ -16,8 +16,8 @@ public class BaseData {
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_CAR = "INSERT INTO car (TypeCar, Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?,?)";
     private static final String INSERT_RATE = "INSERT INTO rate (vehicle, territory, quantity, protect, level_driver, rent_taxi, " +
-            "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate, optionInsurer) " +
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate, optionInsurer, realCoast) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
     private static final String SELECT_RATE_ERGO = "SELECT * FROM rate ORDER BY id DESC LIMIT 1";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
@@ -249,7 +249,7 @@ public class BaseData {
     public void insertRateData(Double vehicle, Double territory, Double quantity, Double protect, Double level_driver,
                                Double rent_taxi, Double condition_franchise, Double no_condition_franchise, Double additional_types,
                                Double bonus, Double manus, Double payment, Double ads, Double salon, Double employee, Double cars,
-                               String company, Double rate, Double optionInsurer) throws SQLException {
+                               String company, Double rate, Double optionInsurer, Double realCoast) throws SQLException {
 
         preparedStatement = connection.prepareStatement(INSERT_RATE);
 
@@ -273,6 +273,7 @@ public class BaseData {
             preparedStatement.setString(17, company);
             preparedStatement.setDouble(18, rate);
             preparedStatement.setDouble(19, optionInsurer);
+            preparedStatement.setDouble(20, realCoast);
 
             preparedStatement.execute();
             connection.close();
@@ -313,6 +314,7 @@ public class BaseData {
                 resRateERGO.put("cars", res.getString("cars"));
                 resRateERGO.put("company", res.getString("company"));
                 resRateERGO.put("optionInsurer", res.getString("optionInsurer"));
+                resRateERGO.put("realCoast", res.getString("realCoast"));
 
             }
             System.out.println("search item ");

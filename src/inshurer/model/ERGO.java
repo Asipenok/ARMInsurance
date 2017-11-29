@@ -102,6 +102,7 @@ public class ERGO {
     public double getCarsRate() {
         return carsRate;
     }
+
     public double getOptionRate() {
         return optionRate;
     }

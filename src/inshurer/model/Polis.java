@@ -27,15 +27,28 @@ public class Polis {
         initFieldPolis();
         return franchise_second;
     }
+    public String getPayment() throws SQLException {
+        initFieldPolis();
+        return payment;
+    }
+    public String getRealCoast() throws SQLException {
+        initFieldPolis();
+        return real_coast;
+    }
 
     private String territory;
     private String option;
     private String franchise;
     private String franchise_second;
+    private String payment;
+    private String real_coast;
 
     public void initFieldPolis() throws SQLException {
 
         HashMap<String, String> values = baseData.findRate();
+
+        //запись в поле стоимость авто
+        real_coast = values.get("realCoast");
 
         //запись в поле территория действия полиса
         if (values.get("territory").equals("1")) {
@@ -91,6 +104,19 @@ public class Polis {
             case "1":
                 franchise_second = " ";
                 break;
+        }
+        //запись в поле порядок оплаты
+        switch (values.get("payment")) {
+            case "0.9":
+                 payment = "Единовременно";
+                break;
+            case "1":
+                payment = "В два этапа";
+                break;
+            case "1.05":
+                payment = "Ежеквартально";
+                break;
+
         }
 
 

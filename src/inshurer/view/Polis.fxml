@@ -36,12 +36,12 @@
                   <TextField fx:id="field_franshise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="750.0" promptText="Бузусловная франшиза" />
                   <TextField fx:id="field_second_franshise" layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="750.0" promptText="Условная франшиза" />
                   <TextField fx:id="field_territory" layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="733.0" promptText="Территория действия полиса" />
-                  <TextField layoutX="319.0" layoutY="1106.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты" />
+                  <TextField fx:id="field_payment" layoutX="319.0" layoutY="1106.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты" />
                   <TextField layoutX="245.0" layoutY="1137.0" prefHeight="46.0" prefWidth="742.0" promptText="Периоды оплаты" />
                   <TextField fx:id="field_option" layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="627.0" promptText="Вариант страхования" />
                   <TextField fx:id="field_real_coast" layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="596.0" promptText="Действительная стоимость" />
                   <TextField fx:id="field_coast" layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="596.0" promptText="Страховая стоимость" />
-                  <TextField fx:id="field_payment" layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="750.0" promptText="Страховой взнос" />
+                  <TextField fx:id="field_coast_year" layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="750.0" promptText="Страховой взнос" />
                </children>
             </Pane>
          </content>

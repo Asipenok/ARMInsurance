@@ -229,14 +229,15 @@ public class RateERGOController {
         rezultCalc.setText(rez);
         paymentOption();
     }
+
     //получение значания из Территории
     @FXML
-    public String getTerritorryRate(){
+    public String getTerritorryRate() {
         String territorry = String.valueOf(boxTeritoty.getValue());
         return territorry;
     }
 
-       //получение значания из радиогруппы РЕКЛАМА
+    //получение значания из радиогруппы РЕКЛАМА
     @FXML
     private String groupABS() {
         String adsRez;
@@ -294,7 +295,7 @@ public class RateERGOController {
             baseData.insertRateData(ergo.getVehicleRate(), ergo.getTerritoryRate(), ergo.getQuantityRate(), ergo.getProtectRate(), ergo.getLevel_driverRate(),
                     ergo.getRent_taxiRate(), ergo.getCondition_franchiseRate(), ergo.getNo_condition_franchiseRate(), ergo.getAdditional_typesRate(),
                     ergo.getBonusRate(), ergo.getManusRate(), ergo.getPaymentRate(), ergo.getAdsRate(), ergo.getSalonRate(), ergo.getEmployeeRate(),
-                    ergo.getCarsRate(), company, ergo.getRezCalc(), ergo.getOptionRate());
+                    ergo.getCarsRate(), company, ergo.getRezCalc(), ergo.getOptionRate(), Double.valueOf(field_coastCar.getText()));
 
         } catch (SQLException e) {
             e.printStackTrace();
