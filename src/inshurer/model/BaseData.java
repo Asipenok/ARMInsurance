@@ -16,10 +16,10 @@ public class BaseData {
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_CAR = "INSERT INTO car (TypeCar, Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?,?)";
     private static final String INSERT_RATE = "INSERT INTO rate (vehicle, territory, quantity, protect, level_driver, rent_taxi, " +
-            "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate ) " +
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, rate, optionInsurer) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
-    private static final String SELECT_RATE_ERGO = "SELECT * FROM rate";
+    private static final String SELECT_RATE_ERGO = "SELECT * FROM rate ORDER BY id DESC LIMIT 1";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
     private static final String SELECT_CAR_NUMBER = "SELECT * FROM car WHERE NumberCar = ?";
@@ -55,6 +55,7 @@ public class BaseData {
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
+
                 resHashMap.put("id_number", personal_number);
                 resHashMap.put("last_name", res.getString("LastName"));
                 resHashMap.put("first_name", res.getString("FirstName"));
@@ -93,6 +94,7 @@ public class BaseData {
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
+                resHashMap.put("id", res.getString("id"));
                 resHashMap.put("last_name", last_name);
                 resHashMap.put("id_number", res.getString("PersonalNumber"));
                 resHashMap.put("first_name", res.getString("FirstName"));
@@ -158,7 +160,8 @@ public class BaseData {
     }
 
     //метод вставки данных по авто
-    public void insertCar(String typeCar, String brandCar, String modelCar, String vin, String numberCar, LocalDate yearCar, String coastCar, String currencyCar) throws SQLException {
+    public void insertCar(String typeCar, String brandCar, String modelCar, String vin, String numberCar, LocalDate yearCar,
+                          String coastCar, String currencyCar) throws SQLException {
         preparedStatement = connection.prepareStatement(INSERT_CAR);
 
         try {
@@ -172,7 +175,7 @@ public class BaseData {
             preparedStatement.setString(8, currencyCar);
 
             preparedStatement.execute();
-            connection.close();
+
             System.out.println("car add");
         } catch (SQLException e) {
             System.out.println("Вставь уникальный ВИН");
@@ -191,6 +194,7 @@ public class BaseData {
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
+                resCarHashMap.put("id", res.getString("id"));
                 resCarHashMap.put("vin", res.getString("VIN"));
                 resCarHashMap.put("brand", res.getString("Brand"));
                 resCarHashMap.put("model", res.getString("ModelCar"));
@@ -221,6 +225,7 @@ public class BaseData {
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
+                resCarHashMap.put("id", res.getString("id"));
                 resCarHashMap.put("vin", res.getString("VIN"));
                 resCarHashMap.put("brand", res.getString("Brand"));
                 resCarHashMap.put("model", res.getString("ModelCar"));
@@ -244,7 +249,7 @@ public class BaseData {
     public void insertRateData(Double vehicle, Double territory, Double quantity, Double protect, Double level_driver,
                                Double rent_taxi, Double condition_franchise, Double no_condition_franchise, Double additional_types,
                                Double bonus, Double manus, Double payment, Double ads, Double salon, Double employee, Double cars,
-                               String company, Double rate) throws SQLException {
+                               String company, Double rate, Double optionInsurer) throws SQLException {
 
         preparedStatement = connection.prepareStatement(INSERT_RATE);
 
@@ -267,6 +272,7 @@ public class BaseData {
             preparedStatement.setDouble(16, cars);
             preparedStatement.setString(17, company);
             preparedStatement.setDouble(18, rate);
+            preparedStatement.setDouble(19, optionInsurer);
 
             preparedStatement.execute();
             connection.close();
@@ -288,6 +294,7 @@ public class BaseData {
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
+                resRateERGO.put("id", res.getString("id"));
                 resRateERGO.put("vehicle", res.getString("vehicle"));
                 resRateERGO.put("territory", res.getString("territory"));
                 resRateERGO.put("quantity", res.getString("quantity"));
@@ -305,6 +312,7 @@ public class BaseData {
                 resRateERGO.put("employee", res.getString("employee"));
                 resRateERGO.put("cars", res.getString("cars"));
                 resRateERGO.put("company", res.getString("company"));
+                resRateERGO.put("optionInsurer", res.getString("optionInsurer"));
 
             }
             System.out.println("search item ");

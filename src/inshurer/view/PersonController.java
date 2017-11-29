@@ -20,6 +20,7 @@ import java.util.HashMap;
 public class PersonController {
 
     private Main main;
+    private BaseData baseData = new BaseData();
 
     //заполнение коэффициента по типу документа
     ObservableList<String> typeDoc = FXCollections.observableArrayList
@@ -27,14 +28,12 @@ public class PersonController {
                     "Вид на жительство",
                     "Дипломатическая карточка");
 
-
     //заполнение коэффициента по серии документа
     ObservableList<String> serialDoc = FXCollections.observableArrayList
             ("MP",
                     "AB",
                     "KB",
                     "MC");
-
 
     //заполнение коэффициента кем выдан документ
     ObservableList<String> issuedDoc = FXCollections.observableArrayList
@@ -101,7 +100,6 @@ public class PersonController {
 
     private String person;
 
-    // private String person;
 
     @FXML
     private void clickNextToCar() throws IOException {
@@ -111,7 +109,7 @@ public class PersonController {
     //по нажатию кнопки id для поиска сохраняется в переменную search_id
     @FXML
     public void clickSearchByID() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
+
         String search_id = field_id_number.getText();
 
 
@@ -154,7 +152,7 @@ public class PersonController {
     //по нажатию кнопки поиск по фамилии
     @FXML
     private void clickSearchByLastName() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
+
         String search_last_name = field_last_name.getText();
 
         HashMap<String, String> values = baseData.findPersonByLastName(search_last_name);
@@ -187,7 +185,7 @@ public class PersonController {
     //нажатие на кнопку SAVE Person
     @FXML
     private void clickSavePerson() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
+
         String last_name = getLastName();
         String first_name = getFirstName();
         String middle_name = getMiddleName();

@@ -4,6 +4,8 @@ public class ERGO {
 
     //тип авто
     private double vehicleRate = 1;
+    //вариант страхования
+    private double optionRate = 1;
     //территория действия
     private double territoryRate = 0.9;
     //количество единиц
@@ -100,9 +102,12 @@ public class ERGO {
     public double getCarsRate() {
         return carsRate;
     }
+    public double getOptionRate() {
+        return optionRate;
+    }
 
 
-    public void calculateRate(String vehicle, String territory, String quantity, String protect, String level_driver, String rent_taxi,
+    public void calculateRate(String vehicle, String option, String territory, String quantity, String protect, String level_driver, String rent_taxi,
                               String condition_franchise, String no_condition_franchise, String additional_types,
                               String bonus, String manus, String payment, String ads, String salon, String employee, String car) {
 
@@ -117,8 +122,20 @@ public class ERGO {
                 vehicleRate = 1.5;
                 break;
         }
+        switch (option) {
+            case "Вариант 1 - без учета износа, Б - Стандарт":
+                optionRate = 1.2;
+                break;
+            case "Вариант 1 - без учета износа, В - Премиум":
+                optionRate = 1.4;
+                break;
+            case "Вариант 2 - с учетом износа":
+                optionRate = 1;
+                break;
+        }
+
         switch (territory) {
-            case "Все страны мира (за исключением регионов военных действий":
+            case "Все страны мира (за исключением регионов военных действий)":
                 territoryRate = 1;
                 break;
         }
@@ -264,7 +281,7 @@ public class ERGO {
         } else {
             carsRate = 1;
         }
-        rezCalc = vehicleRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
+        rezCalc = vehicleRate * optionRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
                 condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate *
                 salonRate * employeeRate * carsRate;
     }

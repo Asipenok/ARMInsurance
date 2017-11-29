@@ -1,5 +1,7 @@
 package inshurer;
 
+import inshurer.model.BaseData;
+import inshurer.model.ERGO;
 import inshurer.model.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

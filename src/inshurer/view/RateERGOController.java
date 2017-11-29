@@ -3,6 +3,7 @@ package inshurer.view;
 import inshurer.Main;
 import inshurer.model.BaseData;
 import inshurer.model.ERGO;
+import inshurer.model.Money;
 import inshurer.model.Polis;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,13 +16,13 @@ import java.math.RoundingMode;
 import java.sql.SQLException;
 
 
-import static java.lang.String.format;
-
-
 public class RateERGOController {
 
     private Main main;
     private ERGO ergo = new ERGO();
+    private Polis polis = new Polis();
+    private PolisController polisController = new PolisController();
+
 
     //заполнение коэффициента по типу ТС
     ObservableList<String> vehicle = FXCollections.observableArrayList
@@ -150,7 +151,6 @@ public class RateERGOController {
     @FXML
     private TextField field_fourth_pay;
 
-    Polis polis;
 
     //инициализация полей списков
     @FXML
@@ -162,7 +162,7 @@ public class RateERGOController {
         boxOption.setValue("Вариант 1 - без учета износа, Б - Стандарт");
         boxOption.setItems(option);
 
-        boxTeritoty.setValue("Все страны мира (за исключением регионов военных действий");
+        boxTeritoty.setValue("Все страны мира (за исключением регионов военных действий)");
         boxTeritoty.setItems(teritory);
 
         boxQuantity.setValue("1 единица");
@@ -209,6 +209,7 @@ public class RateERGOController {
     private void onClickCalculate() {
 
         ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
+                String.valueOf(boxOption.getValue()),
                 String.valueOf(boxTeritoty.getValue()),
                 String.valueOf(boxQuantity.getValue()),
                 String.valueOf(boxProtect.getValue()),
@@ -228,8 +229,14 @@ public class RateERGOController {
         rezultCalc.setText(rez);
         paymentOption();
     }
+    //получение значания из Территории
+    @FXML
+    public String getTerritorryRate(){
+        String territorry = String.valueOf(boxTeritoty.getValue());
+        return territorry;
+    }
 
-    //получение значания из радиогруппы РЕКЛАМА
+       //получение значания из радиогруппы РЕКЛАМА
     @FXML
     private String groupABS() {
         String adsRez;
@@ -287,7 +294,7 @@ public class RateERGOController {
             baseData.insertRateData(ergo.getVehicleRate(), ergo.getTerritoryRate(), ergo.getQuantityRate(), ergo.getProtectRate(), ergo.getLevel_driverRate(),
                     ergo.getRent_taxiRate(), ergo.getCondition_franchiseRate(), ergo.getNo_condition_franchiseRate(), ergo.getAdditional_typesRate(),
                     ergo.getBonusRate(), ergo.getManusRate(), ergo.getPaymentRate(), ergo.getAdsRate(), ergo.getSalonRate(), ergo.getEmployeeRate(),
-                    ergo.getCarsRate(), company, ergo.getRezCalc());
+                    ergo.getCarsRate(), company, ergo.getRezCalc(), ergo.getOptionRate());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -297,22 +304,8 @@ public class RateERGOController {
 
     @FXML
     private void onClickNext() throws IOException, SQLException {
-
         main.showPolis();
-
     }
-//записали значения из рассчета тарифа
-    @FXML
-    public void initFieldPolis() {
-        String territory = String.valueOf(boxTeritoty.getValue());
-        String option = String.valueOf(boxOption.getValue());
-        String coast = field_coastCar.getText();
-        String condition_franchisecoast = String.valueOf(boxCondition_franchise.getValue());
-        String no_condition_franchisecoast = String.valueOf(boxNo_condition_franchise.getValue());
-        String payment = field_payment.getText();
-
-    }
-
 
     @FXML
     private void paymentOption() {

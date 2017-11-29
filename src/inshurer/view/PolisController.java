@@ -1,6 +1,7 @@
 package inshurer.view;
 
 import inshurer.Main;
+import inshurer.model.Polis;
 import inshurer.model.BaseData;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -43,7 +44,8 @@ public class PolisController {
     Button newCar;
 
     private Main main;
-    PersonController personController = new PersonController();
+    private Polis polis = new Polis();
+    private RateERGOController rateERGOController;
 
     //метод поиска и вставки страхователя из БД
     @FXML
@@ -110,16 +112,11 @@ public class PolisController {
     }
 
     @FXML
-    public void initPolis(String territory, String option, String coast, String condition_franchisecoast, String no_condition_franchisecoast, String payment) {
-        field_option.setText(option);
-        field_territory.setText(territory);
-        field_coast.setText(coast);
-        field_real_coast.setText(coast);
-        field_franshise.setText(condition_franchisecoast);
-        field_second_franshise.setText(no_condition_franchisecoast);
-        field_payment.setText(payment);
+    private void initialize() throws SQLException {
+
+       field_territory.setText(polis.getTerritory());
+        field_option.setText(polis.getOption());
 
     }
-
 
 }

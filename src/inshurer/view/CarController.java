@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -18,6 +17,8 @@ import java.util.HashMap;
 
 public class CarController {
     private Main main;
+    private BaseData baseData = new BaseData();
+
     //заполнение валюты платежа
     ObservableList<String> currency = FXCollections.observableArrayList
             ("USD", "EUR", "RUB", "BYN");
@@ -85,7 +86,6 @@ public class CarController {
 
     @FXML
     private void clickSaveCar() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
 
         String typeCar = getboxTypeCar();
         String brandCar = getfieldBrandCar();
@@ -107,7 +107,7 @@ public class CarController {
     //по нажатию кнопки поиск по VIN
     @FXML
     private void clickSearchByVIN() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
+
         String search_vin = fieldVIN.getText();
 
         HashMap<String, String> values = baseData.findCarByVIN(search_vin);
@@ -132,7 +132,7 @@ public class CarController {
     //по нажатию кнопки поиск по номеру машины
     @FXML
     private void clickSearchByNumber() throws IOException, SQLException {
-        BaseData baseData = new BaseData();
+
         String search_number = fieldNumberCar.getText();
 
         HashMap<String, String> values = baseData.findCarByNumber(search_number);
@@ -185,11 +185,11 @@ public class CarController {
 
     public String getboxTypeCar() {
         String type = (String) boxTypeCar.getValue();
+
         return type;
     }
 
     @FXML
-    private void onClickEdit() throws IOException {
-        main.showPolis();
+    private void onClickEdit() throws IOException, SQLException {
     }
 }
