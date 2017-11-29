@@ -5,6 +5,7 @@ import inshurer.model.Polis;
 import inshurer.model.BaseData;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -114,8 +115,10 @@ public class PolisController {
     @FXML
     private void initialize() throws SQLException {
 
-       field_territory.setText(polis.getTerritory());
+        field_territory.setText(polis.getTerritory());
         field_option.setText(polis.getOption());
+        field_franshise.setText(polis.getFranchise());
+        field_second_franshise.setText(polis.getFranchiseSecond());
 
     }
 
