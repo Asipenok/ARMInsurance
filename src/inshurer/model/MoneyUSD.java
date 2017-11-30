@@ -5,13 +5,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Money {
+public class MoneyUSD {
     private BigDecimal amount;
 
     /**
      * Конструктор из Long
      */
-    public Money(long l) {
+    public MoneyUSD(long l) {
         String s = String.valueOf(l);
         if (!s.contains(".") )
             s += ".0";
@@ -21,7 +21,7 @@ public class Money {
     /**
      * Конструктор из Double
      */
-    public Money(double l) {
+    public MoneyUSD(double l) {
         String s = String.valueOf(l);
         if (!s.contains(".") )
             s += ".0";
@@ -31,7 +31,7 @@ public class Money {
     /**
      * Конструктор из String
      */
-    public Money(String s) {
+    public MoneyUSD(String s) {
         if (!s.contains(".") )
             s += ".0";
         this.amount = new BigDecimal( s );
@@ -65,8 +65,8 @@ public class Money {
         String[] str11 = {"","десять","одиннадцать","двенадцать","тринадцать","четырнадцать", "пятнадцать","шестнадцать","семнадцать","восемнадцать","девятнадцать","двадцать"};
         String[] str10 = {"","десять","двадцать","тридцать","сорок","пятьдесят","шестьдесят", "семьдесят","восемьдесят","девяносто"};
         String[][] forms = {
-                {"копейка", "копейки", "копеек", "1"},
-                {"рубль", "рубля", "рублей", "0"},
+                {" ", " ", " ", "1"},
+                {"доллар США", "доллара США", "долларов США", "0"},
                 {"тысяча", "тысячи", "тысяч", "1"},
                 {"миллион", "миллиона", "миллионов", "0"},
                 {"миллиард","миллиарда","миллиардов","0"},
@@ -135,13 +135,13 @@ public class Money {
             lev--;
         }
         // Копейки в цифровом виде
-        if (stripkop) {
-            o = o.replaceAll(" {2,}", " ");
-        }
-        else {
-            o = o+""+kops+" "+morph(kop,forms[ 0][ 0],forms[ 0][1],forms[ 0][2]);
-            o = o.replaceAll(" {2,}", " ");
-        }
+//        if (stripkop) {
+//            o = o.replaceAll(" {2,}", " ");
+//        }
+//        else {
+//            o = o+""+kops+" "+morph(kop,forms[ 0][ 0],forms[ 0][1],forms[ 0][2]);
+//            o = o.replaceAll(" {2,}", " ");
+//        }
         return o;
     }
 
@@ -167,3 +167,4 @@ public class Money {
 //    Money mo = new Money(25.35);
 //    String money_as_string = mo.num2str();
 //    System.out.println(money_as_string);
+

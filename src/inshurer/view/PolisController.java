@@ -1,8 +1,7 @@
 package inshurer.view;
 
 import inshurer.Main;
-import inshurer.model.Polis;
-import inshurer.model.BaseData;
+import inshurer.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -63,7 +62,7 @@ public class PolisController {
     //метод поиска и вставки страхователя из БД
     @FXML
     public void clickSearchPerson() throws SQLException {
-       BaseData baseData = new BaseData();
+        BaseData baseData = new BaseData();
         String vin = initPerson.getText();
         String person;
 
@@ -133,15 +132,37 @@ public class PolisController {
         field_franshise.setText(polis.getFranchise());
         field_second_franshise.setText(polis.getFranchiseSecond());
         field_payment.setText(polis.getPayment());
-        field_real_coast.setText(polis.getRealCoast());
-        field_coast.setText(polis.getRealCoast());
+        field_real_coast.setText(polis.getRealCoast() + " " + propisBelRub(polis.getRealCoast()));
+        field_coast.setText(polis.getRealCoast() + " " + propisBelRub(polis.getRealCoast()));
         doDate.setValue(LocalDate.now());
 
     }
 
+    //метод цифры - доллары прописью
     @FXML
-    public void setEndDate() {
-        endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
+    public String propisUSD(String coast) {
+        MoneyUSD mo = new MoneyUSD(coast);
+        return mo.num2str();
     }
 
+    //метод цифры - евро прописью
+    @FXML
+    public String propisEUR(String coast) {
+        MoneyEUR mo = new MoneyEUR(coast);
+        return mo.num2str();
+    }
+
+    //метод цифры - бел руб прописью
+    @FXML
+    public String propisBelRub(String coast) {
+        Money mo = new Money(coast);
+        return mo.num2str();
+    }
+
+
+    @FXML
+    public void setEndDate() throws SQLException {
+        endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
+
+    }
 }
