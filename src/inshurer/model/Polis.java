@@ -1,12 +1,15 @@
 package inshurer.model;
 
+import inshurer.view.RateERGOController;
+
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Polis {
 
     private BaseData baseData = new BaseData();
-
+    private RateERGOController rateERGOController;
 
     public String getTerritory() throws SQLException {
         initFieldPolis();
@@ -27,10 +30,12 @@ public class Polis {
         initFieldPolis();
         return franchise_second;
     }
+
     public String getPayment() throws SQLException {
         initFieldPolis();
         return payment;
     }
+
     public String getRealCoast() throws SQLException {
         initFieldPolis();
         return real_coast;
@@ -42,6 +47,11 @@ public class Polis {
     private String franchise_second;
     private String payment;
     private String real_coast;
+    private LocalDate startDate;
+    private LocalDate endDate;
+
+
+
 
     public void initFieldPolis() throws SQLException {
 
@@ -108,7 +118,7 @@ public class Polis {
         //запись в поле порядок оплаты
         switch (values.get("payment")) {
             case "0.9":
-                 payment = "Единовременно";
+                payment = "Единовременно";
                 break;
             case "1":
                 payment = "В два этапа";

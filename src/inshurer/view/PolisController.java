@@ -8,52 +8,62 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class PolisController {
     @FXML
-    TextArea initPerson;
+    private TextArea initPerson;
     @FXML
-    TextArea initOwner;
+    private TextArea initOwner;
     @FXML
-    TextArea initCar;
+    private TextArea initCar;
     @FXML
-    TextField field_franshise;
+    private TextField field_franshise;
     @FXML
-    TextField field_second_franshise;
+    private TextField field_second_franshise;
     @FXML
-    TextField field_territory;
+    private TextField field_territory;
     @FXML
-    TextField field_payment;
+    private TextField field_payment;
     @FXML
-    TextField field_option;
+    private TextField field_option;
     @FXML
-    TextField field_coast;
+    private TextField field_coast;
     @FXML
-    TextField field_real_coast;
+    private TextField field_real_coast;
     @FXML
-    TextField field_coast_year;
+    private TextField field_coast_year;
     @FXML
-    Button searchPerson;
+    private Button searchPerson;
     @FXML
-    Button newPerson;
+    private Button newPerson;
     @FXML
-    Button searchOwner;
+    private Button searchOwner;
     @FXML
-    Button newOwner;
+    private Button newOwner;
     @FXML
-    Button searchCar;
+    private Button searchCar;
     @FXML
-    Button newCar;
+    private Button newCar;
+    @FXML
+    private DatePicker startDate;
+    @FXML
+    private DatePicker endDate;
+    @FXML
+    private DatePicker doDate;
+    @FXML
+    private TextField period_payment;
 
     private Main main;
     private Polis polis = new Polis();
     private RateERGOController rateERGOController;
 
+
     //метод поиска и вставки страхователя из БД
     @FXML
     public void clickSearchPerson() throws SQLException {
-        BaseData baseData = new BaseData();
+       BaseData baseData = new BaseData();
         String vin = initPerson.getText();
         String person;
 
@@ -114,6 +124,7 @@ public class PolisController {
         main.showRateERGO();
     }
 
+
     @FXML
     private void initialize() throws SQLException {
 
@@ -124,7 +135,13 @@ public class PolisController {
         field_payment.setText(polis.getPayment());
         field_real_coast.setText(polis.getRealCoast());
         field_coast.setText(polis.getRealCoast());
+        doDate.setValue(LocalDate.now());
 
+    }
+
+    @FXML
+    public void setEndDate() {
+        endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
     }
 
 }

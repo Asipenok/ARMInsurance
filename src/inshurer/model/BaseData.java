@@ -317,7 +317,7 @@ public class BaseData {
                 resRateERGO.put("realCoast", res.getString("realCoast"));
 
             }
-            System.out.println("search item ");
+         //   System.out.println("search item ");
 
         } catch (
                 SQLException e) {

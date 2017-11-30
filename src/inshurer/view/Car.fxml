@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.CarController">
+<AnchorPane prefHeight="900.0" prefWidth="900.0" stylesheets="@JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.CarController">
    <children>
       <GridPane AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="200.0">
         <columnConstraints>
@@ -49,9 +49,9 @@
                <children>
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clickClear" text="Clear" />
-                        <Button fx:id="btn_Edit" mnemonicParsing="false" onAction="#onClickEdit" text="Edit" />
-                        <Button fx:id="btn_saveCar" mnemonicParsing="false" onAction="#clickSaveCar" text="Save" />
+                        <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clickClear" prefWidth="80.0" text="Clear" />
+                        <Button fx:id="btn_Edit" mnemonicParsing="false" onAction="#onClickEdit" prefWidth="80.0" text="Edit" />
+                        <Button fx:id="btn_saveCar" mnemonicParsing="false" onAction="#clickSaveCar" prefWidth="80.0" text="Save" />
                      </children>
                   </HBox>
                </children>

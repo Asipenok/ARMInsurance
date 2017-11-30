@@ -21,7 +21,6 @@ public class RateERGOController {
     private Main main;
     private ERGO ergo = new ERGO();
     private Polis polis = new Polis();
-    private PolisController polisController = new PolisController();
 
 
     //заполнение коэффициента по типу ТС
@@ -150,7 +149,18 @@ public class RateERGOController {
     private TextField field_third_pay;
     @FXML
     private TextField field_fourth_pay;
+    @FXML
+    private TextField field_date_first_pay;
+    @FXML
+    private TextField field_date_second_pay;
+    @FXML
+    private TextField field_date_third_pay;
+    @FXML
+    private TextField field_date_fourth_pay;
+    @FXML
+    private DatePicker begin;
 
+    private String rezult_payment;
 
     //инициализация полей списков
     @FXML
@@ -206,7 +216,7 @@ public class RateERGOController {
 
     //расчет тарифа
     @FXML
-    private void onClickCalculate() {
+    public void onClickCalculate() {
 
         ergo.calculateRate(String.valueOf(boxVehicle.getValue()),
                 String.valueOf(boxOption.getValue()),
@@ -224,10 +234,22 @@ public class RateERGOController {
                 groupABS(), groupSalon(), groupEmployee(), groupCar()
         );
 
+
         String rez = String.valueOf(ergo.getRezCalc());
         rez = String.valueOf(new BigDecimal(rez).setScale(2, RoundingMode.HALF_UP).floatValue());
         rezultCalc.setText(rez);
+
         paymentOption();
+
+
+    }
+
+    public String getRezPay() {
+        rezult_payment = field_first_currency.getText() + "USD до " + field_date_first_pay.getText() + " " + field_second_currency.getText()
+                + "USD до " + field_date_second_pay.getText() + " " + field_third_currency.getText() + "USD до " + field_date_third_pay.getText() + "  " +
+                field_fourth_currency.getText() + "USD до " + field_date_fourth_pay.getText();
+        System.out.println(rezult_payment + "метод");
+        return rezult_payment;
     }
 
     //получение значания из Территории
@@ -331,8 +353,6 @@ public class RateERGOController {
         switch (String.valueOf(boxPayment.getValue())) {
 
             case "ежеквартально":
-
-
                 field_first_currency.setText(String.valueOf(new BigDecimal(first_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
                 field_second_currency.setText(String.valueOf(new BigDecimal(second_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
                 field_third_currency.setText(String.valueOf(new BigDecimal(third_pay).setScale(2, RoundingMode.HALF_UP).floatValue()));
@@ -343,6 +363,10 @@ public class RateERGOController {
                 field_third_pay.setText(String.valueOf(new BigDecimal(third_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
                 field_fourth_pay.setText(String.valueOf(new BigDecimal(four_pay_cur).setScale(2, RoundingMode.HALF_UP).floatValue()));
 
+                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
+                field_date_second_pay.setText(String.valueOf(begin.getValue().plusMonths(3).minusDays(1)));
+                field_date_third_pay.setText(String.valueOf(begin.getValue().plusMonths(6).minusDays(1)));
+                field_date_fourth_pay.setText(String.valueOf(begin.getValue().plusMonths(9).minusDays(1)));
 
                 break;
 
@@ -357,6 +381,11 @@ public class RateERGOController {
                 field_third_pay.setText("");
                 field_fourth_pay.setText("");
 
+                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
+                field_date_second_pay.setText(String.valueOf(begin.getValue().plusMonths(6).minusDays(1)));
+                field_date_third_pay.setText("");
+                field_date_fourth_pay.setText("");
+
                 break;
 
             case "единовременно":
@@ -370,10 +399,15 @@ public class RateERGOController {
                 field_third_pay.setText("");
                 field_fourth_pay.setText("");
 
+                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
+                field_date_second_pay.setText("");
+                field_date_third_pay.setText("");
+                field_date_fourth_pay.setText("");
                 break;
 
         }
-
     }
+
 }
+
 

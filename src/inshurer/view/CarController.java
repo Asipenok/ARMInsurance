@@ -176,6 +176,8 @@ public class CarController {
         boxTypeCar.setValue("Легковой автомобиль");
         boxTypeCar.setItems(type);
 
+        yearCar.setValue(LocalDate.now());
+
     }
 
     public String getfieldBrandCar() {
