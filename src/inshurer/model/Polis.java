@@ -40,6 +40,10 @@ public class Polis {
         initFieldPolis();
         return real_coast;
     }
+    public String getCoast_year() throws SQLException {
+        initFieldPolis();
+        return coast_year;
+    }
 
     private String territory;
     private String option;
@@ -47,6 +51,7 @@ public class Polis {
     private String franchise_second;
     private String payment;
     private String real_coast;
+    private String coast_year;
     private LocalDate startDate;
     private LocalDate endDate;
 
@@ -57,6 +62,8 @@ public class Polis {
 
         HashMap<String, String> values = baseData.findRate();
 
+        //значение перменной годового взноса
+        coast_year = values.get("payment");
         //запись в поле стоимость авто
         real_coast = values.get("realCoast");
 

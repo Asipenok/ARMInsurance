@@ -132,10 +132,10 @@ public class PolisController {
         field_franshise.setText(polis.getFranchise());
         field_second_franshise.setText(polis.getFranchiseSecond());
         field_payment.setText(polis.getPayment());
-        field_real_coast.setText(polis.getRealCoast() + " " + propisBelRub(polis.getRealCoast()));
-        field_coast.setText(polis.getRealCoast() + " " + propisBelRub(polis.getRealCoast()));
+        field_real_coast.setText(polis.getRealCoast() + " " + propisEUR(polis.getRealCoast()));
+        field_coast.setText(polis.getRealCoast() + " " + propisUSD(polis.getRealCoast()));
         doDate.setValue(LocalDate.now());
-
+        field_coast_year.setText(polis.getCoast_year() + " " + propisBelRub(polis.getCoast_year()));
     }
 
     //метод цифры - доллары прописью
@@ -163,6 +163,5 @@ public class PolisController {
     @FXML
     public void setEndDate() throws SQLException {
         endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
-
     }
 }
