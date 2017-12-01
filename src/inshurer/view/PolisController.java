@@ -53,11 +53,34 @@ public class PolisController {
     private DatePicker doDate;
     @FXML
     private TextArea period_payment;
+    @FXML
+    private Button btn_Save;
+    @FXML
+    private Button btn_Search;
+    @FXML
+    private TextField field_polis_number;
 
     private Main main;
     private Polis polis = new Polis();
     private RateERGOController rateERGOController;
 
+    //метод записи полиса в БД
+    @FXML
+    public void clickSavePolis() {
+        String polis_number = getPolisNumber();
+        String polis_person = getPolisPerson();
+        String polis_owner = getPolisOwner();
+        String polis_territory = getPolisTerritory();
+        LocalDate polis_start_date = getPolisStartDate();
+        LocalDate polis_end_date = getPolisEndDate();
+        String polis_car = getPolisCar();
+        String polis_option = getPolisOption();
+        String polis_real_coast = getPolisRealCoast();
+        String polis_coast = getPolisCoast();
+        String polis_franshise = getPolisFranshise();
+        String polis_second_franshise = getPolisSecondFranshise();
+
+    }
 
     //метод поиска и вставки страхователя из БД
     @FXML
@@ -122,7 +145,6 @@ public class PolisController {
     public void clickShowRate() throws IOException {
         main.showRateERGO();
     }
-
 
     @FXML
     private void initialize() throws SQLException {
@@ -198,7 +220,6 @@ public class PolisController {
 
     }
 
-
     //метод цифры - доллары прописью
     @FXML
     public String propisUSD(String coast) {
@@ -225,5 +246,89 @@ public class PolisController {
         endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
         payOption();
 
+    }
+
+    //номер полиса
+    @FXML
+    public String getPolisNumber() {
+        String polisNumber = field_polis_number.getText();
+        return polisNumber;
+    }
+
+    //страхователь из поиса
+    @FXML
+    public String getPolisPerson() {
+        String polisNumber = field_polis_number.getText();
+        return polisNumber;
+    }
+
+    //выгодоприобретатель из полиса
+    @FXML
+    public String getPolisOwner() {
+        String polisOwner = initOwner.getText();
+        return polisOwner;
+    }
+
+    //территория из полиса
+    @FXML
+    public String getPolisTerritory() {
+        String polisTerritory = field_territory.getText();
+        return polisTerritory;
+    }
+
+    //начало страхования из полиса
+    @FXML
+    public LocalDate getPolisStartDate() {
+        LocalDate polisStartDate = startDate.getValue();
+        return polisStartDate;
+    }
+
+    //окончание страхования из полиса
+    @FXML
+    public LocalDate getPolisEndDate() {
+        LocalDate polisEndDate = startDate.getValue();
+        return polisEndDate;
+    }
+
+    //авто из полиса
+    @FXML
+    public String getPolisCar() {
+        String polisCar = initCar.getText();
+        return polisCar;
+    }
+
+    //вариант страхования из полиса
+    @FXML
+    public String getPolisOption() {
+        String polisOption = field_option.getText();
+        return polisOption;
+    }
+
+    //действительная стоимость из полиса
+    @FXML
+    public String getPolisRealCoast() {
+        String polisRealCoast = field_real_coast.getText();
+        return polisRealCoast;
+    }
+
+    //страховая стоимость из полиса
+    @FXML
+    public String getPolisCoast() {
+        String polisCoast = field_coast.getText();
+        return polisCoast;
+    }
+
+    //франшиза из полиса
+    @FXML
+    public String getPolisFranshise() {
+        String polisFranshise = field_franshise.getText();
+        return polisFranshise;
+    }
+
+    //вторая франшиза из полиса
+    @FXML
+    public String getPolisSecondFranshise() {
+        String polisSecondFranshise = field_second_franshise.getText();
+        return polisSecondFranshise;
     }
 }

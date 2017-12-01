@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/BaseData.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/BaseData.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/ERGO.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/ERGO.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/Polis.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/Polis.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/Car.fxml" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/Car.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/JMetroDarkTheme.css" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/JMetroDarkTheme.css" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/PolisController.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/PolisController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/RateERGO.fxml" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/RateERGO.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/RateERGOController.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/view/RateERGOController.class" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/model/BaseData.java" afterPath="$PROJECT_DIR$/src/inshurer/model/BaseData.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/model/ERGO.java" afterPath="$PROJECT_DIR$/src/inshurer/model/ERGO.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java" afterPath="$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java" afterPath="$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/model/Polis.java" afterPath="$PROJECT_DIR$/src/inshurer/model/Polis.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/Car.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/Car.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/JMetroDarkTheme.css" afterPath="$PROJECT_DIR$/src/inshurer/view/JMetroDarkTheme.css" />
       <change beforePath="$PROJECT_DIR$/src/inshurer/view/Polis.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/Polis.fxml" />
       <change beforePath="$PROJECT_DIR$/src/inshurer/view/PolisController.java" afterPath="$PROJECT_DIR$/src/inshurer/view/PolisController.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" afterPath="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,11 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="PolisController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PolisController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/inshurer/view/PolisController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-185">
-              <caret line="139" column="20" lean-forward="true" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
+            <state relative-caret-position="576">
+              <caret line="327" column="13" lean-forward="false" selection-start-line="327" selection-start-column="13" selection-end-line="327" selection-end-column="13" />
               <folding>
                 <element signature="method#clickSearchPerson#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickSearchOwner#0;class#PolisController#0" expanded="false" />
@@ -91,31 +73,61 @@
                 <element signature="method#clickNewPerson#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickNewCar#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickShowRate#0;class#PolisController#0" expanded="false" />
+                <element signature="method#initialize#0;class#PolisController#0" expanded="false" />
+                <element signature="method#propisAll#0;class#PolisController#0" expanded="false" />
                 <element signature="method#payOption#0;class#PolisController#0" expanded="false" />
+                <element signature="method#propisUSD#0;class#PolisController#0" expanded="false" />
+                <element signature="method#propisEUR#0;class#PolisController#0" expanded="false" />
+                <element signature="method#propisBelRub#0;class#PolisController#0" expanded="false" />
                 <element signature="method#setEndDate#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisNumber#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisPerson#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisOwner#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisTerritory#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisStartDate#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisEndDate#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisCar#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisOption#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisRealCoast#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisCoast#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisFranshise#0;class#PolisController#0" expanded="false" />
+                <element signature="method#getPolisSecondFranshise#0;class#PolisController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoneyUSD.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java">
+      <file leaf-file-name="PersonController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="132" column="43" lean-forward="true" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
+            <state relative-caret-position="612">
+              <caret line="291" column="32" lean-forward="false" selection-start-line="291" selection-start-column="32" selection-end-line="291" selection-end-column="32" />
               <folding>
-                <marker date="1512121449767" expanded="true" signature="5063:5296" ph="..." />
+                <element signature="method#clickNextToCar#0;class#PersonController#0" expanded="false" />
+                <element signature="method#clickSearchByID#0;class#PersonController#0" expanded="false" />
+                <element signature="method#clickSearchByLastName#0;class#PersonController#0" expanded="false" />
+                <element signature="method#clickSavePerson#0;class#PersonController#0" expanded="false" />
+                <element signature="method#clickClear#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_Country#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_region#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_distric#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_city#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_street#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_house#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_build#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getField_apertment#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getFirstName#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getLastName#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getMiddleName#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getPersonalNumber#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getFieldBirthday#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getFieldIssued#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getNumberDoc#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getTypeDoc#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getSerialDoc#0;class#PersonController#0" expanded="false" />
+                <element signature="method#getIssuedlDoc#0;class#PersonController#0" expanded="false" />
+                <element signature="method#initialize#0;class#PersonController#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoneyEUR.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="143" column="11" lean-forward="true" selection-start-line="137" selection-start-column="9" selection-end-line="143" selection-end-column="11" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -135,8 +147,8 @@
       <file leaf-file-name="BaseData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2709">
-              <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+            <state relative-caret-position="1176">
+              <caret line="290" column="66" lean-forward="false" selection-start-line="290" selection-start-column="66" selection-end-line="290" selection-end-column="66" />
               <folding>
                 <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
                 <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
@@ -145,11 +157,11 @@
                 <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
                 <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
                 <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
-                <marker date="1512110612968" expanded="true" signature="359:431" ph=" INSERT statement (PERSONDATA)" />
-                <marker date="1512110612968" expanded="true" signature="359:667" ph=" INSERT statement (PERSONDATA)" />
-                <marker date="1512110612968" expanded="true" signature="435:667" ph=" INSERT statement (PERSONDATA)" />
+                <element signature="method#insertRateData#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findRate#0;class#BaseData#0" expanded="false" />
+                <marker date="1512110612968" expanded="false" signature="359:667" ph=" INSERT statement (PERSONDATA)" />
                 <marker date="1512110612968" expanded="true" signature="716:829" ph=" INSERT statement (PERSON)" />
-                <marker date="1512110612968" expanded="true" signature="879:1241" ph=" INSERT statement (CAR)" />
+                <marker date="1512110612968" expanded="false" signature="879:1241" ph=" INSERT statement (CAR)" />
                 <marker date="1512110612968" expanded="true" signature="1293:1342" ph=" SELECT statement (PERSON)" />
                 <marker date="1512110612968" expanded="true" signature="1299:1300" ph=" INSERT statement (PERSON)" />
                 <marker date="1512110612968" expanded="true" signature="1397:1415" ph=" SELECT statement (RATE)" />
@@ -165,7 +177,7 @@
       <file leaf-file-name="RateERGOController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4347">
+            <state relative-caret-position="534">
               <caret line="334" column="4" lean-forward="false" selection-start-line="334" selection-start-column="4" selection-end-line="334" selection-end-column="4" />
               <folding>
                 <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
@@ -175,7 +187,9 @@
                 <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
+                <element signature="method#onClickSave#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
+                <element signature="method#paymentOption#0;class#RateERGOController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -251,9 +265,9 @@
         <option value="$PROJECT_DIR$/src/inshurer/model/ERGO.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/Polis.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/BaseData.java" />
-        <option value="$PROJECT_DIR$/src/inshurer/view/PolisController.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java" />
+        <option value="$PROJECT_DIR$/src/inshurer/view/PolisController.java" />
       </list>
     </option>
   </component>
@@ -264,7 +278,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="257" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
@@ -589,7 +603,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1021" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1021" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -904,38 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="method#clickSearchByID#0;class#PersonController#0" expanded="false" />
-            <element signature="method#clickSearchByLastName#0;class#PersonController#0" expanded="false" />
-            <element signature="method#clickSavePerson#0;class#PersonController#0" expanded="false" />
-            <element signature="method#clickClear#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_Country#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_region#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_distric#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_city#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_street#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_house#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_build#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getField_apertment#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getFirstName#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getLastName#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getMiddleName#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getPersonalNumber#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getFieldBirthday#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getFieldIssued#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getNumberDoc#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getTypeDoc#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getSerialDoc#0;class#PersonController#0" expanded="false" />
-            <element signature="method#getIssuedlDoc#0;class#PersonController#0" expanded="false" />
-            <element signature="method#initialize#0;class#PersonController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/button_save.css" />
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/theme1.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,47 +1012,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2709">
-          <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
-          <folding>
-            <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findPersonByLastName#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertPersonData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
-            <marker date="1512110612968" expanded="true" signature="359:431" ph=" INSERT statement (PERSONDATA)" />
-            <marker date="1512110612968" expanded="true" signature="359:667" ph=" INSERT statement (PERSONDATA)" />
-            <marker date="1512110612968" expanded="true" signature="435:667" ph=" INSERT statement (PERSONDATA)" />
-            <marker date="1512110612968" expanded="true" signature="716:829" ph=" INSERT statement (PERSON)" />
-            <marker date="1512110612968" expanded="true" signature="879:1241" ph=" INSERT statement (CAR)" />
-            <marker date="1512110612968" expanded="true" signature="1293:1342" ph=" SELECT statement (PERSON)" />
-            <marker date="1512110612968" expanded="true" signature="1299:1300" ph=" INSERT statement (PERSON)" />
-            <marker date="1512110612968" expanded="true" signature="1397:1415" ph=" SELECT statement (RATE)" />
-            <marker date="1512110612968" expanded="true" signature="1397:1432" ph=" SELECT statement (RATE)" />
-            <marker date="1512110612968" expanded="true" signature="1495:1538" ph=" SELECT statement (PERSONDATA)" />
-            <marker date="1512110612968" expanded="true" signature="1591:1622" ph=" SELECT statement (PERSONDATA)" />
-            <marker date="1512110612968" expanded="true" signature="1678:1715" ph=" SELECT statement (CAR)" />
-          </folding>
+        <state relative-caret-position="293">
+          <caret line="133" column="54" lean-forward="true" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4347">
-          <caret line="334" column="4" lean-forward="false" selection-start-line="334" selection-start-column="4" selection-end-line="334" selection-end-column="4" />
+        <state relative-caret-position="264">
+          <caret line="132" column="43" lean-forward="true" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
           <folding>
-            <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#onClickCalculate#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#getRezPay#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupABS#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
+            <marker date="1512121449767" expanded="true" signature="5063:5296" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1085,10 +1040,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="290" column="66" lean-forward="false" selection-start-line="290" selection-start-column="66" selection-end-line="290" selection-end-column="66" />
+          <folding>
+            <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findPersonByLastName#0;class#BaseData#0" expanded="false" />
+            <element signature="method#insertPersonData#0;class#BaseData#0" expanded="false" />
+            <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
+            <element signature="method#insertRateData#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findRate#0;class#BaseData#0" expanded="false" />
+            <marker date="1512110612968" expanded="false" signature="359:667" ph=" INSERT statement (PERSONDATA)" />
+            <marker date="1512110612968" expanded="true" signature="716:829" ph=" INSERT statement (PERSON)" />
+            <marker date="1512110612968" expanded="false" signature="879:1241" ph=" INSERT statement (CAR)" />
+            <marker date="1512110612968" expanded="true" signature="1293:1342" ph=" SELECT statement (PERSON)" />
+            <marker date="1512110612968" expanded="true" signature="1299:1300" ph=" INSERT statement (PERSON)" />
+            <marker date="1512110612968" expanded="true" signature="1397:1415" ph=" SELECT statement (RATE)" />
+            <marker date="1512110612968" expanded="true" signature="1397:1432" ph=" SELECT statement (RATE)" />
+            <marker date="1512110612968" expanded="true" signature="1495:1538" ph=" SELECT statement (PERSONDATA)" />
+            <marker date="1512110612968" expanded="true" signature="1591:1622" ph=" SELECT statement (PERSONDATA)" />
+            <marker date="1512110612968" expanded="true" signature="1678:1715" ph=" SELECT statement (CAR)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="334" column="4" lean-forward="false" selection-start-line="334" selection-start-column="4" selection-end-line="334" selection-end-column="4" />
+          <folding>
+            <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#onClickCalculate#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#getRezPay#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupABS#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#onClickSave#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#paymentOption#0;class#RateERGOController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="291" column="32" lean-forward="false" selection-start-line="291" selection-start-column="32" selection-end-line="291" selection-end-column="32" />
+          <folding>
+            <element signature="method#clickNextToCar#0;class#PersonController#0" expanded="false" />
+            <element signature="method#clickSearchByID#0;class#PersonController#0" expanded="false" />
+            <element signature="method#clickSearchByLastName#0;class#PersonController#0" expanded="false" />
+            <element signature="method#clickSavePerson#0;class#PersonController#0" expanded="false" />
+            <element signature="method#clickClear#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_Country#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_region#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_distric#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_city#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_street#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_house#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_build#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getField_apertment#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getFirstName#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getLastName#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getMiddleName#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getPersonalNumber#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getFieldBirthday#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getFieldIssued#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getNumberDoc#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getTypeDoc#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getSerialDoc#0;class#PersonController#0" expanded="false" />
+            <element signature="method#getIssuedlDoc#0;class#PersonController#0" expanded="false" />
+            <element signature="method#initialize#0;class#PersonController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/PolisController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="139" column="20" lean-forward="true" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
+        <state relative-caret-position="576">
+          <caret line="327" column="13" lean-forward="false" selection-start-line="327" selection-start-column="13" selection-end-line="327" selection-end-column="13" />
           <folding>
             <element signature="method#clickSearchPerson#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickSearchOwner#0;class#PolisController#0" expanded="false" />
@@ -1096,26 +1131,25 @@
             <element signature="method#clickNewPerson#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickNewCar#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickShowRate#0;class#PolisController#0" expanded="false" />
+            <element signature="method#initialize#0;class#PolisController#0" expanded="false" />
+            <element signature="method#propisAll#0;class#PolisController#0" expanded="false" />
             <element signature="method#payOption#0;class#PolisController#0" expanded="false" />
+            <element signature="method#propisUSD#0;class#PolisController#0" expanded="false" />
+            <element signature="method#propisEUR#0;class#PolisController#0" expanded="false" />
+            <element signature="method#propisBelRub#0;class#PolisController#0" expanded="false" />
             <element signature="method#setEndDate#0;class#PolisController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="143" column="11" lean-forward="true" selection-start-line="137" selection-start-column="9" selection-end-line="143" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="132" column="43" lean-forward="true" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
-          <folding>
-            <marker date="1512121449767" expanded="true" signature="5063:5296" ph="..." />
+            <element signature="method#getPolisNumber#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisPerson#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisOwner#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisTerritory#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisStartDate#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisEndDate#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisCar#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisOption#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisRealCoast#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisCoast#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisFranshise#0;class#PolisController#0" expanded="false" />
+            <element signature="method#getPolisSecondFranshise#0;class#PolisController#0" expanded="false" />
           </folding>
         </state>
       </provider>
