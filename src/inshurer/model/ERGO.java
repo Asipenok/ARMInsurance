@@ -261,6 +261,8 @@ public class ERGO {
             case "единовременно":
                 paymentRate = 0.9;
                 break;
+            default:
+                paymentRate = 1.05;
         }
         if (ads.equals("No")) {
             adsRate = 0.9;

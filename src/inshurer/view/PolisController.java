@@ -52,7 +52,7 @@ public class PolisController {
     @FXML
     private DatePicker doDate;
     @FXML
-    private TextField period_payment;
+    private TextArea period_payment;
 
     private Main main;
     private Polis polis = new Polis();
@@ -132,11 +132,72 @@ public class PolisController {
         field_franshise.setText(polis.getFranchise());
         field_second_franshise.setText(polis.getFranchiseSecond());
         field_payment.setText(polis.getPayment());
-        field_real_coast.setText(polis.getRealCoast() + " " + propisEUR(polis.getRealCoast()));
-        field_coast.setText(polis.getRealCoast() + " " + propisUSD(polis.getRealCoast()));
+        field_real_coast.setText(polis.getRealCoast() + " " + propisAll(polis.getCurrency(), polis.getRealCoast()));
+        field_coast.setText(polis.getRealCoast() + " " + propisAll(polis.getCurrency(), polis.getRealCoast()));
         doDate.setValue(LocalDate.now());
-        field_coast_year.setText(polis.getCoast_year() + " " + propisBelRub(polis.getCoast_year()));
+        field_coast_year.setText(polis.getCoast_year() + " " + propisAll(polis.getCurrency(), polis.getCoast_year()));
+        startDate.setValue(LocalDate.now());
+        payOption();
     }
+
+    //метод прописи цифр, в зависимости от валюты
+    public String propisAll(String currency, String val_digital) throws SQLException {
+        currency = polis.getCurrency();
+
+        switch (currency) {
+            case "USD":
+                currency = propisUSD(val_digital);
+                break;
+            case "EUR":
+                currency = propisEUR(val_digital);
+                break;
+            case "RUB":
+                currency = propisBelRub(val_digital);
+                break;
+        }
+        return currency;
+    }
+
+    // метод оплаты очередных взносов
+    @FXML
+    private void payOption() throws SQLException {
+        String payOption;
+        String currency = polis.getCurrency() + " до ";
+
+        Double coast_year = Double.valueOf(polis.getCoast_year());
+        Double first;
+        Double second;
+        Double third;
+        Double four;
+
+        switch (polis.getPayment()) {
+            case "Ежеквартально":
+                first = coast_year * 40 / 100;
+                second = (coast_year - first) / 3;
+                third = (coast_year - first - second) / 2;
+                four = (coast_year - first - second - third);
+                payOption = String.valueOf(second) + " " + currency + String.valueOf(startDate.getValue().plusMonths(3).minusDays(1)) + " " +
+                        String.valueOf(third) + " " + currency + String.valueOf(startDate.getValue().plusMonths(6).minusDays(1)) + " " +
+                        String.valueOf(four) + " " + currency + String.valueOf(startDate.getValue().plusMonths(9).minusDays(1));
+                period_payment.setText(payOption);
+                period_payment.setWrapText(true);
+                break;
+            case "В два этапа":
+                first = coast_year / 2;
+                second = (coast_year - first);
+                payOption = String.valueOf(second) + " " + currency + String.valueOf(startDate.getValue().plusMonths(6).minusDays(1));
+                period_payment.setText(payOption);
+                period_payment.setWrapText(true);
+                break;
+            case "Единовременно":
+                period_payment.setText("");
+                period_payment.setWrapText(true);
+                break;
+
+        }
+
+    }
+
 
     //метод цифры - доллары прописью
     @FXML
@@ -159,9 +220,10 @@ public class PolisController {
         return mo.num2str();
     }
 
-
     @FXML
     public void setEndDate() throws SQLException {
         endDate.setValue(startDate.getValue().plusMonths(12).minusDays(1));
+        payOption();
+
     }
 }

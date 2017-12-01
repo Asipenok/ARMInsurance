@@ -135,13 +135,13 @@ public class MoneyUSD {
             lev--;
         }
         // Копейки в цифровом виде
-        if (stripkop) {
-            o = o.replaceAll(" {2,}", " ");
-        }
-        else {
-            o = o+""+kops+" "+morph(kop,forms[ 0][ 0],forms[ 0][1],forms[ 0][2]);
-            o = o.replaceAll(" {2,}", " ");
-        }
+//        if (stripkop) {
+//            o = o.replaceAll(" {2,}", " ");
+//        }
+//        else {
+//            o = o+""+kops+" "+morph(kop,forms[ 0][ 0],forms[ 0][1],forms[ 0][2]);
+//            o = o.replaceAll(" {2,}", " ");
+//        }
         return o;
     }
 
