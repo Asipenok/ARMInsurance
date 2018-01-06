@@ -1,5 +1,8 @@
 package inshurer.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ERGO {
 
     //тип авто
@@ -36,6 +39,7 @@ public class ERGO {
     private double rezCalc;
 
     public double getRezCalc() {
+        rezCalc = Double.parseDouble(String.valueOf(new BigDecimal(rezCalc).setScale(2, RoundingMode.HALF_UP).doubleValue()));
         return rezCalc;
     }
 

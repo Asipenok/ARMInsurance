@@ -15,15 +15,21 @@ public class BaseData {
             " Country, Region, Distric, City, Street, HouseNumber, BuildNumber, RoomNumber)" +
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_CAR = "INSERT INTO car (TypeCar, Brand, ModelCar, VIN, NumberCar, YearCar, CoastCar, Currency ) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String INSERT_POLIS = "INSERT INTO polis (number_polis, insurer_field, owner_field,territory_field,start_date, " +
+            "end_date, car_field, variant_field, real_coast,insurer_coast,  franshise_one_field, franshise_two_field, " +
+            "payment_field, payment_first_field, order_payment_field, type_payment_field, polis_date, id_rate) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String INSERT_RATE = "INSERT INTO rate (vehicle, territory, quantity, protect, level_driver, rent_taxi, " +
             "condition_franchise, no_condition_franchise, additional_types, bonus, manus, payment, ads, salon, employee, cars, company, " +
-            "rate, optionInsurer, realCoast, currency, coast_year) " +
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "rate, optionInsurer, realCoast, currency, coast_year, firstPay, currencyValue) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_PERSON = "SELECT * FROM persondata WHERE PersonalNumber = ?";
     private static final String SELECT_RATE_ERGO = "SELECT * FROM rate ORDER BY id DESC LIMIT 1";
     private static final String SELECT_LAST_NAME = "SELECT * FROM persondata WHERE LastName = ?";
+    private static final String SELECT_POLIS_NUMBER = "SELECT * FROM polis WHERE number_polis = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
     private static final String SELECT_CAR_NUMBER = "SELECT * FROM car WHERE NumberCar = ?";
+
 
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -250,7 +256,8 @@ public class BaseData {
     public void insertRateData(Double vehicle, Double territory, Double quantity, Double protect, Double level_driver,
                                Double rent_taxi, Double condition_franchise, Double no_condition_franchise, Double additional_types,
                                Double bonus, Double manus, Double payment, Double ads, Double salon, Double employee, Double cars,
-                               String company, Double rate, Double optionInsurer, Double realCoast, String currency, Double coast_year) throws SQLException {
+                               String company, Double rate, Double optionInsurer, Double realCoast, String currency, Double coast_year,
+                               Double first_pay, Double currencyValue) throws SQLException {
 
         preparedStatement = connection.prepareStatement(INSERT_RATE);
 
@@ -277,6 +284,8 @@ public class BaseData {
             preparedStatement.setDouble(20, realCoast);
             preparedStatement.setString(21, currency);
             preparedStatement.setDouble(22, coast_year);
+            preparedStatement.setDouble(23, first_pay);
+            preparedStatement.setDouble(24, currencyValue);
 
             preparedStatement.execute();
             connection.close();
@@ -294,7 +303,7 @@ public class BaseData {
 
         try {
             preparedStatement = connection.prepareStatement(SELECT_RATE_ERGO);
-           // preparedStatement.setString(1, String.valueOf(id));
+            // preparedStatement.setString(1, String.valueOf(id));
             ResultSet res = preparedStatement.executeQuery();
 
             while (res.next()) {
@@ -321,9 +330,12 @@ public class BaseData {
                 resRateERGO.put("currency", res.getString("currency"));
                 resRateERGO.put("coast_year", res.getString("coast_year"));
                 resRateERGO.put("rate", res.getString("rate"));
+                resRateERGO.put("first_pay", res.getString("firstPay"));
+                resRateERGO.put("currencyValue", res.getString("currencyValue"));
+
 
             }
-         //   System.out.println("search item ");
+            //   System.out.println("search item ");
 
         } catch (
                 SQLException e) {
@@ -332,5 +344,80 @@ public class BaseData {
         return resRateERGO;
     }
 
+
+    //метод вставки в БД данные по полису
+    public void insertPolisData(int number_polis, String insurer_field, String owner_field, String territory_field,
+                                LocalDate start_date, LocalDate end_date, String car_field, String variant_field, String real_coast,
+                                String insurer_coast, String franshise_one_field, String franshise_two_field,
+                                String payment_field, String payment_first_field, String order_payment_field,
+                                String type_payment_field, LocalDate polis_date, int id_rate) throws SQLException {
+
+        preparedStatement = connection.prepareStatement(INSERT_POLIS);
+
+        try {
+            preparedStatement.setInt(1, number_polis);
+            preparedStatement.setString(2, insurer_field);
+            preparedStatement.setString(3, owner_field);
+            preparedStatement.setString(4, territory_field);
+            preparedStatement.setString(5, String.valueOf(start_date));
+            preparedStatement.setString(6, String.valueOf(end_date));
+            preparedStatement.setString(7, car_field);
+            preparedStatement.setString(8, variant_field);
+            preparedStatement.setString(9, real_coast);
+            preparedStatement.setString(10, insurer_coast);
+            preparedStatement.setString(11, franshise_one_field);
+            preparedStatement.setString(12, franshise_two_field);
+            preparedStatement.setString(13, payment_field);
+            preparedStatement.setString(14, payment_first_field);
+            preparedStatement.setString(15, order_payment_field);
+            preparedStatement.setString(16, type_payment_field);
+            preparedStatement.setString(17, String.valueOf(polis_date));
+            preparedStatement.setInt(18, id_rate);
+
+            preparedStatement.execute();
+            connection.close();
+            System.out.println("polis add");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //метод выборки данных по номеру полиса
+    public HashMap<String, String> findPolis(int number_polis) throws SQLException {
+
+        HashMap<String, String> resPolisNumber = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_POLIS_NUMBER);
+            preparedStatement.setInt(1, number_polis);
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resPolisNumber.put("insurer_field", res.getString("insurer_field"));
+                resPolisNumber.put("owner_field", res.getString("owner_field"));
+                resPolisNumber.put("territory_field", res.getString("territory_field"));
+                resPolisNumber.put("start_date", res.getString("start_date"));
+                resPolisNumber.put("end_date", res.getString("end_date"));
+                resPolisNumber.put("car_field", res.getString("car_field"));
+                resPolisNumber.put("variant_field", res.getString("variant_field"));
+                resPolisNumber.put("real_coast", res.getString("real_coast"));
+                resPolisNumber.put("insurer_coast", res.getString("insurer_coast"));
+                resPolisNumber.put("franshise_one_field", res.getString("franshise_one_field"));
+                resPolisNumber.put("franshise_two_field", res.getString("franshise_two_field"));
+                resPolisNumber.put("payment_field", res.getString("payment_field"));
+                resPolisNumber.put("payment_first_field", res.getString("payment_first_field"));
+                resPolisNumber.put("order_payment_field", res.getString("order_payment_field"));
+                resPolisNumber.put("type_payment_field", res.getString("type_payment_field"));
+                resPolisNumber.put("polis_date", res.getString("polis_date"));
+                           }
+            //   System.out.println("search item ");
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resPolisNumber;
+    }
 
 }

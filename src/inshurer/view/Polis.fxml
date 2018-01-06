@@ -50,11 +50,12 @@
                   <Label layoutX="338.0" layoutY="618.0" prefHeight="21.0" prefWidth="75.0" text="Один год" />
                   <HBox alignment="CENTER" layoutX="9.0" layoutY="1370.0" prefHeight="66.0" prefWidth="1008.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btn_Save" mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Сохранить" />
+                        <Button fx:id="btn_Save" mnemonicParsing="false" onAction="#clickSavePolis" prefHeight="70.0" prefWidth="150.0" text="Сохранить" />
                         <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Следующий полис" />
                      </children>
                   </HBox>
-                  <Button fx:id="btn_Search" layoutX="876.0" layoutY="134.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="109.0" text="Поиск" />
+                  <Button fx:id="btn_Search" layoutX="876.0" layoutY="134.0" mnemonicParsing="false" onAction="#clickSearchPolis" prefHeight="31.0" prefWidth="109.0" text="Поиск" />
+                  <TextField fx:id="field_payment_real" layoutX="164.0" layoutY="1043.0" prefHeight="31.0" prefWidth="752.0" />
                </children>
             </Pane>
          </content>

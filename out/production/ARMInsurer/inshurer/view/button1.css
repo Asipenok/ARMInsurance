@@ -1,0 +1,49 @@
+.button {
+  -fx- border: 2px solid #333333;
+   -fx-background: #666666;
+   -fx-background: -webkit-gradient(linear, left top, left bottom, from(#CCCCCC), to(#666666));
+   -fx-background: -webkit-linear-gradient(top, #CCCCCC, #666666);
+   -fx-background: -moz-linear-gradient(top, #CCCCCC, #666666);
+   -fx-background: -ms-linear-gradient(top, #CCCCCC, #666666);
+  -fx- background: -o-linear-gradient(top, #CCCCCC, #666666);
+   -fx-background-image: -ms-linear-gradient(top, #CCCCCC 0%, #666666 100%);
+   -fx-padding: 8px 16px;
+   -fx--webkit-border-radius: 20px;
+   -fx--moz-border-radius: 20px;
+   -fx-border-radius: 20px;
+   -fx--webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 16px 0;
+   -fx--moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 16px 0;
+  -fx- box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 16px 0;
+  -fx- text-shadow: #666666 0 -1px 0;
+  -fx- color: #FFFFFF;
+  -fx- font-size: 14px;
+   -fx-font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+  -fx- font-weight: bold;
+   -fx-text-decoration: none;
+   -fx-vertical-align: middle;
+   }
+.button:hover {
+ -fx-  border: 2px solid #6b4700;
+   -fx-text-shadow: #926000 0 -1px 0;
+   -fx-background: #c27400;
+   -fx-background: -webkit-gradient(linear, left top, left bottom, from(#e4bb6c), to(#c27400));
+  -fx- background: -webkit-linear-gradient(top, #e4bb6c, #c27400);
+   -fx-background: -moz-linear-gradient(top, #e4bb6c, #c27400);
+   -fx-background: -ms-linear-gradient(top, #e4bb6c, #c27400);
+  -fx- background: -o-linear-gradient(top, #e4bb6c, #c27400);
+   -fx-background-image: -ms-linear-gradient(top, #e4bb6c 0%, #c27400 100%);
+   -fx-color: #FFFFFF;
+  -fx- text-decoration: none;
+   }
+.button:active {
+  -fx- text-shadow: #926000 0 -1px 0;
+ -fx-  border: 2px solid #6b4700;
+  -fx- background: #e4bb6c;
+ -fx-  background: -webkit-gradient(linear, left top, left bottom, from(#c27400), to(#c27400));
+  -fx- background: -webkit-linear-gradient(top, #c27400, #e4bb6c);
+   -fx-background: -moz-linear-gradient(top, #c27400, #e4bb6c);
+   -fx-background: -ms-linear-gradient(top, #c27400, #e4bb6c);
+   -fx-background: -o-linear-gradient(top, #c27400, #e4bb6c);
+  -fx- background-image: -ms-linear-gradient(top, #c27400 0%, #e4bb6c 100%);
+  -fx- color: #FFFFFF;
+   }

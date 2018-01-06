@@ -30,7 +30,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="700.0" text="Автомобиль" textAlignment="JUSTIFY" textFill="#ff2e46" wrapText="true" GridPane.columnSpan="3">
+            <Label fx:id="car" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="700.0" text="Автомобиль" textAlignment="JUSTIFY" textFill="#ff2e46" wrapText="true" GridPane.columnSpan="3">
                <font>
                   <Font name="System Bold Italic" size="40.0" />
                </font>

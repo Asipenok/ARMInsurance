@@ -6,7 +6,7 @@
         Dark Metro style sheet for use in JavaFX applications
 */
 .root {
-     -fx-background-color: #88c2fc;
+    -fx-background-image: url("background.jpg");
 }
 .background{
     -fx-background-color: #1d1d1d;
@@ -36,6 +36,7 @@
        -fx-font-family: "Arial Narrow";
        -fx-font-weight: bold;
        -fx-font-size: 25px;
+       -fx-border-radius:20,20;
        -fx-background-color: linear-gradient(#61a2b1, #2A5058);
        -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
@@ -229,7 +230,7 @@
 
 .radio-button > .radio  {
    -fx-background-color: #cfcfcf;
-   -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+    -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
    -fx-background-insets: 0;
 
    -fx-border-radius: 1.0em;
@@ -336,10 +337,21 @@
  *                                                                             *
  ******************************************************************************/
 .label {
-    -fx-font-style: oblique;
-    -fx-font-weight: bold;
     -fx-font-size: 25px;
-
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+#car {
+   -fx-font-size: 40px;
+   -fx-font-family: "Arial Black";
+   -fx-fill: #818181;
+   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+#actiontarget {
+  -fx-fill: FIREBRICK;
+  -fx-font-weight: bold;
+  -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
 
@@ -509,7 +521,7 @@
 
 .combo-box-base  {
     -fx-background-color: transparent, transparent, transparent, #d2d2d2;
-    -fx-background-radius: 0, 0, 0, 0;
+    -fx-background-radius: 20, 20, 20, 20;
     -fx-padding: 0em 0.166667em 0em 0.166667em; /* 0 2px 0 2px*/
 
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
@@ -672,7 +684,7 @@
 }
 
 .text-input{
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 20, 20;
 
     -fx-background-color: #d2d2d2;
     -fx-background-insets: 0;
@@ -908,7 +920,7 @@
 .date-picker {
     -fx-background-color: #d2d2d2;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 20;
 
 }
 
@@ -965,13 +977,13 @@
 .date-picker > .arrow-button:hover {
     -fx-background-color: #d9d9d9;
     -fx-background-insets: 3;
-    -fx-background-radius: 0;
+    -fx-background-radius: 20;
 }
 
 .date-picker > .arrow-button:pressed {
     -fx-background-color: black;
     -fx-background-insets: 3;
-    -fx-background-radius: 0;
+    -fx-background-radius: 20;
 }
 
 .date-picker > .arrow-button:pressed > .arrow {

@@ -36,6 +36,11 @@ public class Polis {
         return payment;
     }
 
+    public String getPaymentReal() throws SQLException {
+        initFieldPolis();
+        return payment_real;
+    }
+
     public String getRealCoast() throws SQLException {
         initFieldPolis();
         return real_coast;
@@ -56,17 +61,24 @@ public class Polis {
         return rate;
     }
 
+    public String getId_rate() throws SQLException {
+        return id_rate;
+    }
+
+
     private String territory;
     private String option;
     private String franchise;
     private String franchise_second;
     private String payment;
+    private String payment_real;
     private String real_coast;
     private String coast_year;
     private String currency;
     private String rate;
     private LocalDate startDate;
     private LocalDate endDate;
+    private String id_rate;
 
 
     public void initFieldPolis() throws SQLException {
@@ -81,6 +93,11 @@ public class Polis {
         currency = values.get("currency");
         //получение тарифа
         rate = values.get("rate");
+        //получение первой оплаты
+        payment_real = values.get("first_pay");
+        // получение id рассчета
+        id_rate = values.get("id");
+
 
         //запись в поле территория действия полиса
         if (values.get("territory").equals("1")) {
