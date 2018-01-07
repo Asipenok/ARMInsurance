@@ -29,6 +29,7 @@ public class BaseData {
     private static final String SELECT_POLIS_NUMBER = "SELECT * FROM polis WHERE number_polis = ?";
     private static final String SELECT_CAR_VIN = "SELECT * FROM car WHERE VIN = ?";
     private static final String SELECT_CAR_NUMBER = "SELECT * FROM car WHERE NumberCar = ?";
+    private static final String SELECT_PASSWORD = "SELECT * FROM authorization WHERE login = ?";
 
 
     private Connection connection;
@@ -51,6 +52,32 @@ public class BaseData {
             e.printStackTrace();
         }
     }
+
+    //авторизация
+    public HashMap<String, String> authorization(String login) throws SQLException {
+
+        HashMap<String, String> resPassword = new HashMap<String, String>();
+
+        try {
+            preparedStatement = connection.prepareStatement(SELECT_PASSWORD);
+            preparedStatement.setString(1, login);
+            ResultSet res = preparedStatement.executeQuery();
+
+            while (res.next()) {
+                resPassword.put("login", res.getString("login"));
+                resPassword.put("password", res.getString("password"));
+
+
+            }
+            //   System.out.println("search car by vin off");
+
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        return resPassword;
+    }
+
 
     //метод поиска клиента в БД по личному номеру
     public HashMap<String, String> findPersonByID(String personal_number) throws SQLException {
@@ -410,7 +437,7 @@ public class BaseData {
                 resPolisNumber.put("order_payment_field", res.getString("order_payment_field"));
                 resPolisNumber.put("type_payment_field", res.getString("type_payment_field"));
                 resPolisNumber.put("polis_date", res.getString("polis_date"));
-                           }
+            }
             //   System.out.println("search item ");
 
         } catch (
