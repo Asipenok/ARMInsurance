@@ -26,12 +26,15 @@
       <RowConstraints maxHeight="128.0" minHeight="57.0" prefHeight="128.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-      <ImageView fitHeight="700.0" fitWidth="700.0" nodeOrientation="INHERIT" pickOnBounds="true" smooth="false" GridPane.columnSpan="2" GridPane.rowSpan="3">
+      <ImageView fitHeight="670.0" fitWidth="700.0" nodeOrientation="INHERIT" pickOnBounds="true" smooth="false" GridPane.columnSpan="2" GridPane.rowSpan="3">
          <image>
             <Image url="@страхование.gif" />
          </image>
+         <GridPane.margin>
+            <Insets top="30.0" />
+         </GridPane.margin>
       </ImageView>
-        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goERGO" prefHeight="150.0" prefWidth="150.0" text="ERGO" textFill="#1710e5" GridPane.rowIndex="1">
+        <Button fx:id="btnERGO" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goERGO" prefHeight="150.0" prefWidth="150.0" text="ERGO" textFill="#1710e5" GridPane.rowIndex="1">
             <font>
                 <Font name="System Bold Italic" size="36.0" />
             </font>
@@ -39,7 +42,7 @@
                 <Insets left="50.0" right="50.0" />
             </GridPane.margin>
         </Button>
-        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goTASK" prefHeight="150.0" prefWidth="150.0" text="TASK" textFill="#f85b46" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button fx:id="btnTASK" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goTASK" prefHeight="150.0" prefWidth="150.0" text="TASK" textFill="#f85b46" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets left="50.0" right="50.0" />
             </GridPane.margin>
@@ -47,5 +50,24 @@
             <Font name="System Bold Italic" size="36.0" />
          </font>
         </Button>
+      <MenuBar GridPane.columnSpan="2" GridPane.valignment="TOP">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
     </children>
 </GridPane>

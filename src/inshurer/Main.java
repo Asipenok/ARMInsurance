@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -25,32 +26,24 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("ARMInsurer");
         showEnter();
-//        showMainView();
-//        showItemCompany();
 
     }
 
-    public void showMainView() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("view/arminsurer.fxml"));
-        mainLoyout = loader.load();
-        Scene scene = new Scene(mainLoyout);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
     public void showItemCompany() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/ItemCompany.fxml"));
         GridPane itemCompany = loader.load();
-        mainLoyout.setCenter(itemCompany);
+        Scene scene = new Scene(itemCompany);
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
     }
 
     public static void showRateERGO() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/RateERGO.fxml"));
-        AnchorPane itemCompany = loader.load();
+        Pane itemCompany = loader.load();
 
         Stage dialogRateERGO = new Stage();
         dialogRateERGO.setTitle("Rate ERGO");
@@ -121,20 +114,22 @@ public class Main extends Application {
         dialogRateTASK.showAndWait();
 
     }
-    public static void showEnter() throws IOException {
+    public void showEnter() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/Enter.fxml"));
-        AnchorPane itemCompany = loader.load();
+        AnchorPane enter = loader.load();
 
         Stage dialogEnter = new Stage();
         dialogEnter.setTitle("Authorization");
         dialogEnter.initModality(Modality.NONE);
         dialogEnter.initOwner(primaryStage);
-        Scene scene = new Scene(itemCompany);
+        Scene scene = new Scene(enter);
         dialogEnter.setScene(scene);
         dialogEnter.showAndWait();
 
     }
+
+
 
     public static void main(String[] args) {
         launch(args);

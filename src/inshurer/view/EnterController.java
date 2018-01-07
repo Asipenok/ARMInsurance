@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,22 +23,23 @@ public class EnterController {
     private Button btnEnter;
     private BaseData baseData = new BaseData();
 
+    //авторизация
     @FXML
-    public void clickEnter() throws IOException, SQLException {
-
+    public void clickEnter() throws Exception {
 
         HashMap<String, String> values = baseData.authorization(fieldLogin.getText());
 
-
         if (fieldPassword.getText().equals(values.get("password"))) {
-            main.showMainView();
-            main.showItemCompany();
 
+            main.showItemCompany();
+            //закрываем окно
+            Stage stage = (Stage) btnEnter.getScene().getWindow();
+            stage.close();
         } else {
             System.out.println("Wrong login or password");
         }
-    }
 
+    }
 }
 
 

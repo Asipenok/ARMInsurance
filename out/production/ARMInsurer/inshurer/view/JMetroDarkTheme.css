@@ -679,8 +679,7 @@
  *                                                                             *
  ******************************************************************************/
 
-.text-field{
-    -fx-skin: "jfxtras.styles.jmetro8.MetroTextFieldSkin";
+
 }
 
 .text-input{

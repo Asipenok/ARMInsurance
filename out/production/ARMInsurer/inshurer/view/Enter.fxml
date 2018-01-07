@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -10,9 +11,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.EnterController">
    <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@enter-texture.jpg" />
+         </image>
+      </ImageView>
       <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="500.0" spacing="15.0">
+            <VBox alignment="CENTER" layoutX="60.0" layoutY="50.0" prefHeight="300.0" prefWidth="500.0" spacing="15.0">
                <children>
                   <Label text="LOGIN">
                      <VBox.margin>
