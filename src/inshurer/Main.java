@@ -24,12 +24,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("ARMInsurer");
-        showMainView();
-        showItemCompany();
+        showEnter();
+//        showMainView();
+//        showItemCompany();
 
     }
 
-    private void showMainView() throws IOException {
+    public void showMainView() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/arminsurer.fxml"));
         mainLoyout = loader.load();
@@ -38,7 +39,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showItemCompany() throws IOException {
+    public void showItemCompany() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/ItemCompany.fxml"));
         GridPane itemCompany = loader.load();
@@ -118,6 +119,20 @@ public class Main extends Application {
         Scene scene = new Scene(itemCompany);
         dialogRateTASK.setScene(scene);
         dialogRateTASK.showAndWait();
+
+    }
+    public static void showEnter() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/Enter.fxml"));
+        AnchorPane itemCompany = loader.load();
+
+        Stage dialogEnter = new Stage();
+        dialogEnter.setTitle("Authorization");
+        dialogEnter.initModality(Modality.NONE);
+        dialogEnter.initOwner(primaryStage);
+        Scene scene = new Scene(itemCompany);
+        dialogEnter.setScene(scene);
+        dialogEnter.showAndWait();
 
     }
 
