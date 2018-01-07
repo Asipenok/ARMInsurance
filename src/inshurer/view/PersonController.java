@@ -22,6 +22,7 @@ public class PersonController {
     private Main main;
     private BaseData baseData = new BaseData();
 
+
     //заполнение коэффициента по типу документа
     ObservableList<String> typeDoc = FXCollections.observableArrayList
             ("Паспорт",
@@ -68,7 +69,7 @@ public class PersonController {
     @FXML
     private Button btn_save_person;
     @FXML
-    private Button nextToCar;
+    private Button toPolis;
     @FXML
     private Button btn_NewPerson;
     @FXML
@@ -102,8 +103,18 @@ public class PersonController {
 
 
     @FXML
-    private void clickNextToCar() throws IOException {
-        main.showCar();
+    public String clickToPolis() throws IOException, SQLException {
+
+        String vin = field_id_number.getText();
+        String person;
+
+        HashMap<String, String> values = baseData.findPersonByID(vin);
+
+        person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
+                + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + values.get("numberDoc") + " "
+                + "выдан " + " " + values.get("issuedBy") + " " + values.get("issuedDate") + "личный номер " + values.get("id_number");
+
+return person;
     }
 
     //по нажатию кнопки id для поиска сохраняется в переменную search_id

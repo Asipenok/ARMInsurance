@@ -94,9 +94,9 @@
                <children>
                   <HBox spacing="7.0">
                      <children>
-                        <Button fx:id="btn_NewPerson" alignment="CENTER" mnemonicParsing="false" onAction="#clickClear" text="New" />
-                        <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" text="Save" />
-                        <Button fx:id="nextToCar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickNextToCar" text="Next" />
+                        <Button fx:id="btn_NewPerson" alignment="CENTER" mnemonicParsing="false" onAction="#clickClear" text="Новый" />
+                        <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" text="Сохранить" />
+                        <Button fx:id="toPolis" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickToPolis" text="В полис" />
                      </children>
                      <opaqueInsets>
                         <Insets />

@@ -68,6 +68,7 @@ public class PolisController {
     private Polis polis = new Polis();
     private RateERGOController rateERGOController;
     private BaseData baseData = new BaseData();
+private PersonController personController;
 
     //метод записи полиса в БД
     @FXML
@@ -123,6 +124,7 @@ public class PolisController {
         doDate.setValue(LocalDate.parse(values.get("polis_date")));
 
     }
+
     //метод поиска и вставки страхователя из БД
     @FXML
     public void clickSearchPerson() throws SQLException {
@@ -136,8 +138,14 @@ public class PolisController {
                 + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + values.get("numberDoc") + " "
                 + "выдан " + " " + values.get("issuedBy") + " " + values.get("issuedDate") + "личный номер " + values.get("id_number");
 
-        initPerson.setText(person);
+       initPerson.setText(person);
     }
+
+
+
+
+
+
 
     //метод поиска и вставки выгодоприобретателя из БД
     @FXML
@@ -171,8 +179,10 @@ public class PolisController {
 
     //метод вызова поля для вставки нового клиента
     @FXML
-    public void clickNewPerson() throws IOException {
+    public void clickNewPerson() throws IOException, SQLException {
         main.showPerson();
+
+
     }
 
     //метод вызова поля для вставки нового авто
