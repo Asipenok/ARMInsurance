@@ -90,23 +90,7 @@
             </Label>
             <ComboBox fx:id="boxTypeDoc" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <ComboBox fx:id="boxIssuedDoc" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="22">
-               <children>
-                  <HBox spacing="7.0">
-                     <children>
-                        <Button fx:id="btn_NewPerson" alignment="CENTER" mnemonicParsing="false" onAction="#clickClear" text="Новый" />
-                        <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" text="Сохранить" />
-                        <Button fx:id="toPolis" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickToPolis" text="В полис" />
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </HBox>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="22" />
             <Label text="Дата рождения" GridPane.rowIndex="6" />
             <DatePicker fx:id="fieldBirthday" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <DatePicker fx:id="fieldIssued" maxWidth="1.7976931348623157E308" promptText="Дата выдачи" GridPane.columnIndex="1" GridPane.rowIndex="11" />
@@ -116,6 +100,16 @@
             <Label text="Страна" GridPane.rowIndex="13" />
             <ComboBox fx:id="boxCountry" prefHeight="31.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="13" />
             <TextField fx:id="field_last_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="548.0" spacing="20.0" GridPane.columnSpan="3" GridPane.rowIndex="22">
+               <children>
+                  <Button fx:id="btn_NewPerson" alignment="CENTER" mnemonicParsing="false" onAction="#clickClear" prefHeight="48.0" prefWidth="225.0" text="Новый" />
+                  <Button fx:id="btn_save_person" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickSavePerson" prefWidth="225.0" text="Сохранить" />
+                  <Button fx:id="toPolis" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickToPolis" prefHeight="48.0" prefWidth="225.0" text="В полис" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
          </children>
       </GridPane>
    </children>

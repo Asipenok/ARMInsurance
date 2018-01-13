@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="1494.0" prefHeight="1494.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.PolisController">
+<AnchorPane minHeight="1494.0" prefHeight="1494.0" prefWidth="1024.0" stylesheets="@button1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inshurer.view.PolisController">
    <children>
       <ScrollPane prefHeight="1515.0" prefWidth="1025.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
          <content>
@@ -18,29 +19,65 @@
                         <Image url="@PolisERGO.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="searchPerson" layoutX="109.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickSearchPerson" text="Поиск страхов" />
-                  <Button fx:id="searchOwner" layoutX="259.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickSearchOwner" text="Поиск выгодо" />
+                  <Button fx:id="searchPerson" layoutX="103.0" layoutY="155.0" mnemonicParsing="false" onAction="#clickSearchPerson" prefHeight="51.0" prefWidth="183.0" text="Поиск страхов" />
+                  <Button fx:id="searchOwner" layoutX="249.0" layoutY="411.0" mnemonicParsing="false" onAction="#clickSearchOwner" text="Поиск выгодо" />
                   <Label layoutX="37.0" layoutY="631.0" />
-                  <Button fx:id="searchCar" layoutX="231.0" layoutY="663.0" mnemonicParsing="false" onAction="#clickSearchCar" text="Поиск авто" />
-                  <TextArea fx:id="initPerson" layoutX="103.0" layoutY="208.0" prefHeight="79.0" prefWidth="880.0" promptText="Введите личный номер страхователя" />
-                  <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="733.0" promptText="ВВедите личный номер выгодоприобретателя" />
-                  <TextArea fx:id="initCar" layoutX="217.0" layoutY="703.0" prefHeight="53.0" prefWidth="766.0" promptText="Введите VIN номер автомобиля" />
-                  <Button fx:id="newPerson" layoutX="243.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Страхователь" />
-                  <Button fx:id="newOwner" layoutX="382.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Выгодоприобретатель" />
-                  <Button fx:id="newCar" layoutX="335.0" layoutY="663.0" mnemonicParsing="false" onAction="#clickNewCar" text="Автомобиль" />
+                  <Button fx:id="searchCar" layoutX="221.0" layoutY="652.0" mnemonicParsing="false" onAction="#clickSearchCar" text="Поиск авто" />
+                  <TextArea fx:id="initPerson" layoutX="103.0" layoutY="208.0" prefHeight="79.0" prefWidth="880.0" promptText="Введите личный номер страхователя" wrapText="true">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextArea>
+                  <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="733.0" promptText="ВВедите личный номер выгодоприобретателя" wrapText="true">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextArea>
+                  <TextArea fx:id="initCar" layoutX="217.0" layoutY="703.0" prefHeight="53.0" prefWidth="766.0" promptText="Введите VIN номер автомобиля" wrapText="true">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextArea>
+                  <Button fx:id="newPerson" layoutX="300.0" layoutY="157.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Страхователь" />
+                  <Button fx:id="newOwner" layoutX="441.0" layoutY="411.0" mnemonicParsing="false" onAction="#clickNewPerson" text="Выгодоприобретатель" />
+                  <Button fx:id="newCar" layoutX="383.0" layoutY="652.0" mnemonicParsing="false" onAction="#clickNewCar" text="Автомобиль" />
                   <DatePicker fx:id="startDate" layoutX="519.0" layoutY="613.0" onAction="#setEndDate" promptText="Начало страхования" />
                   <DatePicker fx:id="endDate" layoutX="765.0" layoutY="613.0" promptText="Окончание страхования" />
                   <TextField fx:id="field_polis_number" alignment="CENTER" layoutX="875.0" layoutY="171.0" prefHeight="31.0" prefWidth="112.0" promptText="номер полиса" />
                   <DatePicker fx:id="doDate" layoutX="767.0" layoutY="1297.0" promptText="Дата заключения договора" />
-                  <TextField fx:id="field_franshise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="759.0" promptText="Бузусловная франшиза" />
-                  <TextField fx:id="field_second_franshise" layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="760.0" promptText="Условная франшиза" />
-                  <TextField fx:id="field_territory" layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="730.0" promptText="Территория действия полиса" />
-                  <TextField fx:id="field_payment" layoutX="464.0" layoutY="1088.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты" />
-                  <TextField fx:id="field_option" layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="630.0" promptText="Вариант страхования" />
-                  <TextField fx:id="field_real_coast" layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="601.0" promptText="Действительная стоимость" />
-                  <TextField fx:id="field_coast" layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="601.0" promptText="Страховая стоимость" />
-                  <TextField fx:id="field_coast_year" layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="753.0" promptText="Страховой взнос" />
-                  <TextArea fx:id="period_payment" layoutX="237.0" layoutY="1130.0" prefHeight="57.0" prefWidth="747.0" />
+                  <TextField fx:id="field_franshise" layoutX="225.0" layoutY="867.0" prefHeight="31.0" prefWidth="759.0" promptText="Бузусловная франшиза">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_second_franshise" layoutX="225.0" layoutY="898.0" prefHeight="31.0" prefWidth="760.0" promptText="Условная франшиза">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_territory" layoutX="254.0" layoutY="549.0" prefHeight="31.0" prefWidth="730.0" promptText="Территория действия полиса">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_payment" layoutX="464.0" layoutY="1088.0" prefHeight="21.0" prefWidth="186.0" promptText="Порядок оплаты">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_option" layoutX="353.0" layoutY="755.0" prefHeight="31.0" prefWidth="630.0" promptText="Вариант страхования">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_real_coast" layoutX="384.0" layoutY="793.0" prefHeight="31.0" prefWidth="601.0" promptText="Действительная стоимость">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_coast" layoutX="384.0" layoutY="836.0" prefHeight="31.0" prefWidth="601.0" promptText="Страховая стоимость">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="field_coast_year" layoutX="231.0" layoutY="973.0" prefHeight="31.0" prefWidth="753.0" promptText="Страховой взнос">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
+                  <TextArea fx:id="period_payment" layoutX="237.0" layoutY="1130.0" prefHeight="57.0" prefWidth="747.0" wrapText="true">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextArea>
                   <Label layoutX="348.0" layoutY="319.0" text="23.10.2015" />
                   <Label layoutX="470.0" layoutY="319.0" text="521" />
                   <Label layoutX="242.0" layoutY="366.0" prefHeight="45.0" prefWidth="737.0" text="Имущественные интересы, связанные с утратой (гибелью) или повреждением имущества" />
@@ -50,12 +87,15 @@
                   <Label layoutX="338.0" layoutY="618.0" prefHeight="21.0" prefWidth="75.0" text="Один год" />
                   <HBox alignment="CENTER" layoutX="9.0" layoutY="1370.0" prefHeight="66.0" prefWidth="1008.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btn_Save" mnemonicParsing="false" onAction="#clickSavePolis" prefHeight="70.0" prefWidth="150.0" text="Сохранить" />
-                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Следующий полис" />
+                        <Button fx:id="btn_Save" mnemonicParsing="false" onAction="#clickSavePolis" prefHeight="48.0" prefWidth="299.0" text="Сохранить" />
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="257.0" text="Следующий полис" />
                      </children>
                   </HBox>
-                  <Button fx:id="btn_Search" layoutX="876.0" layoutY="134.0" mnemonicParsing="false" onAction="#clickSearchPolis" prefHeight="31.0" prefWidth="109.0" text="Поиск" />
-                  <TextField fx:id="field_payment_real" layoutX="164.0" layoutY="1043.0" prefHeight="31.0" prefWidth="752.0" />
+                  <Button fx:id="btn_Search" layoutX="877.0" layoutY="115.0" mnemonicParsing="false" onAction="#clickSearchPolis" prefHeight="31.0" prefWidth="109.0" text="Поиск" />
+                  <TextField fx:id="field_payment_real" layoutX="164.0" layoutY="1043.0" prefHeight="31.0" prefWidth="752.0">
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="18.0" />
+                     </font></TextField>
                </children>
             </Pane>
          </content>

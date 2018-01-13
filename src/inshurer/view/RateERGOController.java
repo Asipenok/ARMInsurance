@@ -32,7 +32,7 @@ public class RateERGOController {
                     "Вариант 1 - без учета износа, В - Премиум", "Вариант 2 - с учетом износа");
     //заполнение коэфф по территории действия договора
     ObservableList<String> teritory = FXCollections.observableArrayList
-            ("Все страны мира (за исключением регионов военных действий", "Республика Беларусь");
+            ("Все страны мира (за исключением регионов военных действий)", "Республика Беларусь");
     //заполнение коэфф по количеству застрахованных ТС
     ObservableList<String> quantity = FXCollections.observableArrayList
             ("1 единица", "2 единицы", "3-5 единиц");
@@ -157,8 +157,6 @@ public class RateERGOController {
     private TextField field_date_third_pay;
     @FXML
     private TextField field_date_fourth_pay;
-    @FXML
-    private DatePicker begin;
 
     private String rezult_payment;
 
@@ -211,7 +209,7 @@ public class RateERGOController {
         boxCurrency.setValue("USD");
         boxCurrency.setItems(currency);
 
-        field_currencyValue.setText("1");
+        field_currencyValue.setText("Курс вылюты");
 
 
     }
@@ -337,82 +335,79 @@ public class RateERGOController {
     //рассчет платежей
     @FXML
     private void paymentOption() {
+        try {
+            double coast = Double.valueOf(String.valueOf(field_coastCar.getText()));
+            double currencyValue = Double.valueOf(String.valueOf(field_currencyValue.getText()));
+            double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
+            double coastYear = new BigDecimal(coast * rateRez / 100).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            //  double coastYearCurrency = coastYear * currencyValue;
+            double first_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.UP).doubleValue();
+            double second_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            double third_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            double four_pay = new BigDecimal(coastYear - first_pay - second_pay - third_pay).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double first_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
+            double second_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double third_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double four_pay_cur = new BigDecimal((coastYear - first_pay - second_pay - third_pay) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double one_two_pay = new BigDecimal(coastYear / 2).setScale(0, RoundingMode.UP).doubleValue();
+            double two_two_pay = new BigDecimal(coastYear - coastYear / 2).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            double one_two_pay_cur = new BigDecimal(coastYear / 2 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
+            double two_two_pay_cur = new BigDecimal((coastYear - coastYear / 2) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
-        double coast = Double.valueOf(String.valueOf(field_coastCar.getText()));
-        double currencyValue = Double.valueOf(String.valueOf(field_currencyValue.getText()));
-        double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
-        double coastYear = new BigDecimal(coast * rateRez / 100).setScale(0, RoundingMode.HALF_UP).doubleValue();
-      //  double coastYearCurrency = coastYear * currencyValue;
-        double first_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.UP).doubleValue();
-        double second_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
-        double third_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
-        double four_pay = new BigDecimal(coastYear - first_pay - second_pay - third_pay).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        double first_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
-        double second_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        double third_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        double four_pay_cur = new BigDecimal((coastYear - first_pay - second_pay - third_pay) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        double one_two_pay = new BigDecimal(coastYear / 2).setScale(0, RoundingMode.UP).doubleValue();
-        double two_two_pay = new BigDecimal(coastYear - coastYear / 2).setScale(0, RoundingMode.HALF_UP).doubleValue();
-        double one_two_pay_cur = new BigDecimal(coastYear / 2 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
-        double two_two_pay_cur = new BigDecimal((coastYear - coastYear / 2) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            field_payment.setText(String.valueOf(coastYear));
 
-        field_payment.setText(String.valueOf(coastYear));
+            switch (String.valueOf(boxPayment.getValue())) {
 
-        switch (String.valueOf(boxPayment.getValue())) {
+                case "ежеквартально":
+                    field_first_currency.setText(String.valueOf(first_pay));
+                    field_second_currency.setText(String.valueOf(second_pay));
+                    field_third_currency.setText(String.valueOf(third_pay));
+                    field_fourth_currency.setText(String.valueOf(four_pay));
 
-            case "ежеквартально":
-                field_first_currency.setText(String.valueOf(first_pay));
-                field_second_currency.setText(String.valueOf(second_pay));
-                field_third_currency.setText(String.valueOf(third_pay));
-                field_fourth_currency.setText(String.valueOf(four_pay));
+                    field_first_pay.setText(String.valueOf(first_pay_cur));
+                    field_second_pay.setText(String.valueOf(second_pay_cur));
+                    field_third_pay.setText(String.valueOf(third_pay_cur));
+                    field_fourth_pay.setText(String.valueOf(four_pay_cur));
 
-                field_first_pay.setText(String.valueOf(first_pay_cur));
-                field_second_pay.setText(String.valueOf(second_pay_cur));
-                field_third_pay.setText(String.valueOf(third_pay_cur));
-                field_fourth_pay.setText(String.valueOf(four_pay_cur));
 
-                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
-                field_date_second_pay.setText(String.valueOf(begin.getValue().plusMonths(3).minusDays(1)));
-                field_date_third_pay.setText(String.valueOf(begin.getValue().plusMonths(6).minusDays(1)));
-                field_date_fourth_pay.setText(String.valueOf(begin.getValue().plusMonths(9).minusDays(1)));
+                    break;
 
-                break;
+                case "в два срока":
+                    field_first_currency.setText(String.valueOf(one_two_pay));
+                    field_second_currency.setText(String.valueOf(two_two_pay));
+                    field_third_currency.setText("");
+                    field_fourth_currency.setText("");
 
-            case "в два срока":
-                field_first_currency.setText(String.valueOf(one_two_pay));
-                field_second_currency.setText(String.valueOf(two_two_pay));
-                field_third_currency.setText("");
-                field_fourth_currency.setText("");
+                    field_first_pay.setText(String.valueOf(one_two_pay_cur));
+                    field_second_pay.setText(String.valueOf(two_two_pay_cur));
+                    field_third_pay.setText("");
+                    field_fourth_pay.setText("");
 
-                field_first_pay.setText(String.valueOf(one_two_pay_cur));
-                field_second_pay.setText(String.valueOf(two_two_pay_cur));
-                field_third_pay.setText("");
-                field_fourth_pay.setText("");
+                    break;
 
-                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
-                field_date_second_pay.setText(String.valueOf(begin.getValue().plusMonths(6).minusDays(1)));
-                field_date_third_pay.setText("");
-                field_date_fourth_pay.setText("");
+                case "единовременно":
+                    field_first_currency.setText(String.valueOf(coastYear));
+                    field_second_currency.setText("");
+                    field_third_currency.setText("");
+                    field_fourth_currency.setText("");
 
-                break;
+                    field_first_pay.setText(String.valueOf(coastYear * currencyValue));
+                    field_second_pay.setText("");
+                    field_third_pay.setText("");
+                    field_fourth_pay.setText("");
 
-            case "единовременно":
-                field_first_currency.setText(String.valueOf(coastYear));
-                field_second_currency.setText("");
-                field_third_currency.setText("");
-                field_fourth_currency.setText("");
 
-                field_first_pay.setText(String.valueOf(coastYear * currencyValue));
-                field_second_pay.setText("");
-                field_third_pay.setText("");
-                field_fourth_pay.setText("");
+                    break;
 
-                field_date_first_pay.setText(String.valueOf(begin.getValue().minusDays(1)));
-                field_date_second_pay.setText("");
-                field_date_third_pay.setText("");
-                field_date_fourth_pay.setText("");
-                break;
+            }
+        }catch (Exception e){
 
+            Alert alert = new Alert(javafx.scene.control.Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ошибка в расчете тарифа");
+            alert.setContentText("Возможные причины: 1. Установлен ли курс (разделительный знак в курсе валют - точка). 2. Установлена ли стоимость авто.");
+
+            alert.showAndWait();
         }
     }
 

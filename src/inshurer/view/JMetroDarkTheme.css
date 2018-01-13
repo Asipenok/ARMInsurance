@@ -225,7 +225,7 @@
  ******************************************************************************/
 
 .radio-button {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .radio-button > .radio  {
@@ -520,7 +520,7 @@
  ******************************************************************************/
 
 .combo-box-base  {
-    -fx-background-color: transparent, transparent, transparent, #d2d2d2;
+    -fx-background-color: transparent, transparent, transparent, white;
     -fx-background-radius: 20, 20, 20, 20;
     -fx-padding: 0em 0.166667em 0em 0.166667em; /* 0 2px 0 2px*/
 
@@ -685,7 +685,7 @@
 .text-input{
     -fx-background-radius: 20, 20;
 
-    -fx-background-color: #d2d2d2;
+    -fx-background-color: white;
     -fx-background-insets: 0;
 
     -fx-prompt-text-fill: #818181;
@@ -917,14 +917,14 @@
  ******************************************************************************/
 
 .date-picker {
-    -fx-background-color: #d2d2d2;
+    -fx-background-color: white;
     -fx-background-insets: 0;
     -fx-background-radius: 20;
 
 }
 
 .date-picker:hover {
-    -fx-background-color: #e2e2e2;
+    -fx-background-color: white;
 }
 
 .date-picker:focused , .date-picker:focused:hover {

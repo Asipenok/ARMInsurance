@@ -1,5 +1,7 @@
 package inshurer.model;
 
+import javafx.scene.control.Alert;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -67,9 +69,7 @@ public class BaseData {
                 resPassword.put("login", res.getString("login"));
                 resPassword.put("password", res.getString("password"));
 
-
             }
-            //   System.out.println("search car by vin off");
 
         } catch (
                 SQLException e) {
@@ -187,7 +187,12 @@ public class BaseData {
 
             preparedStatement.execute();
             connection.close();
-            System.out.println("personData add");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -210,7 +215,11 @@ public class BaseData {
 
             preparedStatement.execute();
 
-            System.out.println("car add");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Данные по автомобилю успешно сохранены в базу данных");
+
         } catch (SQLException e) {
             System.out.println("Вставь уникальный ВИН");
             e.printStackTrace();
@@ -316,7 +325,13 @@ public class BaseData {
 
             preparedStatement.execute();
             connection.close();
-            System.out.println("rate add");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Тариф успешно сохранен в базу данных");
+
+            alert.showAndWait();;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -403,7 +418,11 @@ public class BaseData {
 
             preparedStatement.execute();
             connection.close();
-            System.out.println("polis add");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Полис успешно сохранен в базу данных");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

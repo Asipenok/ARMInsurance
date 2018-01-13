@@ -1,8 +1,5 @@
 package inshurer;
 
-import inshurer.model.BaseData;
-import inshurer.model.ERGO;
-import inshurer.model.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -43,7 +40,7 @@ public class Main extends Application {
     public static void showRateERGO() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/RateERGO.fxml"));
-        Pane itemCompany = loader.load();
+        AnchorPane itemCompany = loader.load();
 
         Stage dialogRateERGO = new Stage();
         dialogRateERGO.setTitle("Rate ERGO");
@@ -69,6 +66,7 @@ public class Main extends Application {
         dialogRateTASK.showAndWait();
 
     }
+
     public static void showPerson() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -84,6 +82,7 @@ public class Main extends Application {
         dialogRateTASK.showAndWait();
 
     }
+
     public static void showPolis() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -99,6 +98,7 @@ public class Main extends Application {
         dialogPolis.showAndWait();
 
     }
+
     public static void showCar() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -114,6 +114,7 @@ public class Main extends Application {
         dialogRateTASK.showAndWait();
 
     }
+
     public void showEnter() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/Enter.fxml"));
@@ -128,7 +129,6 @@ public class Main extends Application {
         dialogEnter.showAndWait();
 
     }
-
 
 
     public static void main(String[] args) {
