@@ -4,6 +4,7 @@ import inshurer.Main;
 import inshurer.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -62,13 +63,15 @@ public class PolisController {
     @FXML
     private Button btn_Search;
     @FXML
+    private Button btn_Next;
+    @FXML
     private TextField field_polis_number;
 
     private Main main;
     private Polis polis = new Polis();
     private RateERGOController rateERGOController;
     private BaseData baseData = new BaseData();
-private PersonController personController;
+    private PersonController personController;
 
     //метод записи полиса в БД
     @FXML
@@ -100,67 +103,98 @@ private PersonController personController;
     //метод поиска и вставки полиса
     @FXML
     public void clickSearchPolis() throws SQLException {
-        BaseData baseData = new BaseData();
-        int polis_number = Integer.parseInt(field_polis_number.getText());
-        String person;
 
-        HashMap<String, String> values = baseData.findPolis(polis_number);
+        try {
+            BaseData baseData = new BaseData();
+            int polis_number = Integer.parseInt(field_polis_number.getText());
+            String person;
 
-         initPerson.setText(values.get("insurer_field"));
-        initOwner.setText(values.get("owner_field"));
-        field_territory.setText(values.get("territory_field"));
-        startDate.setValue(LocalDate.parse(values.get("start_date")));
-        endDate.setValue(LocalDate.parse(values.get("end_date")));
-        initCar.setText(values.get("car_field"));
-        field_option.setText(values.get("variant_field"));
-        field_real_coast.setText(values.get("real_coast"));
-        field_coast.setText(values.get("insurer_coast"));
-        field_franshise.setText(values.get("franshise_one_field"));
-        field_second_franshise.setText(values.get("franshise_two_field"));
-        field_coast_year.setText(values.get("payment_field"));
-        field_payment_real.setText(values.get("payment_first_field"));
-        field_payment.setText(values.get("order_payment_field"));
-        period_payment.setText(values.get("type_payment_field"));
-        doDate.setValue(LocalDate.parse(values.get("polis_date")));
+            HashMap<String, String> values = baseData.findPolis(polis_number);
+
+            initPerson.setText(values.get("insurer_field"));
+            initOwner.setText(values.get("owner_field"));
+            field_territory.setText(values.get("territory_field"));
+            startDate.setValue(LocalDate.parse(values.get("start_date")));
+            endDate.setValue(LocalDate.parse(values.get("end_date")));
+            initCar.setText(values.get("car_field"));
+            field_option.setText(values.get("variant_field"));
+            field_real_coast.setText(values.get("real_coast"));
+            field_coast.setText(values.get("insurer_coast"));
+            field_franshise.setText(values.get("franshise_one_field"));
+            field_second_franshise.setText(values.get("franshise_two_field"));
+            field_coast_year.setText(values.get("payment_field"));
+            field_payment_real.setText(values.get("payment_first_field"));
+            field_payment.setText(values.get("order_payment_field"));
+            period_payment.setText(values.get("type_payment_field"));
+            doDate.setValue(LocalDate.parse(values.get("polis_date")));
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ошибка поиска");
+            alert.setContentText("Полис с данным номером не найден");
+
+            alert.showAndWait();
+
+        }
 
     }
 
     //метод поиска и вставки страхователя из БД
     @FXML
     public void clickSearchPerson() throws SQLException {
+
         BaseData baseData = new BaseData();
         String vin = initPerson.getText();
         String person;
 
         HashMap<String, String> values = baseData.findPersonByID(vin);
 
-        person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
-                + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + values.get("numberDoc") + " "
-                + "выдан " + " " + values.get("issuedBy") + " " + values.get("issuedDate") + "личный номер " + values.get("id_number");
 
-       initPerson.setText(person);
+        if (values.get("last_name") == null) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ошибка поиска");
+            alert.setContentText("Страхователь не найден");
+
+            alert.showAndWait();
+
+        } else {
+            person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
+                    + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + values.get("numberDoc") + " "
+                    + "выдан " + " " + values.get("issuedBy") + " " + values.get("issuedDate") + " личный номер " + values.get("id_number");
+
+            initPerson.setText(person);
+        }
+
     }
-
-
-
-
-
 
 
     //метод поиска и вставки выгодоприобретателя из БД
     @FXML
     public void clickSearchOwner() throws SQLException {
+
         BaseData baseData = new BaseData();
         String vin = initOwner.getText();
         String person;
 
         HashMap<String, String> values = baseData.findPersonByID(vin);
+        if (values.get("last_name") == null) {
 
-        person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
-                + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + " " + " " + values.get("numberDoc")
-                + " " + " " + values.get("id_number");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ошибка поиска");
+            alert.setContentText("Выгодоприобретатель не найден");
 
-        initOwner.setText(person);
+            alert.showAndWait();
+
+        } else {
+            person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
+                    + " личный номер " + values.get("id_number");
+
+            initOwner.setText(person);
+        }
     }
 
     //метод поиска и вставки авто из БД
@@ -171,10 +205,20 @@ private PersonController personController;
         String car;
 
         HashMap<String, String> values = baseData.findCarByVIN(vin);
+        if (values.get("brand") == null) {
 
-        car = values.get("type") + " " + " " + values.get("brand") + " " + " " + values.get("model")
-                + " " + " " + values.get("number") + " " + " " + values.get("year") + " " + "VIN " + values.get("vin");
-        initCar.setText(car);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ошибка поиска");
+            alert.setContentText("Транспортное средство не найден");
+
+            alert.showAndWait();
+
+        } else {
+            car = values.get("type") + " " + " " + values.get("brand") + " " + " " + values.get("model")
+                    + " " + " " + values.get("number") + " " + " " + values.get("year") + " " + "VIN " + values.get("vin");
+            initCar.setText(car);
+        }
     }
 
     //метод вызова поля для вставки нового клиента
@@ -194,7 +238,12 @@ private PersonController personController;
     //метод вызова расчета тарифа
     @FXML
     public void clickShowRate() throws IOException {
+
         main.showRateERGO();
+        Stage stage = (Stage) btn_Next.getScene().getWindow();
+        stage.close();
+
+
     }
 
     @FXML
@@ -240,8 +289,12 @@ private PersonController personController;
 
         Double coastYear = Double.valueOf(polis.getCoast_year());
         double first = new BigDecimal(coastYear * 40 / 100).setScale(0, RoundingMode.UP).doubleValue();
-        double second = new BigDecimal((coastYear - coastYear * 40 / 100) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
-        double third = new BigDecimal((coastYear - coastYear * 40 / 100) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
+        double second = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
+
+        double firstTwo = new BigDecimal((coastYear / 2)).setScale(0, RoundingMode.UP).doubleValue();
+        double secondTwo = new BigDecimal((coastYear - firstTwo)).setScale(0, RoundingMode.HALF_UP).doubleValue();
+
+        double third = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
         double four = new BigDecimal(coastYear - first - second - third).setScale(0, RoundingMode.HALF_UP).doubleValue();
 
         switch (polis.getPayment()) {
@@ -254,7 +307,7 @@ private PersonController personController;
                 break;
             case "В два этапа":
 
-                payOption = String.valueOf(second) + " " + currency + String.valueOf(startDate.getValue().plusMonths(6).minusDays(1));
+                payOption = String.valueOf(secondTwo) + " " + currency + String.valueOf(startDate.getValue().plusMonths(6).minusDays(1));
                 period_payment.setText(payOption);
                 period_payment.setWrapText(true);
                 break;

@@ -186,7 +186,7 @@ public class BaseData {
             preparedStatement.setString(18, roomNumber);
 
             preparedStatement.execute();
-            connection.close();
+
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -196,6 +196,7 @@ public class BaseData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        connection.close();
     }
 
     //метод вставки данных по авто
@@ -224,6 +225,7 @@ public class BaseData {
             System.out.println("Вставь уникальный ВИН");
             e.printStackTrace();
         }
+        connection.close();
     }
 
     //метод поиска клиента в БД по vin
@@ -298,6 +300,7 @@ public class BaseData {
         preparedStatement = connection.prepareStatement(INSERT_RATE);
 
         try {
+
             preparedStatement.setDouble(1, vehicle);
             preparedStatement.setDouble(2, territory);
             preparedStatement.setDouble(3, quantity);
@@ -324,17 +327,22 @@ public class BaseData {
             preparedStatement.setDouble(24, currencyValue);
 
             preparedStatement.execute();
-            connection.close();
+
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Тариф успешно сохранен в базу данных");
 
-            alert.showAndWait();;
+            alert.showAndWait();
+
         } catch (SQLException e) {
-            e.printStackTrace();
+
+          e.printStackTrace();
+
         }
+        connection.close();
+
     }
 
 
@@ -377,7 +385,6 @@ public class BaseData {
 
 
             }
-            //   System.out.println("search item ");
 
         } catch (
                 SQLException e) {
@@ -417,7 +424,7 @@ public class BaseData {
             preparedStatement.setInt(18, id_rate);
 
             preparedStatement.execute();
-            connection.close();
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
@@ -425,7 +432,9 @@ public class BaseData {
 
         } catch (SQLException e) {
             e.printStackTrace();
+
         }
+        connection.close();
     }
 
 
@@ -465,5 +474,6 @@ public class BaseData {
         }
         return resPolisNumber;
     }
+
 
 }

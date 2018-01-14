@@ -100,22 +100,13 @@ public class PersonController {
     private TextField field_apartment;
 
     private String person;
-
+    private PolisController polisController = new PolisController();
 
     @FXML
-    public String clickToPolis() throws IOException, SQLException {
+    public void clickToPolis() throws IOException, SQLException {
 
-        String vin = field_id_number.getText();
-        String person;
-
-        HashMap<String, String> values = baseData.findPersonByID(vin);
-
-        person = values.get("last_name") + " " + " " + values.get("first_name") + " " + " " + values.get("middle_name")
-                + " " + " " + values.get("typeDoc") + " " + " " + values.get("seriesDoc") + values.get("numberDoc") + " "
-                + "выдан " + " " + values.get("issuedBy") + " " + values.get("issuedDate") + "личный номер " + values.get("id_number");
-
-return person;
     }
+
 
     //по нажатию кнопки id для поиска сохраняется в переменную search_id
     @FXML

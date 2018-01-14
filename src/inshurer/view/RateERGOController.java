@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -322,14 +323,19 @@ public class RateERGOController {
                     Double.valueOf(field_currencyValue.getText()));
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+           e.printStackTrace();
+
+            }
 
     }
 
     @FXML
     private void onClickNext() throws IOException, SQLException {
+
         main.showPolis();
+
+        Stage stage = (Stage) next.getScene().getWindow();
+        stage.close();
     }
 
     //рассчет платежей
@@ -350,9 +356,9 @@ public class RateERGOController {
             double third_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
             double four_pay_cur = new BigDecimal((coastYear - first_pay - second_pay - third_pay) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
             double one_two_pay = new BigDecimal(coastYear / 2).setScale(0, RoundingMode.UP).doubleValue();
-            double two_two_pay = new BigDecimal(coastYear - coastYear / 2).setScale(0, RoundingMode.HALF_UP).doubleValue();
-            double one_two_pay_cur = new BigDecimal(coastYear / 2 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
-            double two_two_pay_cur = new BigDecimal((coastYear - coastYear / 2) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double two_two_pay = new BigDecimal(coastYear - one_two_pay).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            double one_two_pay_cur = new BigDecimal(one_two_pay * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
+            double two_two_pay_cur = new BigDecimal((two_two_pay) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
             field_payment.setText(String.valueOf(coastYear));
 
@@ -400,7 +406,7 @@ public class RateERGOController {
                     break;
 
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
             Alert alert = new Alert(javafx.scene.control.Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");

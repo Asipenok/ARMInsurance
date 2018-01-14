@@ -48,11 +48,11 @@
             <Button fx:id="btn_searchCarNumber" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickSearchByNumber" prefHeight="50.0" text="Искать" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="8">
                <children>
-                  <HBox alignment="CENTER" spacing="40.0">
+                  <HBox alignment="CENTER" spacing="30.0">
                      <children>
-                        <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clickClear" prefHeight="50.0" prefWidth="150.0" text="Clear" />
-                        <Button fx:id="btn_Edit" mnemonicParsing="false" onAction="#onClickEdit" prefHeight="50.0" prefWidth="150.0" text="Edit" />
-                        <Button fx:id="btn_saveCar" mnemonicParsing="false" onAction="#clickSaveCar" prefHeight="50.0" prefWidth="150.0" text="Save" />
+                        <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clickClear" prefHeight="50.0" prefWidth="200.0" text="Очистить" />
+                        <Button fx:id="btn_Edit" mnemonicParsing="false" onAction="#onClickEdit" prefHeight="50.0" prefWidth="200.0" text="Редактировать" />
+                        <Button fx:id="btn_saveCar" mnemonicParsing="false" onAction="#clickSaveCar" prefHeight="50.0" prefWidth="200.0" text="Сохранить" />
                      </children>
                   </HBox>
                </children>
