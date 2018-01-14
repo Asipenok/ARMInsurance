@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -16,16 +17,16 @@
             <Image url="@enter-texture.jpg" />
          </image>
       </ImageView>
-      <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane stylesheets="@button1.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" layoutX="60.0" layoutY="50.0" prefHeight="300.0" prefWidth="500.0" spacing="15.0">
                <children>
-                  <Label text="LOGIN">
+                  <Label text="USERNAME" textFill="#f23d22">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Bookman Old Style Bold Italic" size="30.0" />
                      </font>
                   </Label>
                   <TextField fx:id="fieldLogin" prefHeight="50.0" promptText="Enter Login">
@@ -33,12 +34,12 @@
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="PASSWORD">
+                  <Label text="PASSWORD" textFill="#ff0b0b">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Bookman Old Style Bold Italic" size="30.0" />
                      </font>
                   </Label>
                   <PasswordField fx:id="fieldPassword" prefHeight="50.0" prefWidth="300.0" promptText="Enter password" />
