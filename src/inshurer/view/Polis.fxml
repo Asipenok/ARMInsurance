@@ -27,7 +27,7 @@
                      <font>
                         <Font name="Bookman Old Style Bold" size="18.0" />
                      </font></TextArea>
-                  <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="733.0" promptText="ВВедите личный номер выгодоприобретателя" wrapText="true">
+                  <TextArea fx:id="initOwner" layoutX="251.0" layoutY="464.0" prefHeight="37.0" prefWidth="733.0" promptText="Введите личный номер выгодоприобретателя" wrapText="true">
                      <font>
                         <Font name="Bookman Old Style Bold" size="18.0" />
                      </font></TextArea>

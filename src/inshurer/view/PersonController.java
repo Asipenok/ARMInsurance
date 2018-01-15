@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -97,10 +98,13 @@ public class PersonController {
     private TextField field_apartment;
 
     private String person;
-    private PolisController polisController = new PolisController();
+    private PolisController polisController;
 
     @FXML
-    public void clickToPolis() throws IOException, SQLException {
+    public void clickToPolis() throws IOException {
+
+        Stage stage = (Stage) toPolis.getScene().getWindow();
+        stage.close();
 
     }
 
@@ -206,7 +210,18 @@ public class PersonController {
         String build = getField_build();
         String apartment = getField_apertment();
 
-        try {
+        if (last_name.equals("")||first_name.equals("")||id_number.equals("")||id_number.equals("")|| birthday.equals("")|| type_doc.equals("")||
+                seriya_doc.equals("")||number_doc.equals("")||issued_by.equals("")||issued.equals("")){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен. Не все данные внесены ");
+
+            alert.showAndWait();
+
+        } else{
+
             baseData.insertPersonData(last_name, first_name, middle_name, id_number, birthday, type_doc,
                     seriya_doc, number_doc, issued_by, issued, country, region, distric, city, street, house, build, apartment);
 
@@ -215,16 +230,7 @@ public class PersonController {
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
-
-
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("Не сохранен " +e.getMessage());
-
             alert.showAndWait();
-            e.printStackTrace();
         }
     }
 

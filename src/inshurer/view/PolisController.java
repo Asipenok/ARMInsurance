@@ -76,7 +76,7 @@ public class PolisController {
     //метод записи полиса в БД
     @FXML
     public void clickSavePolis() throws SQLException {
-try {
+
     int number_polis = Integer.parseInt(field_polis_number.getText());
     String insurer_field = initPerson.getText();
     String owner_field = initOwner.getText();
@@ -95,23 +95,20 @@ try {
     String type_payment_field = period_payment.getText();
     LocalDate polis_date = doDate.getValue();
     int id_rate = Integer.parseInt(polis.getId_rate());
+if(insurer_field.equals("")||owner_field.equals("")||end_date.equals("")|| car_field.equals("")){
 
-    baseData.insertPolisData(number_polis, insurer_field, owner_field, territory_field, start_date, end_date, car_field, variant_field, real_coast, insurer_coast, franshise_one_field, franshise_two_field, payment_field, payment_first_field, order_payment_field, type_payment_field, polis_date, id_rate);
-
-//    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//    alert.setTitle("Information Dialog");
-//    alert.setHeaderText(null);
-//    alert.setContentText("Полис успешно сохранен в базу данных");
-//
-//    alert.showAndWait();
-
-}catch (Exception e){
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Error Dialog");
     alert.setHeaderText("Look, an Error Dialog");
     alert.setContentText("Не заполнены необходимые поля");
 
     alert.showAndWait();
+
+}else{
+    baseData.insertPolisData(number_polis, insurer_field, owner_field, territory_field, start_date, end_date, car_field,
+            variant_field, real_coast, insurer_coast, franshise_one_field, franshise_two_field, payment_field, payment_first_field,
+            order_payment_field, type_payment_field, polis_date, id_rate);
+
 }
 
     }
@@ -155,6 +152,10 @@ try {
         }
 
     }
+
+
+
+
 
     //метод поиска и вставки страхователя из БД
     @FXML

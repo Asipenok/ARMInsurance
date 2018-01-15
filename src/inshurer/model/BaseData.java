@@ -221,14 +221,14 @@ public class BaseData {
             preparedStatement.setString(8, currencyCar);
 
             preparedStatement.execute();
-          //  connection.close();
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Данные по автомобилю успешно сохранены в базу данных");
             alert.showAndWait();
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Look, an Error Dialog");
@@ -443,11 +443,11 @@ public class BaseData {
             preparedStatement.setInt(18, id_rate);
 
             preparedStatement.execute();
-          //  connection.close();
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Полис успешно сохранен в базу данных");
+            alert.setContentText("Полис успешно сохранен в <<<<<<< данных");
 
             alert.showAndWait();
 
@@ -462,9 +462,7 @@ public class BaseData {
             e.printStackTrace();
 
         }
-
     }
-
 
     //метод выборки данных по номеру полиса
     public HashMap<String, String> findPolis(int number_polis) throws SQLException {
@@ -502,6 +500,5 @@ public class BaseData {
         }
         return resPolisNumber;
     }
-
 
 }

@@ -84,7 +84,6 @@ public class CarController {
     private Label car;
 
 
-
     @FXML
     private void clickSaveCar() throws IOException, SQLException {
 
@@ -97,22 +96,17 @@ public class CarController {
         String coastCar = getFieldCoastCar();
         String currencyCar = getBoxCurrencyCar();
 
-        try {
-            baseData.insertCar(typeCar, brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
+        if (typeCar.equals("") || brandCar.equals("") || modelCar.equals("") || yearCar.equals("") || coastCar.equals("") || currencyCar.equals("")) {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("Данные по автомобилю успешно сохранены в базу данных");
-
-        } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("Не сохранен " +e.getMessage());
+            alert.setContentText("Не сохранен. Не все данные внесены");
 
             alert.showAndWait();
-            e.printStackTrace();
+        } else {
+            baseData.insertCar(typeCar, brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
+
         }
     }
 
