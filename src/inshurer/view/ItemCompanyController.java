@@ -3,6 +3,7 @@ package inshurer.view;
 import inshurer.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,7 +15,12 @@ public class ItemCompanyController {
     Button btnERGO;
     @FXML
     Button btnTASK;
-
+    @FXML
+    MenuItem insurer;
+    @FXML
+    MenuItem polis;
+    @FXML
+    MenuItem car;
 
 
     @FXML

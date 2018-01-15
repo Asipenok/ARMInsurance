@@ -187,13 +187,19 @@ public class BaseData {
 
             preparedStatement.execute();
 
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
+            alert.showAndWait();
 
         } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен " +e.getMessage());
+
+            alert.showAndWait();
             e.printStackTrace();
         }
         //connection.close();
@@ -215,17 +221,23 @@ public class BaseData {
             preparedStatement.setString(8, currencyCar);
 
             preparedStatement.execute();
-
+          //  connection.close();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Данные по автомобилю успешно сохранены в базу данных");
+            alert.showAndWait();
 
         } catch (SQLException e) {
-            System.out.println("Вставь уникальный ВИН");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен " +e.getMessage());
+
+            alert.showAndWait();
             e.printStackTrace();
         }
-        connection.close();
+
     }
 
     //метод поиска клиента в БД по vin
@@ -327,7 +339,7 @@ public class BaseData {
             preparedStatement.setDouble(24, currencyValue);
 
             preparedStatement.execute();
-            connection.close();
+          //  connection.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -337,6 +349,13 @@ public class BaseData {
             alert.showAndWait();
 
         } catch (SQLException e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен " +e.getMessage());
+
+            alert.showAndWait();
 
             e.printStackTrace();
 
@@ -424,7 +443,7 @@ public class BaseData {
             preparedStatement.setInt(18, id_rate);
 
             preparedStatement.execute();
-            connection.close();
+          //  connection.close();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
@@ -436,7 +455,7 @@ public class BaseData {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("Не сохранен");
+            alert.setContentText("Не сохранен " +e.getMessage());
 
             alert.showAndWait();
 

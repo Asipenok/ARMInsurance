@@ -7,10 +7,7 @@ import inshurer.model.BaseData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,7 +17,7 @@ import java.util.HashMap;
 public class PersonController {
 
     private Main main;
-    private BaseData baseData = new BaseData();
+    BaseData baseData = new BaseData();
 
 
     //заполнение коэффициента по типу документа
@@ -213,7 +210,20 @@ public class PersonController {
             baseData.insertPersonData(last_name, first_name, middle_name, id_number, birthday, type_doc,
                     seriya_doc, number_doc, issued_by, issued, country, region, distric, city, street, house, build, apartment);
 
-        } catch (SQLException e) {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
+
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен " +e.getMessage());
+
+            alert.showAndWait();
             e.printStackTrace();
         }
     }
