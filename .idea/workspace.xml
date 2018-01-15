@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/ERGO.class" afterPath="$PROJECT_DIR$/out/production/ARMInsurer/inshurer/model/ERGO.class" />
       <change beforePath="$PROJECT_DIR$/src/inshurer/model/BaseData.java" afterPath="$PROJECT_DIR$/src/inshurer/model/BaseData.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/Car.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/Car.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/PersonController.java" afterPath="$PROJECT_DIR$/src/inshurer/view/PersonController.java" />
-      <change beforePath="$PROJECT_DIR$/src/inshurer/view/Polis.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/Polis.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/inshurer/model/ERGO.java" afterPath="$PROJECT_DIR$/src/inshurer/model/ERGO.java" />
       <change beforePath="$PROJECT_DIR$/src/inshurer/view/PolisController.java" afterPath="$PROJECT_DIR$/src/inshurer/view/PolisController.java" />
+      <change beforePath="$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml" afterPath="$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml" />
       <change beforePath="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" afterPath="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -71,8 +72,8 @@
       <file leaf-file-name="RateERGOController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3801">
-              <caret line="312" column="31" lean-forward="false" selection-start-line="312" selection-start-column="31" selection-end-line="312" selection-end-column="31" />
+            <state relative-caret-position="427">
+              <caret line="328" column="24" lean-forward="true" selection-start-line="328" selection-start-column="24" selection-end-line="328" selection-end-column="24" />
               <folding>
                 <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#onClickCalculate#0;class#RateERGOController#0" expanded="false" />
@@ -82,9 +83,43 @@
                 <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
-                <element signature="method#onClickSave#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
                 <element signature="method#paymentOption#0;class#RateERGOController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseData.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="447" column="0" lean-forward="true" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
+              <folding>
+                <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
+                <element signature="method#authorization#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findPersonByLastName#0;class#BaseData#0" expanded="false" />
+                <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
+                <element signature="method#insertRateData#0;class#BaseData#0" expanded="false" />
+                <element signature="method#findRate#0;class#BaseData#0" expanded="false" />
+                <marker date="1516010630541" expanded="false" signature="395:703" ph=" INSERT statement (PERSONDATA)" />
+                <marker date="1516010630541" expanded="true" signature="752:865" ph=" INSERT statement (PERSON)" />
+                <marker date="1516010630541" expanded="false" signature="916:1264" ph=" INSERT statement (POLIS)" />
+                <marker date="1516010630541" expanded="true" signature="916:1302" ph=" INSERT statement (CAR)" />
+                <marker date="1516010630541" expanded="false" signature="1352:1743" ph=" INSERT statement (CAR)" />
+                <marker date="1516010630541" expanded="true" signature="1795:1844" ph=" SELECT statement (PERSON)" />
+                <marker date="1516010630541" expanded="true" signature="1801:1802" ph=" INSERT statement (PERSON)" />
+                <marker date="1516010630541" expanded="true" signature="1899:1917" ph=" SELECT statement (RATE)" />
+                <marker date="1516010630541" expanded="true" signature="1899:1934" ph=" SELECT statement (RATE)" />
+                <marker date="1516010630541" expanded="true" signature="1997:2040" ph=" SELECT statement (PERSONDATA)" />
+                <marker date="1516010630541" expanded="true" signature="2098:2140" ph=" SELECT statement (POLIS)" />
+                <marker date="1516010630541" expanded="true" signature="2193:2224" ph=" SELECT statement (PERSONDATA)" />
+                <marker date="1516010630541" expanded="true" signature="2280:2317" ph=" SELECT statement (CAR)" />
+                <marker date="1516010630541" expanded="true" signature="2371:2398" ph=" SELECT statement (AUTHORIZATION)" />
+                <marker date="1516010630541" expanded="true" signature="2371:2414" ph=" SELECT statement (AUTHORIZATION)" />
               </folding>
             </state>
           </provider>
@@ -93,21 +128,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1134">
+            <state relative-caret-position="756">
               <caret line="46" column="48" lean-forward="false" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PolisController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PolisController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/view/PolisController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+            <state relative-caret-position="349">
+              <caret line="105" column="26" lean-forward="true" selection-start-line="100" selection-start-column="6" selection-end-line="105" selection-end-column="26" />
               <folding>
-                <element signature="method#clickSavePolis#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickSearchPolis#0;class#PolisController#0" expanded="false" />
+                <element signature="method#clickSearchPerson#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickSearchOwner#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickSearchCar#0;class#PolisController#0" expanded="false" />
                 <element signature="method#clickNewPerson#0;class#PolisController#0" expanded="false" />
@@ -136,10 +171,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ERGO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/inshurer/model/ERGO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="290" column="36" lean-forward="true" selection-start-line="290" selection-start-column="36" selection-end-line="290" selection-end-column="36" />
+              <folding>
+                <element signature="method#getRezCalc#0;class#ERGO#0" expanded="false" />
+                <element signature="e#1340#1341#0" expanded="true" />
+                <element signature="e#1376#1377#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="PersonController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="1932">
               <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="method#clickSearchByID#0;class#PersonController#0" expanded="false" />
@@ -173,7 +222,7 @@
       <file leaf-file-name="Polis.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inshurer/model/Polis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
+            <state relative-caret-position="1764">
               <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
               <folding />
             </state>
@@ -239,7 +288,6 @@
         <option value="$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/MoneyUSD.java" />
         <option value="$PROJECT_DIR$/src/inshurer/view/theme2.css" />
-        <option value="$PROJECT_DIR$/src/inshurer/model/ERGO.java" />
         <option value="$PROJECT_DIR$/src/inshurer/view/CarController.java" />
         <option value="$PROJECT_DIR$/src/inshurer/model/Polis.java" />
         <option value="$PROJECT_DIR$/src/inshurer/view/Enter.fxml" />
@@ -253,10 +301,11 @@
         <option value="$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml" />
         <option value="$PROJECT_DIR$/src/inshurer/view/button1.css" />
         <option value="$PROJECT_DIR$/src/inshurer/view/theme1.css" />
-        <option value="$PROJECT_DIR$/src/inshurer/model/BaseData.java" />
-        <option value="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" />
         <option value="$PROJECT_DIR$/src/inshurer/view/PersonController.java" />
+        <option value="$PROJECT_DIR$/src/inshurer/model/ERGO.java" />
+        <option value="$PROJECT_DIR$/src/inshurer/view/RateERGOController.java" />
         <option value="$PROJECT_DIR$/src/inshurer/view/PolisController.java" />
+        <option value="$PROJECT_DIR$/src/inshurer/model/BaseData.java" />
       </list>
     </option>
   </component>
@@ -267,7 +316,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="288" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
@@ -316,6 +365,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -352,7 +402,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scratches" />
     </panes>
@@ -592,7 +641,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1021" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1021" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -605,12 +654,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32601157" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32566586" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2518797" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2593985" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -643,7 +692,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -653,13 +702,13 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2079">
           <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
@@ -693,13 +742,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateTASK.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/model/TASK.java">
@@ -710,13 +759,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/ItemCompany.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="db://[Connection] SESSION BROWSER - Connection" />
@@ -768,14 +817,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/Car.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="63" lean-forward="false" selection-start-line="12" selection-start-column="63" selection-end-line="12" selection-end-column="63" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/model/MoneyEUR.java">
@@ -826,45 +875,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/AlertDialog.fxml" />
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/Enter.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/model/Alert.java" />
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/AlertController.java" />
-    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/Person.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="689">
           <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/JMetroDarkTheme.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="1" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5376">
           <caret line="268" column="20" lean-forward="true" selection-start-line="268" selection-start-column="20" selection-end-line="268" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,67 +936,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1134">
+        <state relative-caret-position="756">
           <caret line="46" column="48" lean-forward="false" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/Polis.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1092">
           <caret line="52" column="90" lean-forward="false" selection-start-line="52" selection-start-column="90" selection-end-line="52" selection-end-column="90" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/ERGO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1932">
-          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="method#getRezCalc#0;class#ERGO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1175">
-          <caret line="401" column="114" lean-forward="false" selection-start-line="401" selection-start-column="114" selection-end-line="401" selection-end-column="114" />
-          <folding>
-            <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#authorization#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findPersonByLastName#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertPersonData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertRateData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findRate#0;class#BaseData#0" expanded="false" />
-            <element signature="method#insertPolisData#0;class#BaseData#0" expanded="false" />
-            <element signature="method#findPolis#0;class#BaseData#0" expanded="false" />
-            <marker date="1515937053117" expanded="false" signature="395:703" ph=" INSERT statement (PERSONDATA)" />
-            <marker date="1515937053117" expanded="true" signature="752:865" ph=" INSERT statement (PERSON)" />
-            <marker date="1515937053117" expanded="false" signature="916:1264" ph=" INSERT statement (POLIS)" />
-            <marker date="1515937053117" expanded="true" signature="916:1302" ph=" INSERT statement (CAR)" />
-            <marker date="1515937053117" expanded="false" signature="1352:1743" ph=" INSERT statement (CAR)" />
-            <marker date="1515937053117" expanded="true" signature="1795:1844" ph=" SELECT statement (PERSON)" />
-            <marker date="1515937053117" expanded="true" signature="1801:1802" ph=" INSERT statement (PERSON)" />
-            <marker date="1515937053117" expanded="true" signature="1899:1917" ph=" SELECT statement (RATE)" />
-            <marker date="1515937053117" expanded="true" signature="1899:1934" ph=" SELECT statement (RATE)" />
-            <marker date="1515937053117" expanded="true" signature="1997:2040" ph=" SELECT statement (PERSONDATA)" />
-            <marker date="1515937053117" expanded="true" signature="2098:2140" ph=" SELECT statement (POLIS)" />
-            <marker date="1515937053117" expanded="true" signature="2193:2224" ph=" SELECT statement (PERSONDATA)" />
-            <marker date="1515937053117" expanded="true" signature="2280:2317" ph=" SELECT statement (CAR)" />
-            <marker date="1515937053117" expanded="true" signature="2371:2398" ph=" SELECT statement (AUTHORIZATION)" />
-            <marker date="1515937053117" expanded="true" signature="2371:2414" ph=" SELECT statement (AUTHORIZATION)" />
-          </folding>
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/EnterController.java">
@@ -972,37 +961,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/model/Polis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3801">
-          <caret line="312" column="31" lean-forward="false" selection-start-line="312" selection-start-column="31" selection-end-line="312" selection-end-column="31" />
-          <folding>
-            <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#onClickCalculate#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#getRezPay#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#getTerritorryRate#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupABS#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#onClickSave#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
-            <element signature="method#paymentOption#0;class#RateERGOController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/PersonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="1932">
           <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="method#clickSearchByID#0;class#PersonController#0" expanded="false" />
@@ -1032,13 +993,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGO.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/Polis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/ERGO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="290" column="36" lean-forward="true" selection-start-line="290" selection-start-column="36" selection-end-line="290" selection-end-column="36" />
+          <folding>
+            <element signature="method#getRezCalc#0;class#ERGO#0" expanded="false" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1376#1377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/view/RateERGOController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="328" column="24" lean-forward="true" selection-start-line="328" selection-start-column="24" selection-end-line="328" selection-end-column="24" />
+          <folding>
+            <element signature="method#initialize#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#onClickCalculate#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#getRezPay#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#getTerritorryRate#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupABS#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupSalon#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupEmployee#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#groupCar#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#onClickNext#0;class#RateERGOController#0" expanded="false" />
+            <element signature="method#paymentOption#0;class#RateERGOController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/inshurer/view/PolisController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="349">
+          <caret line="105" column="26" lean-forward="true" selection-start-line="100" selection-start-column="6" selection-end-line="105" selection-end-column="26" />
           <folding>
-            <element signature="method#clickSavePolis#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickSearchPolis#0;class#PolisController#0" expanded="false" />
+            <element signature="method#clickSearchPerson#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickSearchOwner#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickSearchCar#0;class#PolisController#0" expanded="false" />
             <element signature="method#clickNewPerson#0;class#PolisController#0" expanded="false" />
@@ -1062,6 +1073,39 @@
             <element signature="method#getPolisCoast#0;class#PolisController#0" expanded="false" />
             <element signature="method#getPolisFranshise#0;class#PolisController#0" expanded="false" />
             <element signature="method#getPolisSecondFranshise#0;class#PolisController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inshurer/model/BaseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="447" column="0" lean-forward="true" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
+          <folding>
+            <element signature="method#BaseData#0;class#BaseData#0" expanded="false" />
+            <element signature="method#authorization#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findPersonByID#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findPersonByLastName#0;class#BaseData#0" expanded="false" />
+            <element signature="method#insertCar#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findCarByVIN#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findCarByNumber#0;class#BaseData#0" expanded="false" />
+            <element signature="method#insertRateData#0;class#BaseData#0" expanded="false" />
+            <element signature="method#findRate#0;class#BaseData#0" expanded="false" />
+            <marker date="1516010630541" expanded="false" signature="395:703" ph=" INSERT statement (PERSONDATA)" />
+            <marker date="1516010630541" expanded="true" signature="752:865" ph=" INSERT statement (PERSON)" />
+            <marker date="1516010630541" expanded="false" signature="916:1264" ph=" INSERT statement (POLIS)" />
+            <marker date="1516010630541" expanded="true" signature="916:1302" ph=" INSERT statement (CAR)" />
+            <marker date="1516010630541" expanded="false" signature="1352:1743" ph=" INSERT statement (CAR)" />
+            <marker date="1516010630541" expanded="true" signature="1795:1844" ph=" SELECT statement (PERSON)" />
+            <marker date="1516010630541" expanded="true" signature="1801:1802" ph=" INSERT statement (PERSON)" />
+            <marker date="1516010630541" expanded="true" signature="1899:1917" ph=" SELECT statement (RATE)" />
+            <marker date="1516010630541" expanded="true" signature="1899:1934" ph=" SELECT statement (RATE)" />
+            <marker date="1516010630541" expanded="true" signature="1997:2040" ph=" SELECT statement (PERSONDATA)" />
+            <marker date="1516010630541" expanded="true" signature="2098:2140" ph=" SELECT statement (POLIS)" />
+            <marker date="1516010630541" expanded="true" signature="2193:2224" ph=" SELECT statement (PERSONDATA)" />
+            <marker date="1516010630541" expanded="true" signature="2280:2317" ph=" SELECT statement (CAR)" />
+            <marker date="1516010630541" expanded="true" signature="2371:2398" ph=" SELECT statement (AUTHORIZATION)" />
+            <marker date="1516010630541" expanded="true" signature="2371:2414" ph=" SELECT statement (AUTHORIZATION)" />
           </folding>
         </state>
       </provider>

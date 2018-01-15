@@ -55,7 +55,7 @@
                   <ComboBox fx:id="boxManus" prefHeight="31.0" prefWidth="484.0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
                   <ComboBox fx:id="boxPrice_Car" prefHeight="31.0" prefWidth="455.0" GridPane.columnIndex="2" GridPane.rowIndex="15" />
                   <ComboBox fx:id="boxPayment" prefHeight="31.0" prefWidth="459.0" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                  <TextField prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <TextField fx:id="field_dop_k" prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="19" />
                   <Label text="Действительная стоимость авто" GridPane.columnIndex="1" GridPane.rowIndex="21" />
                   <Label text="Сумма годового взноса" GridPane.columnIndex="1" GridPane.rowIndex="22" />
                   <Label text="Первый взнос" GridPane.columnIndex="1" GridPane.rowIndex="23" />

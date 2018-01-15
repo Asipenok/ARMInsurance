@@ -76,27 +76,43 @@ public class PolisController {
     //метод записи полиса в БД
     @FXML
     public void clickSavePolis() throws SQLException {
+try {
+    int number_polis = Integer.parseInt(field_polis_number.getText());
+    String insurer_field = initPerson.getText();
+    String owner_field = initOwner.getText();
+    String territory_field = field_territory.getText();
+    LocalDate start_date = startDate.getValue();
+    LocalDate end_date = endDate.getValue();
+    String car_field = initCar.getText();
+    String variant_field = field_option.getText();
+    String real_coast = field_real_coast.getText();
+    String insurer_coast = field_coast.getText();
+    String franshise_one_field = field_franshise.getText();
+    String franshise_two_field = field_second_franshise.getText();
+    String payment_field = field_coast_year.getText();
+    String payment_first_field = field_payment_real.getText();
+    String order_payment_field = field_payment.getText();
+    String type_payment_field = period_payment.getText();
+    LocalDate polis_date = doDate.getValue();
+    int id_rate = Integer.parseInt(polis.getId_rate());
 
-        int number_polis = Integer.parseInt(field_polis_number.getText());
-        String insurer_field = initPerson.getText();
-        String owner_field = initOwner.getText();
-        String territory_field = field_territory.getText();
-        LocalDate start_date = startDate.getValue();
-        LocalDate end_date = endDate.getValue();
-        String car_field = initCar.getText();
-        String variant_field = field_option.getText();
-        String real_coast = field_real_coast.getText();
-        String insurer_coast = field_coast.getText();
-        String franshise_one_field = field_franshise.getText();
-        String franshise_two_field = field_second_franshise.getText();
-        String payment_field = field_coast_year.getText();
-        String payment_first_field = field_payment_real.getText();
-        String order_payment_field = field_payment.getText();
-        String type_payment_field = period_payment.getText();
-        LocalDate polis_date = doDate.getValue();
-        int id_rate = Integer.parseInt(polis.getId_rate());
+    baseData.insertPolisData(number_polis, insurer_field, owner_field, territory_field, start_date, end_date, car_field, variant_field, real_coast, insurer_coast, franshise_one_field, franshise_two_field, payment_field, payment_first_field, order_payment_field, type_payment_field, polis_date, id_rate);
 
-        baseData.insertPolisData(number_polis, insurer_field, owner_field, territory_field, start_date, end_date, car_field, variant_field, real_coast, insurer_coast, franshise_one_field, franshise_two_field, payment_field, payment_first_field, order_payment_field, type_payment_field, polis_date, id_rate);
+//    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//    alert.setTitle("Information Dialog");
+//    alert.setHeaderText(null);
+//    alert.setContentText("Полис успешно сохранен в базу данных");
+//
+//    alert.showAndWait();
+
+}catch (Exception e){
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Dialog");
+    alert.setHeaderText("Look, an Error Dialog");
+    alert.setContentText("Не заполнены необходимые поля");
+
+    alert.showAndWait();
+}
 
     }
 
@@ -289,12 +305,12 @@ public class PolisController {
 
         Double coastYear = Double.valueOf(polis.getCoast_year());
         double first = new BigDecimal(coastYear * 40 / 100).setScale(0, RoundingMode.UP).doubleValue();
-        double second = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
+        double second = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.UP).doubleValue();
 
         double firstTwo = new BigDecimal((coastYear / 2)).setScale(0, RoundingMode.UP).doubleValue();
         double secondTwo = new BigDecimal((coastYear - firstTwo)).setScale(0, RoundingMode.HALF_UP).doubleValue();
 
-        double third = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.HALF_UP).doubleValue();
+        double third = new BigDecimal((coastYear - first) / 3).setScale(0, RoundingMode.UP).doubleValue();
         double four = new BigDecimal(coastYear - first - second - third).setScale(0, RoundingMode.HALF_UP).doubleValue();
 
         switch (polis.getPayment()) {

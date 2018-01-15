@@ -39,7 +39,7 @@ public class RateERGOController {
             ("1 единица", "2 единицы", "3-5 единиц");
     //заполнение коэфф средства защиты ТС
     ObservableList<String> protect = FXCollections.observableArrayList
-            (" ", "механическое", "электронное", "оба вида зщиты", "противоугонная маркировка", "спутник");
+            (" ", "механическое", "электронное", "оба вида защиты", "противоугонная маркировка", "спутник");
     //заполнение коэфф стаж
     ObservableList<String> level_driver = FXCollections.observableArrayList
             ("мультидрайв", "стаж более 5 лет", "стаж более 10 лет");
@@ -158,6 +158,8 @@ public class RateERGOController {
     private TextField field_date_third_pay;
     @FXML
     private TextField field_date_fourth_pay;
+    @FXML
+    private TextField field_dop_k;
 
     private String rezult_payment;
 
@@ -235,8 +237,8 @@ public class RateERGOController {
                 groupABS(), groupSalon(), groupEmployee(), groupCar()
         );
 
-
-        String rez = String.valueOf(ergo.getRezCalc());
+        double dop = Double.parseDouble(field_dop_k.getText());
+        String rez = String.valueOf(ergo.getRezCalc() *dop);
         rez = String.valueOf(new BigDecimal(rez).setScale(2, RoundingMode.HALF_UP).floatValue());
         rezultCalc.setText(rez);
 
@@ -322,10 +324,16 @@ public class RateERGOController {
                     String.valueOf(boxCurrency.getValue()), Double.valueOf(field_payment.getText()), Double.valueOf(field_first_pay.getText()),
                     Double.valueOf(field_currencyValue.getText()));
 
-        } catch (SQLException e) {
-           e.printStackTrace();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не заполнены необходимые поля");
 
-            }
+            alert.showAndWait();
+
+
+        }
 
     }
 
@@ -347,13 +355,13 @@ public class RateERGOController {
             double rateRez = Double.valueOf(String.valueOf(rezultCalc.getText()));
             double coastYear = new BigDecimal(coast * rateRez / 100).setScale(0, RoundingMode.HALF_UP).doubleValue();
             //  double coastYearCurrency = coastYear * currencyValue;
-            double first_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.UP).doubleValue();
-            double second_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
-            double third_pay = new BigDecimal(coastYear / 4).setScale(0, RoundingMode.HALF_UP).doubleValue();
+            double first_pay = new BigDecimal(coastYear * 40/100).setScale(0, RoundingMode.UP).doubleValue();
+            double second_pay = new BigDecimal((coastYear - first_pay)/3).setScale(0, RoundingMode.UP).doubleValue();
+            double third_pay = new BigDecimal((coastYear - first_pay)/3).setScale(0, RoundingMode.UP).doubleValue();
             double four_pay = new BigDecimal(coastYear - first_pay - second_pay - third_pay).setScale(2, RoundingMode.HALF_UP).doubleValue();
-            double first_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
-            double second_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
-            double third_pay_cur = new BigDecimal(coastYear / 4 * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            double first_pay_cur = new BigDecimal(coastYear * 40/100 * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
+            double second_pay_cur = new BigDecimal(((coastYear - first_pay)/3) * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
+            double third_pay_cur = new BigDecimal(((coastYear - first_pay)/3) * currencyValue).setScale(2, RoundingMode.UP).doubleValue();
             double four_pay_cur = new BigDecimal((coastYear - first_pay - second_pay - third_pay) * currencyValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
             double one_two_pay = new BigDecimal(coastYear / 2).setScale(0, RoundingMode.UP).doubleValue();
             double two_two_pay = new BigDecimal(coastYear - one_two_pay).setScale(0, RoundingMode.HALF_UP).doubleValue();

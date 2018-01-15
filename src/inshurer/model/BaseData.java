@@ -196,7 +196,7 @@ public class BaseData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        connection.close();
+        //connection.close();
     }
 
     //метод вставки данных по авто
@@ -327,7 +327,7 @@ public class BaseData {
             preparedStatement.setDouble(24, currencyValue);
 
             preparedStatement.execute();
-
+            connection.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -338,10 +338,10 @@ public class BaseData {
 
         } catch (SQLException e) {
 
-          e.printStackTrace();
+            e.printStackTrace();
 
         }
-        connection.close();
+
 
     }
 
@@ -424,17 +424,26 @@ public class BaseData {
             preparedStatement.setInt(18, id_rate);
 
             preparedStatement.execute();
-
+            connection.close();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Полис успешно сохранен в базу данных");
 
+            alert.showAndWait();
+
         } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не сохранен");
+
+            alert.showAndWait();
+
             e.printStackTrace();
 
         }
-        connection.close();
+
     }
 
 

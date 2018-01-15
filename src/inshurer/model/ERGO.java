@@ -10,7 +10,7 @@ public class ERGO {
     //вариант страхования
     private double optionRate = 1;
     //территория действия
-    private double territoryRate = 0.9;
+    private double territoryRate;
     //количество единиц
     private double quantityRate = 1;
     //средства защиты
@@ -143,7 +143,11 @@ public class ERGO {
             case "Все страны мира (за исключением регионов военных действий)":
                 territoryRate = 1;
                 break;
+            case "Республика Беларусь":
+                territoryRate = 0.9;
+                break;
         }
+
         switch (quantity) {
             case "2 единицы":
                 quantityRate = 0.95;
@@ -151,6 +155,8 @@ public class ERGO {
             case "3-5 единиц":
                 quantityRate = 0.9;
                 break;
+                default:quantityRate = 1;
+
         }
         switch (protect) {
             case "механическое":
@@ -159,7 +165,7 @@ public class ERGO {
             case "электронное":
                 protectRate = 0.9;
                 break;
-            case "оба вида зщиты":
+            case "оба вида защиты":
                 protectRate = 0.85;
                 break;
             case "противоугонная маркировка":
@@ -176,6 +182,7 @@ public class ERGO {
             case "стаж более 10 лет":
                 level_driverRate = 0.9;
                 break;
+                default:level_driverRate = 1;
         }
         switch (rent_taxi) {
             case "договор аредны (прокат)":
@@ -211,6 +218,9 @@ public class ERGO {
                 break;
             case "500$":
                 no_condition_franchiseRate = 0.75;
+                break;
+            case " ":
+                no_condition_franchiseRate = 1;
                 break;
         }
         switch (additional_types) {
@@ -269,26 +279,26 @@ public class ERGO {
                 paymentRate = 1.05;
         }
         if (ads.equals("No")) {
-            adsRate = 0.9;
-        } else {
             adsRate = 1;
+        } else {
+            adsRate = 0.9;
         }
         if (salon.equals("No")) {
-            salonRate = 0.9;
-        } else {
             salonRate = 1;
+        } else {
+            salonRate = 0.9;
         }
         if (employee.equals("No")) {
-            employeeRate = 0.9;
-        } else {
             employeeRate = 1;
+        } else {
+            employeeRate = 0.9;
         }
         if (car.equals("No")) {
-            carsRate = 0.9;
-        } else {
             carsRate = 1;
+        } else {
+            carsRate = 0.9;
         }
-        rezCalc = vehicleRate * optionRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
+        rezCalc = 1.1*1.1*vehicleRate * optionRate * territoryRate * quantityRate * protectRate * level_driverRate * rent_taxiRate *
                 condition_franchiseRate * no_condition_franchiseRate * additional_typesRate * bonusRate * manusRate * paymentRate * adsRate *
                 salonRate * employeeRate * carsRate;
     }
