@@ -214,6 +214,8 @@ public class RateERGOController {
 
         field_currencyValue.setText("Курс вылюты");
 
+        field_dop_k.setText("1.5");
+
 
     }
 
@@ -236,6 +238,16 @@ public class RateERGOController {
                 String.valueOf(boxPayment.getValue()),
                 groupABS(), groupSalon(), groupEmployee(), groupCar()
         );
+
+        if(field_coastCar.getText().equals("")||field_currencyValue.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Не заполнены необходимые поля");
+
+            alert.showAndWait();
+
+        }
 
         double dop = Double.parseDouble(field_dop_k.getText());
         String rez = String.valueOf(ergo.getRezCalc() *dop);

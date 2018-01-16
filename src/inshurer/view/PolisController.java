@@ -77,12 +77,11 @@ public class PolisController {
     @FXML
     public void clickSavePolis() throws SQLException {
 
-    int number_polis = Integer.parseInt(field_polis_number.getText());
+
     String insurer_field = initPerson.getText();
     String owner_field = initOwner.getText();
     String territory_field = field_territory.getText();
-    LocalDate start_date = startDate.getValue();
-    LocalDate end_date = endDate.getValue();
+
     String car_field = initCar.getText();
     String variant_field = field_option.getText();
     String real_coast = field_real_coast.getText();
@@ -95,7 +94,8 @@ public class PolisController {
     String type_payment_field = period_payment.getText();
     LocalDate polis_date = doDate.getValue();
     int id_rate = Integer.parseInt(polis.getId_rate());
-if(insurer_field.equals("")||owner_field.equals("")||end_date.equals("")|| car_field.equals("")){
+if(insurer_field.equals("")||owner_field.equals("")||endDate.equals("")||
+        car_field.equals("")||field_polis_number.getText().equals("")){
 
     Alert alert = new Alert(Alert.AlertType.ERROR);
     alert.setTitle("Error Dialog");
@@ -105,12 +105,14 @@ if(insurer_field.equals("")||owner_field.equals("")||end_date.equals("")|| car_f
     alert.showAndWait();
 
 }else{
+    int number_polis = Integer.parseInt(field_polis_number.getText());
+    LocalDate start_date = startDate.getValue();
+    LocalDate end_date = endDate.getValue();
     baseData.insertPolisData(number_polis, insurer_field, owner_field, territory_field, start_date, end_date, car_field,
             variant_field, real_coast, insurer_coast, franshise_one_field, franshise_two_field, payment_field, payment_first_field,
             order_payment_field, type_payment_field, polis_date, id_rate);
 
 }
-
     }
 
     //метод поиска и вставки полиса

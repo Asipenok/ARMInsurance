@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ARMInsurer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ARMInsurer_jar</output-path>
+    <root id="archive" name="ARMInsurer.jar">
+      <element id="module-output" name="ARMInsurer" />
+      <element id="library" level="project" name="src" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

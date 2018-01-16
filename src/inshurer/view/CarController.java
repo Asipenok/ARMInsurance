@@ -92,11 +92,11 @@ public class CarController {
         String modelCar = getFieldModelCar();
         String vin = getFieldVIN();
         String numberCar = getFieldNumberCar();
-        LocalDate yearCar = getYearCar();
+
         String coastCar = getFieldCoastCar();
         String currencyCar = getBoxCurrencyCar();
 
-        if (typeCar.equals("") || brandCar.equals("") || modelCar.equals("") || yearCar.equals("") || coastCar.equals("") || currencyCar.equals("")) {
+        if (typeCar.equals("") || brandCar.equals("") || modelCar.equals("") || yearCar.getValue().equals("") || coastCar.equals("") || currencyCar.equals("")) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
@@ -105,6 +105,7 @@ public class CarController {
 
             alert.showAndWait();
         } else {
+            LocalDate yearCar = getYearCar();
             baseData.insertCar(typeCar, brandCar, modelCar, vin, numberCar, yearCar, coastCar, currencyCar);
 
         }
@@ -130,8 +131,12 @@ public class CarController {
 
         } else {
             clickClear();
-            fieldVIN.setText(search_vin);
-            fieldBrandCar.setText("No mutches");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Транспортное средство не найдено");
+
+            alert.showAndWait();
         }
     }
 
@@ -156,8 +161,12 @@ public class CarController {
 
         } else {
             clickClear();
-            fieldNumberCar.setText(search_number);
-            fieldBrandCar.setText("No mutches");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Транспортное средство не найдено");
+
+            alert.showAndWait();
         }
     }
 

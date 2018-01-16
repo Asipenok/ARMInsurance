@@ -3,6 +3,7 @@ package inshurer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -10,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -22,6 +24,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("ARMInsurer");
+
+        //ImageIcon icon = new ImageIcon("src/inshurer/view/display_1_icon_3.png");
+
         showEnter();
 
     }
@@ -119,6 +124,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/Enter.fxml"));
         AnchorPane enter = loader.load();
+
 
         Stage dialogEnter = new Stage();
         dialogEnter.setTitle("Authorization");

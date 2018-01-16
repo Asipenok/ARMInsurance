@@ -225,12 +225,12 @@ public class PersonController {
             baseData.insertPersonData(last_name, first_name, middle_name, id_number, birthday, type_doc,
                     seriya_doc, number_doc, issued_by, issued, country, region, distric, city, street, house, build, apartment);
 
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
-            alert.showAndWait();
+//
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Information Dialog");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Данные по страхователю успешно сохранены в базу данных");
+//            alert.showAndWait();
         }
     }
 
